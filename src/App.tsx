@@ -1,10 +1,13 @@
-import lzmDark from './lzm-dark.png';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './home';
 
 function App() {
   return (
-    <div>
-      <img src={lzmDark} alt="lzm-dark-logo" />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
