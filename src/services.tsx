@@ -1,9 +1,9 @@
-
+import './App.css';
 
 function Services() {
   return (
-		<div>
-			<h1>Services Page</h1>
+		<div className='services-container'>
+			<h1>Services</h1>
 		</div>
 	);
 };

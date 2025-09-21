@@ -1,10 +1,10 @@
-
+import './App.css';
 
 function Home() {
   return (
-		<div>
-			<h1>Home Page</h1>
-		</div>
+		<div className='home-container'>
+			<h1>Welcome to LZM Landscaping LLC</h1>
+    </div>
 	);
 };
 
