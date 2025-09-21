@@ -3,6 +3,7 @@ import Home from './home';
 import Services from './services';
 import About from './about';
 import Contact from './contact';
+import Footer from './footer';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
       </section>
       <section id="contact">
         <Contact />
+      </section>
+      <section id="footer">
+        <Footer />
       </section>
     </div>
   );

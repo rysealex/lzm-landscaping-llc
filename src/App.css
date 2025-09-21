@@ -102,3 +102,11 @@ nav a.active {
   font-size: 2.5em;
   margin-bottom: 20px;
 }
+
+/* Footer Styles */
+.footer-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 20px;
+  text-align: center;
+}
