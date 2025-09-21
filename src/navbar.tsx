@@ -1,5 +1,20 @@
+import { MouseEvent } from 'react'; 
 import lzmDark from './lzm-dark.png';
 import './App.css';
+
+// handle the nav bar scroll behavior
+const handleScroll = (e: MouseEvent, sectionId: string) => {
+  e.preventDefault();
+  
+  const section = document.getElementById(sectionId);
+  const navHeight = 60;
+
+  if (section) {
+    const yOffset = -navHeight;
+    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth'});
+  }
+};
 
 function Navbar() {
   return (
@@ -10,27 +25,27 @@ function Navbar() {
         </div>
         <ul>
           <li>
-            <a href="#home">
+            <a href="#home" onClick={(e) => handleScroll(e, 'home')}>
               Home
             </a>
           </li>
           <li>
-            <a href="#services">
+            <a href="#services" onClick={(e) => handleScroll(e, 'services')}>
               Services
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="#gallery">
               Gallery
             </a>
-          </li>
+          </li> */}
           <li>
-            <a href="#about">
+            <a href="#about" onClick={(e) => handleScroll(e, 'about')}>
               About
             </a>
           </li>
           <li>
-            <a href="#contact">
+            <a href="#contact" onClick={(e) => handleScroll(e, 'contact')}>
               Contact
             </a>
           </li>
