@@ -5,7 +5,6 @@ function Home() {
   return (
 		<div className='home-container'>
 			<MyCarousel />
-			<h1>Welcome to LZM Landscaping LLC</h1>
     </div>
 	);
 };

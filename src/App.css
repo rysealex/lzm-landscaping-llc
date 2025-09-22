@@ -6,6 +6,10 @@
   --text-color: #ffffff;
 }
 
+body {
+  font-family: 'EB Garamond', serif;
+}
+
 /* Navigation Bar Styles */
 nav {
   position: fixed;
@@ -39,6 +43,7 @@ nav a {
   text-decoration: none;
   color: var(--text-color);
   transition: color 0.3s ease, background-color 0.3s ease;
+  font-size: 1.5em;
 }
 nav a:hover {
   color: var(--primary-color);
@@ -49,7 +54,7 @@ nav a.active {
 
 /* Home Styles */
 .home-container {
-  background-image: url('lzm-dark.png');
+  /* background-image: url('lzm-dark.png'); */
   background-size: cover;
   background-position: center;
   /* background-attachment: fixed; */
@@ -65,6 +70,51 @@ nav a.active {
   font-size: 3em;
   text-align: center;
   margin: 0;
+}
+
+/* Gallery Styles */
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-title-welcome {
+  position: absolute;
+  top: 50%;
+  left: 21%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: var(--text-color);
+  font-size: 4rem;
+  text-align: center;
+}
+
+.carousel-title {
+  position: absolute;
+  top: 60%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: var(--text-color);
+  font-size: 4rem;
+  text-align: center;
+}
+
+.carousel-subtitle {
+  position: absolute;
+  top: 65%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.carousel-image {
+  max-height: 800px;
+  width: auto;
+  object-fit: contain; 
 }
 
 /* Services Styles */
