@@ -62,7 +62,7 @@ nav a.active {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
   min-height: 100vh;
 }
 .home-container h1 {
@@ -112,9 +112,9 @@ nav a.active {
 }
 
 .carousel-image {
-  max-height: 800px;
+  max-height: 640px;
   width: auto;
-  object-fit: contain; 
+  object-fit: cover; 
 }
 
 /* Services Styles */

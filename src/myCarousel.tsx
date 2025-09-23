@@ -1,5 +1,7 @@
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import './App.css';
+import './CarouselFade.css';
 
 // import gallery images
 import img1 from './gallery/gallery-20.png';
@@ -16,7 +18,15 @@ function MyCarousel() {
       <h1 className='carousel-title-welcome'>Welcome to</h1>
       <h1 className='carousel-title'>LZM Landscaping LLC</h1>
       <p className='carousel-subtitle'>Outdoor Care Done Right | Since 2023</p>
-      <Carousel showThumbs={false} autoPlay={true} interval={3000} infiniteLoop={true} showIndicators={false}>
+      <Carousel 
+        showThumbs={false} 
+        autoPlay={true} 
+        interval={3000} 
+        infiniteLoop={true} 
+        showIndicators={false} 
+        showStatus={false}
+        showArrows={false}
+      >
         <div>
           <img src={img6} alt="gallery-6" className='carousel-image' />
         </div>

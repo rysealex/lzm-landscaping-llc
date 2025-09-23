@@ -1,0 +1,37 @@
+Custom CSS for a fade effect
+
+/* This hides all slides by default */
+.carousel .slide {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* This targets the currently selected slide and makes it visible */
+.carousel .slide.selected {
+  opacity: 1;
+  position: relative; /* This is crucial for keeping the selected slide "in the flow" and prevent it from being hidden behind others */
+  z-index: 1; /* Ensures the active slide is on top of the others */
+}
+
+/* Ensure the wrapper for the slides is positioned correctly */
+.carousel .slider-wrapper,
+.carousel .slider {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+
+/* The parent container needs a fixed height to prevent collapsing */
+.carousel .slider-wrapper.axis-horizontal .slider {
+  min-height: 640px; /* Match this with your .carousel-image height */
+}
+
+.carousel-image {
+  max-height: 640px; /* Or whatever height you want */
+  width: 100%; /* Important for maintaining aspect ratio and filling container */
+  object-fit: cover; 
+}
