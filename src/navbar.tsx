@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react'; 
-import lzmDark from './lzm-dark.png';
+import lzmDarkSml from './lzm-dark-sml.png';
 import './App.css';
 
 // handle the nav bar scroll behavior
@@ -21,7 +21,7 @@ function Navbar() {
     <div>
       <nav>
         <div className='nav-left'>
-          {/* <img src={lzmDark} alt="Logo" className='logo' /> */}
+          <img src={lzmDarkSml} alt="Logo" className='nav-logo' onClick={(e) => handleScroll(e, 'home')} />
         </div>
         <ul>
           <li>
