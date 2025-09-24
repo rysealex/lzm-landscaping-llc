@@ -1,7 +1,6 @@
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './App.css';
-import './CarouselFade.css';
 
 // import gallery images
 import img1 from './gallery/gallery-20.png';
@@ -26,6 +25,9 @@ function MyCarousel() {
         showIndicators={false} 
         showStatus={false}
         showArrows={false}
+        swipeable={false}
+        animationHandler={"fade"}
+        transitionTime={1000}
       >
         <div>
           <img src={img6} alt="gallery-6" className='carousel-image' />
