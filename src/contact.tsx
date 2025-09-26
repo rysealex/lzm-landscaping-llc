@@ -2,10 +2,10 @@ import { useState, useRef, FormEvent, ChangeEvent } from 'react';
 import { Mail, Phone, Loader, Send, AlertTriangle } from 'lucide-react';
 import './App.css';
 
-// EmailJS configuration
-const EMAILJS_SERVICE_ID: string = '';
-const EMAILJS_TEMPLATE_ID: string = '';
-const EMAILJS_PUBLIC_KEY: string = ''; 
+// emailjs configuration from env file
+const EMAILJS_SERVICE_ID: string = process.env.EMAILJS_SERVICE_ID || '';
+const EMAILJS_TEMPLATE_ID: string = process.env.EMAILJS_TEMPLATE_ID || '';
+const EMAILJS_PUBLIC_KEY: string = process.env.EMAILJS_PUBLIC_KEY || '';
 
 // possible states of the message display
 type MessageState = 'success' | 'error' | null;
@@ -164,41 +164,41 @@ function Contact() {
 
     // determine status message style
     const getStatusStyle = (): string => {
-      if (messageState === 'success') return 'bg-green-100 text-green-700 border-green-400';
-      if (messageState === 'error') return 'bg-red-100 text-red-700 border-red-400';
-      return 'hidden';
+      if (messageState === 'success') return 'status-message status-message-success';
+      if (messageState === 'error') return 'status-message status-message-error';
+      return 'status-hidden';
     };
 
   return (
-		<div className='max-w-4xl mx-auto p-6 lg:p-10 bg-white shadow-2xl rounded-xl border border-gray-100'>
-      <div className='text-center mb-10'>
-        <h2 className='text-4xl font-extrabold text-gray-900 mb-2'>Contact Me</h2>
-        <p className='text-lg text-gray-500'>
+		<div className='contact-container'>
+      <div className='contact-header'>
+        <h2>Contact Us</h2>
+        <p>
           Feel free to reach out via email, phone, or the form below!
         </p>
       </div>
 
       {/* Contact Info */}
-      <div className='flex flex-col md:flex-row justify-center gap-6 mb-12 text-center'>
-        <div className='flex items-center justify-center p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors'>
-          <Mail className='w-5 h-5 text-indigo-600 mr-2' />
-          <a href='mailto:aryse54@gmail.com' className='font-medium text-gray-700 hover:text-indigo-600'>aryse54@gmail.com</a>
+      <div className='contact-info'>
+        <div className='contact-item'>
+          <Mail className='contact-icon' />
+          <a href='mailto:aryse54@gmail.com'>aryse54@gmail.com</a>
         </div>
-        <div className='flex items-center justify-center p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors'>
-          <Mail className='w-5 h-5 text-indigo-600 mr-2' />
-          <a href='mailto:RyseA@cwu.edu' className='font-medium text-gray-700 hover:text-indigo-600'>RyseA@cwu.edu (School)</a>
+        <div className='contact-item'>
+          <Mail className='contact-icon' />
+          <a href='mailto:RyseA@cwu.edu'>RyseA@cwu.edu (School)</a>
         </div>
-        <div className='flex items-center justify-center p-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition-colors'>
-          <Phone className='w-5 h-5 text-indigo-600 mr-2' />
-          <a href='tel:+15099923778' className='font-medium text-gray-700 hover:text-indigo-600'>509-992-3778</a>
+        <div className='contact-item'>
+          <Phone className='contact-icon' />
+          <a href='tel:+15099923778'>509-992-3778</a>
         </div>
       </div>
 
       {/* Status Message Display */}
-      <div className={`p-4 mb-6 rounded-lg border text-sm ${messageState === null ? 'hidden' : 'block'} ${getStatusStyle()}`}>
+      <div className={getStatusStyle()}>
         <div className='flex items-center'>
           {(messageState === 'error' || messageState === 'success') && 
-            <AlertTriangle className={`w-5 h-5 mr-2 ${messageState === 'success' ? 'text-green-600' : 'text-red-600'}`} />
+            <AlertTriangle className={`w-5 h-5 mr-2 ${messageState === 'success' ? 'status-icon-success' : 'status-icon-error'}`} />
           }
           <p className='font-semibold'>{statusMessage}</p>
         </div>
@@ -206,9 +206,9 @@ function Contact() {
       
       {/* Error Messages */}
       {errorMessages.length > 0 && (
-        <div className='bg-red-50 border border-red-300 text-red-700 p-4 rounded-lg mb-6 shadow-sm'>
-          <h4 className='font-bold flex items-center mb-2'><AlertTriangle className='w-4 h-4 mr-2'/> Please correct the following errors:</h4>
-          <ul className='list-disc list-inside text-sm'>
+        <div className='error-list'>
+          <h4><AlertTriangle className='alert-icon'/> Please correct the following errors:</h4>
+          <ul>
             {errorMessages.map((err, index) => (
               <li key={index}>{err}</li>
             ))}
@@ -217,8 +217,8 @@ function Contact() {
       )}
 
       {/* Contact Form */}
-      <form id='contact-form' onSubmit={handleSubmit} className='space-y-6'>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+      <form id='contact-form' onSubmit={handleSubmit} className='contact-form'>
+        <div className='contact-form-group'>
           {/* First Name */}
           <input 
             type='text' 
@@ -228,7 +228,6 @@ function Contact() {
             onChange={handleFnameChange} 
             value={fname} 
             ref={fnameRef}
-            className='p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 shadow-sm'
             disabled={isLoading}
           />
           {/* Last Name */}
@@ -240,7 +239,6 @@ function Contact() {
             onChange={handleLnameChange} 
             value={lname} 
             ref={lnameRef}
-            className='p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 shadow-sm'
             disabled={isLoading}
           />
         </div>
@@ -253,7 +251,6 @@ function Contact() {
           onChange={handleEmailChange} 
           value={email} 
           ref={emailRef}
-          className='w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 shadow-sm'
           disabled={isLoading}
         />
         {/* Message */}
@@ -265,25 +262,24 @@ function Contact() {
           value={message} 
           ref={messageRef}
           rows={6}
-          className='w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 shadow-sm resize-none'
           disabled={isLoading}
         ></textarea>
 
         {/* Submit Button */}
-        <div className='text-center'>
+        <div className='submit-button-wrapper'>
           <button 
             type='submit' 
             disabled={isLoading}
-            className='inline-flex items-center justify-center w-full md:w-auto px-8 py-3 border border-transparent text-base font-bold rounded-full shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 transition duration-200 ease-in-out transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'
+            className='submit-button'
           >
             {isLoading ? (
               <>
-                <Loader className='animate-spin w-5 h-5 mr-3' />
+                <Loader className='loader-icon' />
                 Sending...
               </>
           ) : (
               <>
-                <Send className='w-5 h-5 mr-3' />
+                <Send className='contact-icon' />
                 Send Message
               </>
             )}
