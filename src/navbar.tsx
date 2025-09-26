@@ -1,9 +1,9 @@
-import { MouseEvent } from 'react'; 
-import lzmDarkSml from './lzm-dark-sml.png';
+import React from 'react';
+import lzmDarkSml from  './lzm-dark-sml.png';
 import './App.css';
 
 // handle the nav bar scroll behavior
-const handleScroll = (e: MouseEvent, sectionId: string) => {
+const handleScroll = (e: React.MouseEvent, sectionId: string) => {
   e.preventDefault();
   
   const section = document.getElementById(sectionId);
