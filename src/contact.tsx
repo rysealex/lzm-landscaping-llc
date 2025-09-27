@@ -182,15 +182,11 @@ function Contact() {
       <div className='contact-info'>
         <div className='contact-item'>
           <Mail className='contact-icon' />
-          <a href='mailto:aryse54@gmail.com'>aryse54@gmail.com</a>
-        </div>
-        <div className='contact-item'>
-          <Mail className='contact-icon' />
-          <a href='mailto:RyseA@cwu.edu'>RyseA@cwu.edu (School)</a>
+          <a href=''>email@email.com</a>
         </div>
         <div className='contact-item'>
           <Phone className='contact-icon' />
-          <a href='tel:+15099923778'>509-992-3778</a>
+          <a href='tel:+'>123-456-7890</a>
         </div>
       </div>
 
@@ -204,17 +200,6 @@ function Contact() {
         </div>
       </div>
       
-      {/* Error Messages */}
-      {errorMessages.length > 0 && (
-        <div className='error-list'>
-          <h4><AlertTriangle className='alert-icon'/> Please correct the following errors:</h4>
-          <ul>
-            {errorMessages.map((err, index) => (
-              <li key={index}>{err}</li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       {/* Contact Form */}
       <form id='contact-form' onSubmit={handleSubmit} className='contact-form'>
@@ -264,6 +249,18 @@ function Contact() {
           rows={6}
           disabled={isLoading}
         ></textarea>
+
+        {/* Error Messages */}
+        {errorMessages.length > 0 && (
+          <div className='error-list'>
+            <h4><AlertTriangle className='alert-icon'/> Please correct the following errors:</h4>
+            <ul>
+              {errorMessages.map((err, index) => (
+                <li key={index}>{err}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Submit Button */}
         <div className='submit-button-wrapper'>
