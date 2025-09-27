@@ -182,7 +182,7 @@ function Contact() {
       <div className='contact-info'>
         <div className='contact-item'>
           <Mail className='contact-icon' />
-          <a href=''>email@email.com</a>
+          <a href='mailto:lzmlandscapingllc@gmail.com'>lzmlandscapingllc@gmail.com</a>
         </div>
         <div className='contact-item'>
           <Phone className='contact-icon' />

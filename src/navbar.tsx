@@ -7,7 +7,7 @@ const handleScroll = (e: React.MouseEvent, sectionId: string) => {
   e.preventDefault();
   
   const section = document.getElementById(sectionId);
-  const navHeight = 60;
+  const navHeight = 100;
 
   if (section) {
     const yOffset = -navHeight;
