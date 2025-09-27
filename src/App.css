@@ -254,13 +254,13 @@ nav a.active {
   font-size: 1.2rem;
 }
 .status-message-success {
-  background-color: #d1fae5; 
-  color: #065f46; 
-  border-color: #34d399;
+  /* background-color: #d1fae5;  */
+  color: #0ead24; 
+  /* border-color: #34d399; */
 }
 .status-message-error {
   /* background-color: #fee2e2;  */
-  color: #b91c1c; 
+  color: #ff0000; 
   /* border-color: #f87171;  */
 }
 .status-message > div {
@@ -268,11 +268,11 @@ nav a.active {
   align-items: center;
 }
 .status-message .status-icon-success {
-  color: #059669; 
+  color: #0ead24; 
   width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;
 }
 .status-message .status-icon-error {
-  color: #dc2626; 
+  color: #ff0000; 
   width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;
 }
 

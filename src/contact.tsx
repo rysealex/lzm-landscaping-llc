@@ -1,11 +1,11 @@
 import { useState, useRef, FormEvent, ChangeEvent } from 'react';
-import { Mail, Phone, Loader, Send, AlertTriangle } from 'lucide-react';
+import { Mail, Phone, Loader, Send, AlertTriangle, Check } from 'lucide-react';
 import './App.css';
 
 // emailjs configuration from env file
-const EMAILJS_SERVICE_ID: string = process.env.EMAILJS_SERVICE_ID || '';
-const EMAILJS_TEMPLATE_ID: string = process.env.EMAILJS_TEMPLATE_ID || '';
-const EMAILJS_PUBLIC_KEY: string = process.env.EMAILJS_PUBLIC_KEY || '';
+const EMAILJS_SERVICE_ID: string = process.env.REACT_APP_EMAILJS_SERVICE_ID || '';
+const EMAILJS_TEMPLATE_ID: string = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
+const EMAILJS_PUBLIC_KEY: string = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
 
 // possible states of the message display
 type MessageState = 'success' | 'error' | null;
@@ -145,6 +145,7 @@ function Contact() {
       } else {
         // display error message on failure
         const errorText = await response.text();
+        console.log(EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID);
         console.error("Email sending API error response:", errorText);
         setStatusMessage(`Message failed to send. Error: ${response.status}. Please check console.`);
         setMessageState('error');
@@ -193,9 +194,15 @@ function Contact() {
       {/* Status Message Display */}
       <div className={getStatusStyle()}>
         <div className='flex items-center'>
-          {(messageState === 'error' || messageState === 'success') && 
-            <AlertTriangle className={`w-5 h-5 mr-2 ${messageState === 'success' ? 'status-icon-success' : 'status-icon-error'}`} />
-          }
+          {(messageState === 'error' || messageState === 'success') && (
+            <>
+              {messageState === 'success' ? (
+                <Check className='status-icon-success' />
+              ) : (
+                <AlertTriangle className='status-icon-error' />
+              )}
+            </>
+          )}
           <h4 className='font-semibold'>{statusMessage}</h4>
         </div>
       </div>
