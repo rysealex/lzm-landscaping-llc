@@ -196,10 +196,21 @@ function Contact() {
           {(messageState === 'error' || messageState === 'success') && 
             <AlertTriangle className={`w-5 h-5 mr-2 ${messageState === 'success' ? 'status-icon-success' : 'status-icon-error'}`} />
           }
-          <p className='font-semibold'>{statusMessage}</p>
+          <h4 className='font-semibold'>{statusMessage}</h4>
         </div>
       </div>
       
+      {/* Error Messages */}
+      {errorMessages.length > 0 && (
+        <div className='error-list'>
+          <h4><AlertTriangle className='alert-icon'/> Please correct the following errors:</h4>
+          <ul>
+            {errorMessages.map((err, index) => (
+              <li key={index}>{err}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Contact Form */}
       <form id='contact-form' onSubmit={handleSubmit} className='contact-form'>
@@ -250,17 +261,6 @@ function Contact() {
           disabled={isLoading}
         ></textarea>
 
-        {/* Error Messages */}
-        {errorMessages.length > 0 && (
-          <div className='error-list'>
-            <h4><AlertTriangle className='alert-icon'/> Please correct the following errors:</h4>
-            <ul>
-              {errorMessages.map((err, index) => (
-                <li key={index}>{err}</li>
-              ))}
-            </ul>
-          </div>
-        )}
 
         {/* Submit Button */}
         <div className='submit-button-wrapper'>

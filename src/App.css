@@ -183,9 +183,10 @@ nav a.active {
 /* Header */
 .contact-header {
   margin-bottom: 20px;
+  margin-top: -100px;
 }
 .contact-header h2 {
-  font-size: 2.5em; 
+  font-size: 4em; 
   color: var(--text-color); 
   margin-bottom: 0.5rem;
 }
@@ -200,7 +201,7 @@ nav a.active {
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem; 
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 @media (min-width: 768px) {
@@ -214,18 +215,18 @@ nav a.active {
   justify-content: center;
   padding: 0.75rem; 
   border-radius: 0.5rem;
-  background-color: var(--text-color);
+  background-color: var(--primary-color);
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 .contact-item:hover {
   cursor: pointer;
-  background-color: var(--primary-color);
+  background-color: #d6b057;
   transform: scale(1.05);
 }
 .contact-icon {
   width: 1.25rem;
   height: 1.25rem;
-  color: var(--secondary-color);
+  color: var(--background-color);
   margin-right: 0.5rem;
 }
 .contact-item a {
@@ -242,11 +243,15 @@ nav a.active {
   display: none;
 }
 .status-message {
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid;
-  font-size: 0.875rem;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-top: -30px;
+  padding: 0.5rem;
+  margin-bottom: 0.1rem;
+  /* border-radius: 0.5rem;
+  border: 1px solid; */
+  font-size: 1.2rem;
 }
 .status-message-success {
   background-color: #d1fae5; 
@@ -254,9 +259,9 @@ nav a.active {
   border-color: #34d399;
 }
 .status-message-error {
-  background-color: #fee2e2; 
+  /* background-color: #fee2e2;  */
   color: #b91c1c; 
-  border-color: #f87171; 
+  /* border-color: #f87171;  */
 }
 .status-message > div {
   display: flex;
@@ -274,6 +279,7 @@ nav a.active {
 /* Error List */
 .error-list {
   margin: 0 auto;
+  margin-top: -30px;
   /* background-color: #fef2f2; 
   border: 1px solid #fca5a5;  */
   color: #b91c1c; 
@@ -283,19 +289,20 @@ nav a.active {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
 }
 .error-list h4 {
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 .error-list .alert-icon {
-  width: 1rem; height: 1rem; margin-right: 0.5rem;
+  width: 1.2rem; height: 1.2rem; margin-right: 0.5rem;
 }
 .error-list ul {
   list-style: disc;
   padding-left: 1.25rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   list-style: none;
 }
 
@@ -306,6 +313,10 @@ nav a.active {
   gap: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
+}
+.contact-form input, .contact-form textarea {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
 }
 .contact-form-group {
   display: grid;
@@ -339,27 +350,30 @@ nav a.active {
 .submit-button-wrapper {
     text-align: center;
 }
+.contact-icon {
+  color: var(--background-color);
+}
 .submit-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.75rem 2rem; /* px-8 py-3 */
-    border: 1px solid transparent;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 9999px; /* rounded-full */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
-    color: var(--background-color);
-    background-color: var(--primary-color);
-    transition: all 200ms ease-in-out;
-    
+  font-family: 'EB Garamond', serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 2rem; /* px-8 py-3 */
+  border: 1px solid transparent;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  transition: all 200ms ease-in-out;
 }
 .submit-button:hover {
   cursor: pointer;
 }
 .submit-button:hover:not(:disabled) {
-    background-color: var(--text-color);
+    background-color: #d6b057;
     transform: scale(1.05);
 }
 .submit-button:disabled {
