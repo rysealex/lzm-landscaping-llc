@@ -1,34 +1,123 @@
 import { BrickWall, Flower2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
+// services list with details and icons
+const servicesList = [
+	{ name: 'Lawn Care', icon: <BrickWall /> },
+	{ name: 'Tree Service & Trimming', icon: <BrickWall /> },
+	{ name: 'Garden Maintenance', icon: <BrickWall /> },
+	{ name: 'General Cleanups', icon: <BrickWall /> },
+	{ name: 'Hardscape Projects', icon: <BrickWall /> },
+	{ name: 'Sprinkler System Installation', icon: <BrickWall /> },
+	{ name: 'Paver Installation', icon: <BrickWall /> },
+	{ name: 'Painting Services', icon: <BrickWall /> },
+];
+
 function Services() {
+
+	// usestate to toggle between services modal
+	const [selectedService, setSelectedService] = useState<string | null>(null);
+
+	// useeffect to disable scrolling when modal is open
+	useEffect(() => {
+		if (selectedService) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+	}, [selectedService]);
+
   return (
 		<div className='services-container'>
 			<div className='services-header'>
 				<h1>Our Services</h1>
 				<p>We offer a wide range of landscaping services to meet your needs.</p>
 			</div>
+			<div className='services-list' id='services-list-top'>
+				<div className='service-item' onClick={() => setSelectedService('Lawn Care')}>
+					<div className='service-icon'>
+						{servicesList[0].icon}
+					</div>
+					<div className='service-name'>
+						{servicesList[0].name}
+					</div>
+				</div>
+				<div className='service-item' onClick={() => setSelectedService('Tree Service & Trimming')}>
+					<div className='service-icon'>
+						{servicesList[1].icon}
+					</div>
+					<div className='service-name'>
+						{servicesList[1].name}
+					</div>
+				</div>
+				<div className='service-item' onClick={() => setSelectedService('Garden Maintenance')}>
+					<div className='service-icon'>
+						{servicesList[2].icon}
+					</div>
+					<div className='service-name'>
+						{servicesList[2].name}
+					</div>
+				</div>
+				<div className='service-item' onClick={() => setSelectedService('General Cleanups')}>
+					<div className='service-icon'>
+						{servicesList[3].icon}
+					</div>
+					<div className='service-name'>
+						{servicesList[3].name}
+					</div>
+				</div>
+			</div>
 			<div className='services-list'>
-				<div className='service-item'>
-					<BrickWall className='service-icon' />
-					<h2>Lawn Care</h2>
+				<div className='service-item' onClick={() => setSelectedService('Hardscape Projects')}>
+					<div className='service-icon'>
+						{servicesList[4].icon}
+					</div>
+					<div className='service-name'>
+						{servicesList[4].name}
+					</div>
 				</div>
-				<div className='service-item'>
-					<BrickWall className='service-icon' />
-					<h2>Paver Installation</h2>
+				<div className='service-item' onClick={() => setSelectedService('Sprinkler System Installation')}>
+					<div className='service-icon'>
+						{servicesList[5].icon}
+					</div>
+					<div className='service-name'>
+						{servicesList[5].name}
+					</div>
 				</div>
-				<div className='service-item'>
-					<BrickWall className='service-icon' />
-					<h2>Sprinklers</h2>
+				<div className='service-item' onClick={() => setSelectedService('Paver Installation')}>
+					<div className='service-icon'>
+						{servicesList[6].icon}
+					</div>
+					<div className='service-name'>
+						{servicesList[6].name}
+					</div>
 				</div>
-				<div className='service-item'>
-					<Flower2 className='service-icon' />
-					<h2>Garden Design</h2>
+				<div className='service-item' onClick={() => setSelectedService('Painting Services')}>
+					<div className='service-icon'>
+						{servicesList[7].icon}
+					</div>
+					<div className='service-name'>
+						{servicesList[7].name}
+					</div>
 				</div>
 			</div>
-			<div className='view-all-services'>
+			{/* <div className='view-all-services'>
 				<button>View All Services</button>
-			</div>
+			</div> */}
+
+			{/* Modal for service details */}
+			{selectedService && (
+				<div className='service-modal'>
+					<div className='close-button' onClick={() => setSelectedService(null)}>
+						X
+					</div>
+					<div className='service-modal-content'>
+						<h2>{selectedService}</h2>
+						<p>Details about {selectedService} will go here.</p>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
