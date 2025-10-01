@@ -1,4 +1,4 @@
-import { BrickWall, Flower2 } from 'lucide-react';
+import { BrickWall, Flower2, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import './App.css';
 
@@ -108,13 +108,16 @@ function Services() {
 
 			{/* Modal for service details */}
 			{selectedService && (
-				<div className='service-modal'>
-					<div className='close-button' onClick={() => setSelectedService(null)}>
-						X
-					</div>
-					<div className='service-modal-content'>
+				<div className='service-modal' onClick={() => setSelectedService(null)}>
+					<div className='service-modal-content' onClick={(e) => e.stopPropagation()}>
+						<div className='close-button' onClick={() => setSelectedService(null)}>
+							<X />
+						</div>
 						<h2>{selectedService}</h2>
 						<p>Details about {selectedService} will go here.</p>
+						<p>lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<p>lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<p>lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 					</div>
 				</div>
 			)}
