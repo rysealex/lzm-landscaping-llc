@@ -1,22 +1,37 @@
-import React from 'react';
+import { ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import ServicesDropdown from './servicesDropdown';
 import lzmDarkSml from  './lzm-dark-sml.png';
 import './App.css';
 
-// handle the nav bar scroll behavior
-const handleScroll = (e: React.MouseEvent, sectionId: string) => {
-  e.preventDefault();
-  
-  const section = document.getElementById(sectionId);
-  const navHeight = 100;
+function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) => void }) {
 
-  if (section) {
-    const yOffset = -navHeight;
-    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({ top: y, behavior: 'smooth'});
-  }
-};
+  // handle the nav bar scroll behavior
+  const handleScroll = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    
+    const section = document.getElementById(sectionId);
+    const navHeight = 100;
 
-function Navbar() {
+    if (section) {
+      const yOffset = -navHeight;
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth'});
+    }
+  };
+
+  const handleDropdownServiceClick = (serviceName: string) => {
+    // scroll to the services section first
+    const serviceSection = document.getElementById('services');
+    if (serviceSection) {
+      serviceSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    // open the modal after a short delay to allow the scroll to complete
+    setTimeout(() => {
+      openServiceModal(serviceName);
+    }, 700);
+  };
+
   return (
     <div>
       <nav>
@@ -29,10 +44,11 @@ function Navbar() {
               Home
             </a>
           </li>
-          <li>
+          <li className="services-dropdown-container">
             <a href="#services" onClick={(e) => handleScroll(e, 'services')}>
-              Services
+              Services <ChevronDown size={15} className="chevron" />
             </a>
+            <ServicesDropdown onSelectService={handleDropdownServiceClick} />
           </li>
           {/* <li>
             <a href="#gallery">

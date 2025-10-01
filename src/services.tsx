@@ -14,10 +14,23 @@ const servicesList = [
 	{ name: 'Painting Services', icon: <BrickWall /> },
 ];
 
-function Services() {
+interface ServicesProps {
+  selectedService: string | null;
+  setSelectedService: (service: string | null) => void;
+}
+
+function Services({ selectedService, setSelectedService }: ServicesProps) {
+
+	useEffect(() => {
+    if (selectedService) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [selectedService]);
 
 	// usestate to toggle between services modal
-	const [selectedService, setSelectedService] = useState<string | null>(null);
+	// const [selectedService, setSelectedService] = useState<string | null>(null);
 
 	// useeffect to disable scrolling when modal is open
 	useEffect(() => {

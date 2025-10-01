@@ -56,10 +56,80 @@ nav a {
 }
 nav a:hover {
   color: var(--primary-color);
-  font-size: 1.85em;
+  /* font-size: 1.85em; */
 }
 nav a.active {
   color: var(--primary-color);
+}
+nav ul li {
+  position: relative;
+}
+nav ul li.services-dropdown-container {
+  position: relative;
+}
+
+/* Services Dropdown Styles */
+.services-dropdown-container a .chevron {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate the chevron on hover */
+.services-dropdown-container:hover a .chevron {
+  transform: rotate(180deg);
+}
+
+/* Services Dropdown Styles */
+.services-dropdown {
+  /* Initial state: hidden */
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0; /* Align to the left of the parent */
+  z-index: 10;
+  background-color: var(--background-color);
+  /* border: 1px solid var(--primary-color); */
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0; /* Remove initial padding */
+  /* min-width: 180px; */
+  /* Add the transition for max-height
+  transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out; */
+}
+
+/* Show the dropdown on hover */
+.services-dropdown-container:hover .services-dropdown {
+  max-height: 500px; /* A value larger than the dropdown's potential height */
+  padding: 10px 0; /* Add padding back when visible */
+}
+
+/* Dropdown ul and li styles */
+.services-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.services-dropdown ul li {
+  margin: 0; /* Remove the main nav margin */
+}
+
+.services-dropdown a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text-color);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.services-dropdown li a:hover {
+  font-size: 1em;
+  /* background-color: var(--primary-color);
+  color: var(--background-color); */
 }
 
 /* Home Styles */
