@@ -4,14 +4,46 @@ import './App.css';
 
 // services list with details and icons
 const servicesList = [
-	{ name: 'Lawn Care', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
-	{ name: 'Tree Service & Trimming', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
-	{ name: 'Garden Maintenance', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
-	{ name: 'General Cleanups', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
-	{ name: 'Hardscaping', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
-	{ name: 'Sprinkler System Installation', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
-	{ name: 'Paver Installation', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
-	{ name: 'Painting', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
+	{ 
+		name: 'Lawn Care', 
+		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		desc: 'Comprehensive lawn care services including mowing, fertilization, and weed control.'
+	},
+	{ 
+		name: 'Tree Service & Trimming', 
+		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		desc: 'Expert tree trimming and removal services to keep your landscape safe and beautiful.'
+	},
+	{ 
+		name: 'Garden Maintenance', 
+		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		desc: 'Comprehensive garden maintenance services to keep your plants healthy and thriving.'
+	},
+	{ 
+		name: 'General Cleanups', 
+		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		desc: 'Thorough cleanup services to keep your outdoor spaces tidy and inviting.'
+	},
+	{ 
+		name: 'Hardscaping', 
+		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		desc: 'Expert hardscaping services to create beautiful and functional outdoor spaces.'
+	},
+	{ 
+		name: 'Sprinkler System Installation', 
+		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		desc: 'Professional sprinkler system installation to keep your lawn healthy and hydrated.'
+	},
+	{ 
+		name: 'Paver Installation', 
+		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		desc: 'Expert paver installation services to create beautiful and durable outdoor surfaces.'
+	},
+	{ 
+		name: 'Painting', 
+		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		desc: 'Professional painting services to enhance the beauty of your home.'
+	},
 ];
 
 interface ServicesProps {
@@ -52,32 +84,52 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 					<div className='service-icon'>
 						{servicesList[0].icon}
 					</div>
-					<div className='service-name'>
-						{servicesList[0].name}
+					<div className='service-content'>
+						<h3 className='service-name'>
+							{servicesList[0].name}
+						</h3>
+						<p className='service-description'>
+							{servicesList[0].desc}
+						</p>
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Tree Service & Trimming')}>
 					<div className='service-icon'>
 						{servicesList[1].icon}
 					</div>
-					<div className='service-name'>
-						{servicesList[1].name}
+					<div className='service-content'>
+						<h3 className='service-name'>
+							{servicesList[1].name}
+						</h3>
+						<p className='service-description'>
+							{servicesList[1].desc}
+						</p>
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Garden Maintenance')}>
 					<div className='service-icon'>
 						{servicesList[2].icon}
 					</div>
-					<div className='service-name'>
-						{servicesList[2].name}
+					<div className='service-content'>
+						<h3 className='service-name'>
+							{servicesList[2].name}
+						</h3>
+						<p className='service-description'>
+							{servicesList[2].desc}
+						</p>
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('General Cleanups')}>
 					<div className='service-icon'>
 						{servicesList[3].icon}
 					</div>
-					<div className='service-name'>
-						{servicesList[3].name}
+					<div className='service-content'>
+						<h3 className='service-name'>
+							{servicesList[3].name}
+						</h3>
+						<p className='service-description'>
+							{servicesList[3].desc}
+						</p>
 					</div>
 				</div>
 			</div>
@@ -86,32 +138,52 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 					<div className='service-icon'>
 						{servicesList[4].icon}
 					</div>
-					<div className='service-name'>
-						{servicesList[4].name}
+					<div className='service-content'>
+						<h3 className='service-name'>
+							{servicesList[4].name}
+						</h3>
+						<p className='service-description'>
+							{servicesList[4].desc}
+						</p>
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Sprinkler System Installation')}>
 					<div className='service-icon'>
 						{servicesList[5].icon}
 					</div>
-					<div className='service-name'>
-						{servicesList[5].name}
+					<div className='service-content'>
+						<h3 className='service-name'>
+							{servicesList[5].name}
+						</h3>
+						<p className='service-description'>
+							{servicesList[5].desc}
+						</p>
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Paver Installation')}>
 					<div className='service-icon'>
 						{servicesList[6].icon}
 					</div>
-					<div className='service-name'>
-						{servicesList[6].name}
+					<div className='service-content'>
+						<h3 className='service-name'>
+							{servicesList[6].name}
+						</h3>
+						<p className='service-description'>
+							{servicesList[6].desc}
+						</p>
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Painting Services')}>
 					<div className='service-icon'>
 						{servicesList[7].icon}
 					</div>
-					<div className='service-name'>
-						{servicesList[7].name}
+					<div className='service-content'>
+						<h3 className='service-name'>
+							{servicesList[7].name}
+						</h3>
+						<p className='service-description'>
+							{servicesList[7].desc}
+						</p>
 					</div>
 				</div>
 			</div>

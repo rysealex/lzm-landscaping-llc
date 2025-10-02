@@ -242,9 +242,21 @@ nav ul li.services-dropdown-container {
   color: var(--primary-color);
   /* margin-bottom: -20px; */
 }
+.service-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .service-name {
   font-size: 2em;
+  margin: 0 auto;
+}
+.service-description {
+  font-size: 1.2em;
   /* margin-top: 10px; */
+  padding: 0 10px;
+  text-align: left;
 }
 .view-all-services {
   margin-top: 30px;
