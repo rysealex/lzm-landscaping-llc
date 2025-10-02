@@ -4,14 +4,14 @@ import './App.css';
 
 // services list with details and icons
 const servicesList = [
-	{ name: 'Lawn Care', icon: <BrickWall /> },
-	{ name: 'Tree Service & Trimming', icon: <BrickWall /> },
-	{ name: 'Garden Maintenance', icon: <BrickWall /> },
-	{ name: 'General Cleanups', icon: <BrickWall /> },
-	{ name: 'Hardscape Projects', icon: <BrickWall /> },
-	{ name: 'Sprinkler System Installation', icon: <BrickWall /> },
-	{ name: 'Paver Installation', icon: <BrickWall /> },
-	{ name: 'Painting Services', icon: <BrickWall /> },
+	{ name: 'Lawn Care', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
+	{ name: 'Tree Service & Trimming', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
+	{ name: 'Garden Maintenance', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
+	{ name: 'General Cleanups', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
+	{ name: 'Hardscaping', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
+	{ name: 'Sprinkler System Installation', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
+	{ name: 'Paver Installation', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
+	{ name: 'Painting', icon: <BrickWall style={{ width: '100px', height: '100px' }} /> },
 ];
 
 interface ServicesProps {
