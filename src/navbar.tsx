@@ -1,5 +1,5 @@
 import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ServicesDropdown from './servicesDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYelp, faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -8,12 +8,35 @@ import './App.css';
 
 function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) => void }) {
 
+  // usestate to track if the user has scrolled down
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
+  // use effect to add a scroll event listener on component mount
+  useEffect(() => {
+    const handleScroll = () => {
+      // check if the vertical scroll position is greater than 50px
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    // add the event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
+
   // handle the nav bar scroll behavior
-  const handleScroll = (e: React.MouseEvent, sectionId: string) => {
+  const handleLinkScroll = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
     
     const section = document.getElementById(sectionId);
-    const navHeight = 100;
+    const navHeight = scrolled ? 70 : 150; // adjust based on scroll state
 
     if (section) {
       const yOffset = -navHeight;
@@ -36,21 +59,21 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
 
   return (
     <div>
-      <nav>
+      <nav className={scrolled ? 'scrolled' : ''}>
         <div className='nav-left'>
-          <img src={lzmDarkSml} alt="Logo" className='nav-logo' onClick={(e) => handleScroll(e, 'home')} />
-          <div className='nav-title' onClick={(e) => handleScroll(e, 'home')}>
+          <img src={lzmDarkSml} alt="Logo" className={`nav-logo ${scrolled ? 'shrunk-logo' : ''}`} onClick={(e) => handleLinkScroll(e, 'home')} />
+          <div className='nav-title' onClick={(e) => handleLinkScroll(e, 'home')}>
             <h3>LZM Landscaping LLC</h3>
           </div>
         </div>
         <ul>
           <li>
-            <a href="#home" onClick={(e) => handleScroll(e, 'home')}>
+            <a href="#home" onClick={(e) => handleLinkScroll(e, 'home')}>
               Home
             </a>
           </li>
           <li className="services-dropdown-container">
-            <a href="#services" onClick={(e) => handleScroll(e, 'services')}>
+            <a href="#services" onClick={(e) => handleLinkScroll(e, 'services')}>
               Services <ChevronDown size={15} className="chevron" />
             </a>
             <ServicesDropdown onSelectService={handleDropdownServiceClick} />
@@ -61,12 +84,12 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
             </a>
           </li> */}
           <li>
-            <a href="#about" onClick={(e) => handleScroll(e, 'about')}>
+            <a href="#about" onClick={(e) => handleLinkScroll(e, 'about')}>
               About
             </a>
           </li>
           <li>
-            <a href="#contact" onClick={(e) => handleScroll(e, 'contact')}>
+            <a href="#contact" onClick={(e) => handleLinkScroll(e, 'contact')}>
               Contact
             </a>
           </li>

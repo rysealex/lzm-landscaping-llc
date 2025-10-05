@@ -16,21 +16,29 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 150px;
+  height: 150px; /* Default height */
   background-color: var(--background-color);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
+  transition: height 0.2s ease;
+}
+nav.scrolled {
+  height: 80px; /* Smaller height when scrolled */
 }
 nav .nav-left {
   display: flex;
   align-items: center;
 }
 nav .nav-logo {
-  height: 150px;
+  height: 150px; /* Default logo height */
   margin-left: 20px;
   cursor: pointer;
+  transition: height 0.2s ease;
+}
+.shrunk-logo {
+    height: 80px !important; /* Smaller logo when scrolled */
 }
 nav .nav-logo:hover {
   /* transform: scale(1.05);
