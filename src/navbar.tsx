@@ -1,6 +1,8 @@
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import ServicesDropdown from './servicesDropdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYelp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import lzmDarkSml from  './lzm-dark-sml.png';
 import './App.css';
 
@@ -37,6 +39,9 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
       <nav>
         <div className='nav-left'>
           <img src={lzmDarkSml} alt="Logo" className='nav-logo' onClick={(e) => handleScroll(e, 'home')} />
+          <div className='nav-title' onClick={(e) => handleScroll(e, 'home')}>
+            <h3>LZM Landscaping LLC</h3>
+          </div>
         </div>
         <ul>
           <li>
@@ -63,6 +68,14 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
           <li>
             <a href="#contact" onClick={(e) => handleScroll(e, 'contact')}>
               Contact
+            </a>
+          </li>
+          <li id='nav-social-icons'>
+            <a href="https://www.yelp.com/biz/lzm-landscaping-gig-harbor?osq=Lzm+Landscaping&override_cta=Request+pricing+%26+availability" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faYelp} />
+            </a>
+            <a href="https://www.facebook.com/p/LZM-Landscaping-LLC-61577894886146" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faFacebook} />
             </a>
           </li>
         </ul>
