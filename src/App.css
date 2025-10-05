@@ -598,8 +598,28 @@ nav ul li#nav-social-icons a {
 
 /* Footer Styles */
 .footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--background-color);
   color: var(--text-color);
   padding: 20px;
   text-align: center;
+  height: 200px;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+.footer-left p {
+  font-style: italic;
+}
+.footer-left a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s ease, background-color 0.3s ease;
+  font-size: 1.5em;
+}
+.footer-left a:hover {
+  color: var(--primary-color);
 }
