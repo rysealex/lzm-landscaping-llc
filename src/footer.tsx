@@ -7,15 +7,15 @@ function Footer() {
 	return (
 		<div className='footer-container'>
 			<div className='footer-left'>
-				<p>Outdoor Care Done Right | Since 2023</p>
-				<div>
+				<div className='footer-socials'>
 					<a href="https://www.yelp.com/biz/lzm-landscaping-gig-harbor?osq=Lzm+Landscaping&override_cta=Request+pricing+%26+availability" target="_blank" rel="noopener noreferrer">
 					<FontAwesomeIcon icon={faYelp} />
 					</a>
 					<a href="https://www.facebook.com/p/LZM-Landscaping-LLC-61577894886146" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faFacebook} />
 					</a>
-				</div>
+				</div>	
+				<p>Outdoor Care Done Right | Since 2023</p>
 			</div>
 			<div className='footer-center'>
 				<p>&copy; 2023 LZM Landscaping LLC. All rights reserved.</p>
