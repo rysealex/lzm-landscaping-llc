@@ -3,7 +3,47 @@ import './App.css';
 function About() {
   return (
 		<div className='about-container'>
-			<h1>About</h1>
+			{/* Header and Introduction */}
+			<div className='about-header'>
+				<h2>About Us</h2>
+				<p>
+					Trusted by homeowners and businesses in the Gig Harbor, WA area.
+				</p>
+			</div>	
+			{/* Mission Statement */}
+			<section className='about-section about-mission'>
+				<h3>Our Mission</h3>
+				<p>
+					To provide top-notch landscaping services that enhance the beauty and functionality of outdoor spaces.
+				</p>
+			</section>
+			{/* Team Section */}
+			<section className='about-section about-team'>
+				<h3>Meet Luis Zacarias, Founder</h3>
+				<div className='founder-profile'>
+					<img src='' alt='Luis Zacarias' className='founder-photo' />
+					<div className='founder-bio'>
+						<p>
+							Luis Zacarias began his career in landscaping 10 years ago.
+						</p>
+						<p>
+							He personally oversees every project to ensure the highest quality standards are met.
+						</p>
+						<p className='founder-quote'>
+							"Quality is not an act, it is a habit." - Luis Zacarias
+						</p>
+					</div>
+				</div>
+			</section>
+			{/* Values Section */}
+			<section className='about-section about-values'>
+				<h3>Why Choose LZM Landscaping LLC?</h3>
+				<ul>
+					<li>Expertise: Our team has years of experience in the landscaping industry.</li>
+					<li>Quality: We use only the best materials and practices to ensure lasting results.</li>
+					<li>Customer Satisfaction: We work closely with our clients to bring their vision to life.</li>
+				</ul>
+			</section>
 		</div>
 	);
 };

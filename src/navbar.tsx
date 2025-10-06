@@ -36,7 +36,8 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
     e.preventDefault();
     
     const section = document.getElementById(sectionId);
-    const navHeight = scrolled ? 70 : 150; // adjust based on scroll state
+    // const navHeight = scrolled ? 70 : 150; // adjust based on scroll state
+    const navHeight = 70; // fixed height for simplicity
 
     if (section) {
       const yOffset = -navHeight;
