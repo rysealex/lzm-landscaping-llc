@@ -599,13 +599,17 @@ nav ul li#nav-social-icons a {
 /* Footer Styles */
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color: var(--background-color);
   color: var(--text-color);
   padding: 20px;
   text-align: center;
-  height: 200px;
+  height: 250px;
+}
+.footer-container > div {
+  flex: 1; /* Makes all direct div children grow to occupy equal space */
+  /* This ensures footer-left, footer-center, and footer-right each take up 1/3 of the width */
 }
 .footer-left {
   display: flex;
@@ -629,4 +633,34 @@ nav ul li#nav-social-icons a {
   justify-content: center;
   gap: 20px;
   margin-bottom: 10px;
+}
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-logo {
+  max-width: 200px;
+  height: auto;
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+}
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-right li {
+  margin: 5px 0;
+}
+.footer-right a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s ease, background-color 0.3s ease;
+  font-size: 1.2em;
+}
+.footer-right a:hover {
+  color: var(--primary-color);
 }

@@ -1,8 +1,23 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYelp, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import lzmDarkSml from  './lzm-dark-sml.png';
 import './App.css';
 
 function Footer() {
+
+	// handle the scroll behavior for the footer links
+  const handleLinkScroll = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    
+    const section = document.getElementById(sectionId);
+    const navHeight = 70;
+
+    if (section) {
+      const yOffset = -navHeight;
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth'});
+    }
+  };
 
 	return (
 		<div className='footer-container'>
@@ -18,10 +33,32 @@ function Footer() {
 				<p>Outdoor Care Done Right | Since 2023</p>
 			</div>
 			<div className='footer-center'>
+				<img src={lzmDarkSml} alt="Logo" className='footer-logo' />
 				<p>&copy; 2023 LZM Landscaping LLC. All rights reserved.</p>
 			</div>
 			<div className='footer-right'>
-				<p>Nav Links Here</p>
+				<ul>
+          <li>
+            <a href="#home" onClick={(e) => handleLinkScroll(e, 'home')}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#services" onClick={(e) => handleLinkScroll(e, 'services')}>
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#about" onClick={(e) => handleLinkScroll(e, 'about')}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={(e) => handleLinkScroll(e, 'contact')}>
+              Contact
+            </a>
+          </li>
+				</ul>
 			</div>
 		</div>
 	);
