@@ -379,6 +379,39 @@ nav ul li#nav-social-icons a {
   object-fit: cover;
   border: 4px solid var(--primary-color);
 }
+.about-values {
+  padding-bottom: 100px;
+}
+.values-header {
+  margin-bottom: 100px;
+}
+.values-header h3 {
+  font-size: 3em;
+}
+.values-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 50px;
+  padding: 0;
+  margin: 0;
+}
+.values-list li {
+  max-width: 400px;
+}
+.values-icon {
+  color: var(--primary-color);
+  font-size: 9em;
+  margin-bottom: 20px;
+}
+.values-title {
+  color: var(--text-color);
+  font-size: 2em;
+  font-weight: 500;
+  margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--primary-color);
+}
 .about-testimonials {
   display: flex;
   flex-direction: column;

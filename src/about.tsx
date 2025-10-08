@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+import { faQuoteLeft, faCertificate, faShield, faHandshake } from '@fortawesome/free-solid-svg-icons';
 import luis from './luis.jpeg';
 import './App.css';
 
@@ -40,11 +40,41 @@ function About() {
 			</section>
 			{/* Values Section */}
 			<section className='about-section about-values'>
-				<h3>Why Choose LZM Landscaping LLC?</h3>
-				<ul>
-					<li>Expertise: Our team has years of experience in the landscaping industry.</li>
-					<li>Quality: We use only the best materials and practices to ensure lasting results.</li>
-					<li>Customer Satisfaction: We work closely with our clients to bring their vision to life.</li>
+        <div className='values-header'>
+          <h3>Why Choose LZM Landscaping LLC?</h3>
+        </div>
+				<ul className='values-list'>
+					<li>
+            <div>
+              <FontAwesomeIcon icon={faCertificate} className='values-icon' />
+            </div>
+            <p className='values-title'>Quality</p>
+            <p>
+              We use only the best materials and practices to ensure lasting results. We use only the best materials and practices to ensure lasting results. 
+            </p>
+          </li>
+					<li>
+            <div>
+              <FontAwesomeIcon icon={faShield} className='values-icon' />
+            </div>
+            <p className='values-title'>
+              Customer Satisfaction
+            </p>
+            <p>
+              We work closely with our clients to bring their vision to life. We work closely with our clients to bring their vision to life.
+            </p>
+					</li>
+					<li>
+            <div>
+              <FontAwesomeIcon icon={faHandshake} className='values-icon' />
+            </div>
+            <p className='values-title'>
+              Integrity
+            </p>
+            <p>
+              We uphold the highest standards of honesty and transparency in all our dealings. We uphold the highest standards of honesty and transparency in all our dealings.
+            </p>
+					</li>
 				</ul>
 			</section>
 			{/* Testimonials Section */}
