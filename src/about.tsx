@@ -22,20 +22,37 @@ function About() {
 			</section>
 			{/* Team Section */}
 			<section className='about-section about-team'>
-				<h3>Meet Luis Zacarias, Founder</h3>
+				<h3>Meet Luis Zacarias, Founder & Lead Designer</h3>
 				<div className='founder-profile'>
-					<img src={luis} alt='Luis Zacarias' className='founder-photo' />
-					<div className='founder-bio'>
-						<p>
-							Luis Zacarias began his career in landscaping 10 years ago.
-						</p>
-						<p>
-							He personally oversees every project to ensure the highest quality standards are met.
-						</p>
-						<p className='founder-quote'>
-							"Quality is not an act, it is a habit." - Luis Zacarias
-						</p>
-					</div>
+					<div className='founder-content-wrapper'>
+            <img src={luis} alt='Luis Zacarias' className='founder-photo' />
+            <div className='founder-bio'>
+              <p>
+                Luis founded LZM Landscaping **10 years ago** with a goal: to blend artistry with meticulous, lasting craftsmanship. His expertise, particularly in **sustainable hardscaping**, is the driving force behind our reputation.
+              </p>
+              <p>
+                As the owner, Luis personally oversees **100% of projects**—ensuring every detail meets the LZM standard of quality, guaranteed.
+              </p>
+              <p className='founder-quote'>
+                "For me, quality isn't an act, it's a deep-rooted habit we bring to every yard."
+              </p>
+            </div>
+          </div>
+          {/* Fact Callouts */}
+          <div className='founder-facts'>
+            <div className='fact-item'>
+              <span className='fact-number'>10+</span>
+              <p className='fact-label'>Years of Landscaping Excellence</p>
+            </div>
+            <div className='fact-item'>
+              <span className='fact-number'>100%</span>
+              <p className='fact-label'>Owner-Supervised Projects</p>
+            </div>
+            <div className='fact-item'>
+              <span className='fact-number'>A+</span>
+              <p className='fact-label'>Customer-Rated Service</p>
+            </div>
+          </div>
 				</div>
 			</section>
 			{/* Values Section */}

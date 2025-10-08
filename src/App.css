@@ -366,11 +366,46 @@ nav ul li#nav-social-icons a {
   border-bottom: 2px solid var(--primary-color);
   margin-bottom: 30px;
 }
+.about-team {
+  padding-bottom: 100px;
+}
+.about-team h3 {
+  font-size: 3em;
+}
 .founder-profile {
+  /* Change to column on mobile, keep flex for structure */
   display: flex;
+  flex-direction: column; /* Default stack on mobile */
   gap: 30px;
-  align-items: center;
+  align-items: center; /* Center everything on mobile */
   margin-top: 20px;
+  max-width: 1200px; /* Constrain max width for better centering */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 992px) {
+  .founder-profile {
+    flex-direction: row; /* Side-by-side on large screens */
+    align-items: flex-start; /* Align content to the top */
+    justify-content: space-between;
+  }
+}
+
+.founder-content-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack image and bio on mobile */
+  align-items: center;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .founder-content-wrapper {
+    flex-direction: row; /* Image and Bio side-by-side on tablet/desktop */
+    align-items: flex-start;
+    flex: 2; /* Give more space to the content than the facts on desktop */
+  }
 }
 .founder-photo {
   width: 300px;
@@ -378,6 +413,67 @@ nav ul li#nav-social-icons a {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--primary-color);
+  flex-shrink: 0; /* Keep photo size fixed */
+}
+
+.founder-bio {
+  text-align: left;
+  /* Allow bio to take remaining space */
+  flex: 1; 
+  font-size: 1.1em;
+}
+
+.founder-quote {
+  font-style: italic;
+  font-size: 1.3em;
+  color: var(--primary-color); /* Highlight the quote */
+  margin-top: 20px;
+  border-left: 3px solid var(--primary-color); /* Visual emphasis */
+  padding-left: 15px;
+}
+.founder-facts {
+  /* On desktop, this will be the third column alongside the content wrapper */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--secondary-color); /* Distinct background color */
+  border-radius: 8px;
+  flex: 1; /* Takes up its share of space in the founder-profile flex container */
+  max-width: 400px; /* Constrain on desktop */
+  width: 100%; /* Full width on mobile */
+}
+
+@media (min-width: 992px) {
+  .founder-facts {
+    margin-top: 0; /* Align perfectly with the top of the bio content */
+  }
+}
+
+.fact-item {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.fact-item:last-child {
+  border-bottom: none;
+}
+
+.fact-number {
+  font-size: 3.5em; /* Large, eye-catching numbers */
+  color: var(--primary-color);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fact-label {
+  font-size: 1.1em;
+  color: var(--text-color);
+  margin: 0;
+  padding-top: 5px;
 }
 .about-values {
   padding-bottom: 100px;
@@ -390,14 +486,39 @@ nav ul li#nav-social-icons a {
 }
 .values-list {
   display: flex;
+  justify-content: row;
   justify-content: center;
   list-style: none;
   gap: 50px;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 .values-list li {
   max-width: 400px;
+  flex: 1 1 30%; 
+}
+@media (max-width: 768px) {
+  .values-list {
+    /* Change from row to column when screen size is small */
+    flex-direction: column; 
+    gap: 40px; /* Adjust vertical spacing for the stacked items */
+    padding: 0 20px; /* Add padding to prevent edges from touching screen sides */
+  }
+
+  .values-list li {
+    /* Full width when stacked */
+    max-width: 100%;
+    /* Add a visual separator between stacked items */
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+  
+  /* Remove border from the last item in the stack */
+  .values-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 }
 .values-icon {
   color: var(--primary-color);
