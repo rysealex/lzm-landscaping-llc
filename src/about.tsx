@@ -1,7 +1,28 @@
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft, faCertificate, faShield, faHandshake } from '@fortawesome/free-solid-svg-icons';
 import luis from './luis.jpeg';
 import './App.css';
+
+const testimonialData = [
+  {
+    quote: "LZM Landscaping transformed our backyard into a beautiful oasis. Highly recommend and will use them again!",
+    author: "Sarah M.",
+  },
+  {
+    quote: "Incredible attention to detail. LZM Landscaping provided a truly custom solution for our tricky hillside. Expert work we can depend on.",
+    author: "David B.",
+  },
+  {
+    quote: "LZM Landscaping transformed our backyard into a beautiful oasis. Highly recommend and will use them again!",
+    author: "John D.",
+  },
+  {
+    quote: "Incredible attention to detail. LZM Landscaping provided a truly custom solution for our tricky hillside. Expert work we can depend on.",
+    author: "Alex R.",
+  },
+]
 
 function About() {
   return (
@@ -97,7 +118,33 @@ function About() {
 			{/* Testimonials Section */}
 			<section className='about-section about-testimonials'>
 				<h3>Testimonials</h3>
-				<div className='testimonial'>
+        <Carousel
+          showThumbs={false} 
+          autoPlay={true} 
+          interval={5000} 
+          infiniteLoop={true} 
+          showIndicators={true} 
+          showStatus={false}
+          showArrows={false}
+          swipeable={false}
+          animationHandler={"fade"}
+          transitionTime={750}
+        >
+          {testimonialData.map((testimonial, index) => (
+            <div key={index}> 
+              <div className='testimonial'>
+                <div className='testimonial-icon-container'>
+                  <FontAwesomeIcon icon={faQuoteLeft} className='testimonial-icon' />
+                </div>
+                <div className='testimonial-quote'>
+                  <p>{testimonial.quote}</p>
+                  <p className='testimonial-author'>- {testimonial.author}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Carousel>
+				{/* <div className='testimonial'>
 					<div className='testimonial-icon-container'>
 						<FontAwesomeIcon icon={faQuoteLeft} className='testimonial-icon' />
 					</div>
@@ -129,7 +176,7 @@ function About() {
 						</p>
 						<p className='testimonial-author'>- Sarah M.</p>
 					</div>
-				</div>
+				</div> */}
 			</section>
 		</div>
 	);

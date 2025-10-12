@@ -3,6 +3,7 @@
   --primary-color: #dcc07c;
   --secondary-color: #3c3b3c;
   --background-color: #000000;
+  --light-black: #141414;
   --text-color: #ffffff;
 }
 
@@ -23,6 +24,7 @@ nav {
   justify-content: center;
   z-index: 100;
   transition: height 0.2s ease;
+  border-bottom: 2px solid var(--primary-color);
 }
 nav.scrolled {
   height: 80px; /* Smaller height when scrolled */
@@ -232,7 +234,7 @@ nav ul li#nav-social-icons a {
 
 /* Services Styles */
 .services-container {
-  background-color: var(--secondary-color);
+  background-color: var(--light-black);
   color: var(--text-color);
   padding: 100px 20px;
   text-align: center;
@@ -537,6 +539,28 @@ nav ul li#nav-social-icons a {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  padding-bottom: 80px;
+  align-items: center;
+}
+.about-testimonials .carousel-root {
+  z-index: 10;
+  width: 100%; /* Ensure it spans the width of the parent section */
+  max-width: 900px; /* Constrain the width for readability */
+  margin-top: 30px; /* Space between the H3 and the carousel */
+}
+.about-testimonials .carousel {
+  position: relative; /* Establish stacking context for internal absolute elements */
+  overflow: hidden; /* Keep the actual transition area clean */
+  min-height: 300px; /* Keep your existing height to ensure space */
+}
+.about-testimonials .carousel .slider-wrapper {
+  /* Ensure the slider wrapper is visible and positioned correctly */
+  overflow: visible; /* Prevent slides from being cut off if they temporarily exceed bounds */
+  transform: none !important; /* IMPORTANT: Sometimes other CSS sets a transform that hides it. Resetting this can be key. */
+}
+.about-testimonials .slide {
+  padding: 30px 0; /* Add vertical padding inside the slide */
+  height: 100%;
 }
 .about-testimonials h3 {
   font-size: 3em;
@@ -547,10 +571,14 @@ nav ul li#nav-social-icons a {
   gap: 20px; /* Space between icon and text */
   /* margin-top: 20px; */
   justify-content: center;
+  max-width: 800px; 
+  margin: 0 auto;
+  text-align: left; /* Ensure text flows naturally */
 }
 .testimonial-icon-container {
   flex-shrink: 0; /* Prevent the icon from shrinking */
-  margin-top: 20px;
+  /* margin-top: 20px; */
+   margin-top: 0; /* Reset margin for cleaner top alignment */
 }
 .testimonial-icon {
   color: var(--primary-color);
@@ -565,8 +593,10 @@ nav ul li#nav-social-icons a {
   color: var(--primary-color);
   margin-top: 10px;
   font-size: 1.2em;
-  text-align: center; 
-  margin-right: 84px;
+  /* text-align: center; 
+  margin-right: 84px; */
+  text-align: right; 
+  margin-right: 0; /* Remove the hardcoded 84px right margin */
 }
 
 /* Contact Styles */
@@ -582,7 +612,7 @@ nav ul li#nav-social-icons a {
 } */
 /* Main container */
 .contact-container {
-  background-color: var(--secondary-color);
+  background-color: var(--light-black);
   color: var(--text-color);
   padding: 100px 20px;
   text-align: center;
