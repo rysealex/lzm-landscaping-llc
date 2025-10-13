@@ -248,7 +248,7 @@ nav ul li#nav-social-icons a {
 }
 .services-list {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
@@ -264,6 +264,17 @@ nav ul li#nav-social-icons a {
   height: 250px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@media (max-width: 768px) {
+  .services-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .service-item {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+  }
 }
 .service-item:hover {
   cursor: pointer;
@@ -562,6 +573,11 @@ nav ul li#nav-social-icons a {
   padding: 30px 0; /* Add vertical padding inside the slide */
   height: 100%;
 }
+@media (max-width: 768px) {
+  .about-testimonials .carousel-root {
+    max-width: 600px;
+  }
+}
 .about-testimonials h3 {
   font-size: 3em;
 }
@@ -625,7 +641,6 @@ nav ul li#nav-social-icons a {
   border-radius: 0.75rem; 
   border: 1px solid #f3f4f6; border-gray-100; */
 }
-
 /* Header */
 .contact-header {
   margin-bottom: 20px;
@@ -646,13 +661,13 @@ nav ul li#nav-social-icons a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem; 
+  /* gap: 1.5rem;  */
   margin-bottom: 1.5rem;
-  text-align: center;
 }
 @media (min-width: 768px) {
   .contact-info {
-      flex-direction: row;
+    flex-direction: row;
+    justify-content: center; /* Center them horizontally */
   }
 }
 .contact-item {
@@ -677,6 +692,9 @@ nav ul li#nav-social-icons a {
 }
 .contact-item h3 {
   font-size: 1.5em;
+}
+.contact-item h3 a {
+  word-break: break-word;
 }
 .contact-item a {
   color: var(--primary-color);
@@ -761,6 +779,8 @@ nav ul li#nav-social-icons a {
   gap: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .contact-form input, .contact-form textarea {
   font-family: 'EB Garamond', serif;
@@ -774,6 +794,19 @@ nav ul li#nav-social-icons a {
 @media (min-width: 768px) {
   .contact-form-group {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-info {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact-form-group {
+    gap: 1.5rem;
+  }
+  .submit-button-wrapper {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
   }
 }
 
