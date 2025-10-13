@@ -175,19 +175,19 @@ function Contact() {
       <div className='contact-header'>
         <h2>Contact Us</h2>
         <p>
-          Feel free to reach out via email, phone, or the form below!
+          Feel free to reach out via email, phone, or with the following form below!
         </p>
       </div>
 
       {/* Contact Info */}
       <div className='contact-info'>
         <div className='contact-item'>
-          <Mail className='contact-icon' />
-          <a href='mailto:lzmlandscapingllc@gmail.com'>lzmlandscapingllc@gmail.com</a>
+          {/* <Mail className='contact-icon' /> */}
+          <h3>Email: <a href='mailto:lzmlandscapingllc@gmail.com'>lzmlandscapingllc@gmail.com</a></h3>
         </div>
         <div className='contact-item'>
-          <Phone className='contact-icon' />
-          <a href='tel:+'>123-456-7890</a>
+          {/* <Phone className='contact-icon' /> */}
+          <h3>Phone Number: <a href='tel:+'>123-456-7890</a></h3>
         </div>
       </div>
 
