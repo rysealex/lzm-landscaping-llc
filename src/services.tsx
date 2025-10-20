@@ -1,4 +1,4 @@
-import { BrickWall, Flower2, X } from 'lucide-react';
+import { Scissors, Hammer, Sprout, Leaf, Trash2, Droplets, BrickWall, PaintBucket, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import './App.css';
 
@@ -6,42 +6,42 @@ import './App.css';
 const servicesList = [
 	{ 
 		name: 'Lawn Care', 
-		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		icon: <Scissors style={{ width: '150px', height: '150px' }} />,
 		desc: 'Comprehensive lawn care services including mowing, fertilization, and weed control.'
 	},
 	{ 
 		name: 'Tree Service & Trimming', 
-		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		icon: <Sprout style={{ width: '150px', height: '150px' }} />,
 		desc: 'Expert tree trimming and removal services to keep your landscape safe and beautiful.'
 	},
 	{ 
 		name: 'Garden Maintenance', 
-		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		icon: <Leaf style={{ width: '150px', height: '150px' }} />,
 		desc: 'Comprehensive garden maintenance services to keep your plants healthy and thriving.'
 	},
 	{ 
 		name: 'General Cleanups', 
-		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		icon: <Trash2 style={{ width: '150px', height: '150px' }} />,
 		desc: 'Thorough cleanup services to keep your outdoor spaces tidy and inviting.'
 	},
 	{ 
 		name: 'Hardscaping', 
-		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		icon: <Hammer style={{ width: '150px', height: '150px' }} />,
 		desc: 'Expert hardscaping services to create beautiful and functional outdoor spaces.'
 	},
 	{ 
 		name: 'Sprinkler System Installation', 
-		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		icon: <Droplets style={{ width: '150px', height: '150px' }} />,
 		desc: 'Professional sprinkler system installation to keep your lawn healthy and hydrated.'
 	},
 	{ 
 		name: 'Paver Installation', 
-		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		icon: <BrickWall style={{ width: '150px', height: '150px' }} />,
 		desc: 'Expert paver installation services to create beautiful and durable outdoor surfaces.'
 	},
 	{ 
 		name: 'Painting', 
-		icon: <BrickWall style={{ width: '100px', height: '100px' }} />,
+		icon: <PaintBucket style={{ width: '150px', height: '150px' }} />,
 		desc: 'Professional painting services to enhance the beauty of your home.'
 	},
 ];
@@ -88,9 +88,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[0].name}
 						</h3>
-						<p className='service-description'>
+						{/* <p className='service-description'>
 							{servicesList[0].desc}
-						</p>
+						</p> */}
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Tree Service & Trimming')}>
@@ -101,9 +101,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[1].name}
 						</h3>
-						<p className='service-description'>
+						{/* <p className='service-description'>
 							{servicesList[1].desc}
-						</p>
+						</p> */}
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Garden Maintenance')}>
@@ -114,9 +114,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[2].name}
 						</h3>
-						<p className='service-description'>
+						{/* <p className='service-description'>
 							{servicesList[2].desc}
-						</p>
+						</p> */}
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('General Cleanups')}>
@@ -127,9 +127,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[3].name}
 						</h3>
-						<p className='service-description'>
+						{/* <p className='service-description'>
 							{servicesList[3].desc}
-						</p>
+						</p> */}
 					</div>
 				</div>
 			</div>
@@ -142,9 +142,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[4].name}
 						</h3>
-						<p className='service-description'>
+						{/* <p className='service-description'>
 							{servicesList[4].desc}
-						</p>
+						</p> */}
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Sprinkler System Installation')}>
@@ -155,9 +155,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[5].name}
 						</h3>
-						<p className='service-description'>
+						{/* <p className='service-description'>
 							{servicesList[5].desc}
-						</p>
+						</p> */}
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Paver Installation')}>
@@ -168,9 +168,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[6].name}
 						</h3>
-						<p className='service-description'>
+						{/* <p className='service-description'>
 							{servicesList[6].desc}
-						</p>
+						</p> */}
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Painting Services')}>
@@ -181,9 +181,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[7].name}
 						</h3>
-						<p className='service-description'>
+						{/* <p className='service-description'>
 							{servicesList[7].desc}
-						</p>
+						</p> */}
 					</div>
 				</div>
 			</div>
