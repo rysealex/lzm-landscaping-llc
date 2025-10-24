@@ -287,23 +287,70 @@ nav ul li#nav-social-icons a {
 
 /* Home Styles */
 .home-container {
-  /* background-image: url('lzm-dark.png'); */
-  background-size: cover;
-  background-position: center;
-  /* background-attachment: fixed; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  /* padding-bottom: 30px; */
-  min-height: 100vh;
+  padding-top: 100px; 
+  display: flex; /* Flex container for the two columns */
+  align-items: center; /* Vertically centers the content */
+  justify-content: space-between;
+  min-height: 100vh; 
+  background-color: var(--light-black); 
+  padding-left: 10%; 
+  padding-right: 5%;
 }
-.home-container h1 {
+
+/* LEFT SIDE: Text/Title Container */
+.home-left-container {
+  flex: 0 0 40%; /* Take up 40% width */
+  color: var(--text-color);
+  text-align: left;
+  padding-right: 30px;
+}
+/* .home-container h1 {
   color: var(--text-color);
   font-size: 3em;
   text-align: center;
   margin: 0;
   text-shadow: 5px 0 8px black;
+} */
+.home-left-container h1 {
+  color: var(--text-color);
+  font-size: 3em; 
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 5px 0 8px black;
+}
+.home-left-container p {
+  font-size: 1.5em;
+  margin-top: 10px;
+  font-style: italic;
+  color: var(--primary-color);
+}
+.carousel-title-welcome {
+  font-weight: 400; /* Lighter weight for "Welcome to" */
+}
+
+/* Titles: Remove old absolute positioning */
+.carousel-title-welcome,
+.carousel-title,
+.carousel-subtitle {
+  position: static; 
+  transform: none;
+}
+/* RIGHT SIDE: Image Container */
+.main-pic-container {
+  flex: 0 0 55%; /* Take up 55% width */
+  overflow: hidden; 
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Nice subtle shadow */
+}
+
+/* Image Styles */
+.main-pic {
+  width: 100%;
+  height: auto;
+  display: block; 
+  object-fit: cover;
+  max-height: 70vh; 
+  border-radius: 10px;
 }
 
 /* Gallery Styles */
@@ -1021,6 +1068,7 @@ nav ul li#nav-social-icons a {
 }
 .footer-left p {
   font-style: italic;
+  color: var(--primary-color);
 }
 .footer-left a {
   text-decoration: none;
