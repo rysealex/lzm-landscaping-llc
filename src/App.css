@@ -296,7 +296,9 @@ nav ul li#nav-social-icons a {
   padding-left: 10%; 
   padding-right: 5%;
 }
-
+#home-button {
+  
+}
 /* LEFT SIDE: Text/Title Container */
 .home-left-container {
   flex: 0 0 40%; /* Take up 40% width */
@@ -320,7 +322,7 @@ nav ul li#nav-social-icons a {
 }
 .home-left-container p {
   font-size: 1.5em;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   font-style: italic;
   color: var(--primary-color);
 }
@@ -1115,4 +1117,11 @@ nav ul li#nav-social-icons a {
 }
 .footer-right a:hover {
   color: var(--primary-color);
+}
+
+@media (max-width: 425px) {
+  .footer-logo {
+    max-width: 150px;
+    height: auto;
+  }
 }
