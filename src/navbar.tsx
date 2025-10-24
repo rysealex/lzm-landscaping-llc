@@ -1,4 +1,4 @@
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import ServicesDropdown from './servicesDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,8 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
 
   // usestate to track if the user has scrolled down
   const [scrolled, setScrolled] = useState<boolean>(false);
+  // usestate to track if mobile menu is open
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   // use effect to add a scroll event listener on component mount
   useEffect(() => {
@@ -44,6 +46,8 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
       const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth'});
     }
+    // close the mobile menu after clicking a link
+    setIsMenuOpen(false);
   };
 
   const handleDropdownServiceClick = (serviceName: string) => {
@@ -56,6 +60,13 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
     setTimeout(() => {
       openServiceModal(serviceName);
     }, 700);
+    // close the mobile menu after selecting a service
+    setIsMenuOpen(false);
+  };
+
+  //function to toggle the menu open/closed
+  const toggleMenu = () => {
+    setIsMenuOpen(prevState => !prevState);
   };
 
   return (
@@ -67,7 +78,10 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
             <h3>LZM Landscaping LLC</h3>
           </div>
         </div>
-        <ul>
+        <button className="hamburger" onClick={toggleMenu}>
+          {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
+        </button>
+        <ul className={isMenuOpen ? 'active' : ''}>
           <li>
             <a href="#home" onClick={(e) => handleLinkScroll(e, 'home')}>
               Home
@@ -75,7 +89,7 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
           </li>
           <li className="services-dropdown-container">
             <a href="#services" onClick={(e) => handleLinkScroll(e, 'services')}>
-              Services <ChevronDown size={15} className="chevron" />
+              Services {isMenuOpen ? '' : <ChevronDown size={15} className="chevron" />}
             </a>
             <ServicesDropdown onSelectService={handleDropdownServiceClick} />
           </li>
@@ -94,7 +108,7 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
               Contact
             </a>
           </li>
-          <li id='nav-social-icons'>
+          <li className='nav-social-icons-mobile'> 
             <a href="https://www.yelp.com/biz/lzm-landscaping-gig-harbor?osq=Lzm+Landscaping&override_cta=Request+pricing+%26+availability" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faYelp} />
             </a>

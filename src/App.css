@@ -21,7 +21,8 @@ nav {
   background-color: var(--background-color);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 20px;
   z-index: 100;
   transition: height 0.2s ease;
   border-bottom: 2px solid var(--primary-color);
@@ -63,11 +64,11 @@ nav .nav-title h3:hover {
 nav ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin-left: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
+  flex-grow: 0;
 }
 nav li {
   margin: 0 20px;
@@ -92,14 +93,133 @@ nav ul li.services-dropdown-container {
   position: relative;
 }
 nav ul li#nav-social-icons {
-  position: absolute;
+  display: none;
+  /* position: absolute;
   right: 100px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); */
 }
 nav ul li#nav-social-icons a {
   margin: 0 15px;
   font-size: 1.5em;
+}
+/* New style for the social icons now that they are in the main ul on desktop */
+.nav-social-icons-mobile { 
+  display: flex; /* Make the icons show side by side on desktop */
+  align-items: center;
+}
+.nav-social-icons-mobile a {
+  margin: 0 15px;
+  font-size: 1.5em;
+}
+
+/* Hamburger Button Styles - Hidden by default (Desktop) */
+.hamburger {
+  display: none; /* Hide on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 40px;
+  z-index: 101; /* Above the mobile menu */
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+.hamburger:hover {
+  cursor: pointer; /* Explicitly set cursor to pointer */
+  color: var(--primary-color); /* Change color to the primary color on hover */
+}
+
+/* MOBILE STYLES */
+@media (max-width: 1025px) {
+  /* General Nav Adjustments for Mobile */
+  nav {
+    height: 80px; /* Fixed height for all mobile views */
+    /* REMOVE justify-content: center; from the main nav */
+  }
+  nav.scrolled {
+    height: 80px; /* Keep consistent height */
+  }
+  nav .nav-logo {
+    height: 80px; 
+    margin-left: 0; /* Adjust margin */
+  }
+  .shrunk-logo {
+    height: 80px !important;
+  }
+  
+  /* Show the Hamburger Button */
+  .hamburger {
+    display: block; 
+  }
+
+  /* Hide the regular menu on mobile */
+  nav ul {
+    /* DEFAULT STATE: HIDDEN MENU (when hamburger is not active) */
+    display: flex; /* Keep display flex for when it's active */
+    flex-direction: column;
+    justify-content: flex-start; /* Start links at the top */
+    align-items: center;
+    position: fixed;
+    top: 65px; /* Below the header/nav bar */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px); /* Take up the rest of the viewport */
+    background-color: var(--background-color);
+    padding: 70px 0;
+    
+    /* Animation: slide in/out */
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out;
+    z-index: 99; /* Below the nav bar and hamburger button */
+  }
+  
+  /* Active Menu State */
+  nav ul.active {
+    /* SHOWN STATE: Slide into view */
+    transform: translateX(0); 
+  }
+
+  /* Mobile link styles */
+  nav li {
+    margin: 15px 0; /* Add vertical spacing between links */
+    width: 100%; /* Make list item full width for better click area */
+    text-align: center;
+  }
+
+  /* Center the social icons on the mobile menu */
+  .nav-social-icons-mobile {
+    margin-top: 20px; /* Space from the last link */
+    justify-content: center;
+  }
+  
+  /* Dropdown adjustments for mobile menu */
+  .services-dropdown-container {
+      /* Reset dropdown behavior for mobile */
+      position: static; 
+  }
+  /* Remove desktop hover to activate and control it via tap/JS if needed, 
+     but for now, just let it work on hover on touch devices as well */
+  .services-dropdown {
+      position: static; /* Position it below the link in the column */
+      margin-top: 10px;
+      /* Remove max-height for now, let it flow */
+      max-height: none; 
+      padding: 0; 
+      box-shadow: none;
+      background-color: var(--light-black); /* Slightly different background */
+  }
+  .services-dropdown-container:hover .services-dropdown {
+      /* Override desktop hover max-height, let it flow */
+      max-height: none; 
+      padding: 10px 0; 
+  }
+  .services-dropdown ul {
+      flex-direction: column;
+  }
+  .services-dropdown a {
+      padding: 8px 0;
+      font-size: 1.2em; /* Slightly larger text */
+  }
 }
 
 /* Services Dropdown Styles */
