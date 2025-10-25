@@ -22,15 +22,17 @@ function Home() {
   return (
     <div className='home-container'>
       <div className='home-left-container'>
-          <h1 className='carousel-title-welcome'>Welcome to</h1>
-          <h1 className='carousel-title'>LZM Landscaping LLC</h1>
+          {/* <h1 className='carousel-title-welcome'>Welcome to</h1>
+          <h1 className='carousel-title'>LZM Landscaping LLC</h1> */}
+          <p className='carousel-title-welcome'>Landscape design, hardscaping and maintenance in Pierce County</p>
           <p className='carousel-subtitle'>Outdoor Care Done Right | Since 2023</p>
-          <div>
+          <div className='home-left-button'>
             <button className='submit-button' id='home-button' onClick={(e) => handleLinkScroll(e, 'contact')}>Book a free Estimate!</button>
           </div>
         </div>
       <div className='main-pic-container'>
-        <img src={mainPic} alt="main-pic" className='main-pic' />
+        <MyCarousel />
+        {/* <img src={mainPic} alt="main-pic" className='main-pic' /> */}
       </div>
     </div>
 	);

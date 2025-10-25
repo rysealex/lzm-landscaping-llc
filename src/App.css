@@ -291,20 +291,23 @@ nav ul li#nav-social-icons a {
   display: flex; /* Flex container for the two columns */
   align-items: center; /* Vertically centers the content */
   justify-content: space-between;
+  gap: 40px;
   min-height: 100vh; 
   background-color: var(--light-black); 
   padding-left: 10%; 
   padding-right: 5%;
+  flex-wrap: wrap;
 }
-#home-button {
-  
+.home-left-button {
+  text-align: right;
 }
 /* LEFT SIDE: Text/Title Container */
 .home-left-container {
-  flex: 0 0 40%; /* Take up 40% width */
-  color: var(--text-color);
-  text-align: left;
-  padding-right: 30px;
+  flex: 1 1 25%; /* Take up 40% width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; /* evenly spaces out children */
+  gap: 10px;
 }
 /* .home-container h1 {
   color: var(--text-color);
@@ -313,36 +316,30 @@ nav ul li#nav-social-icons a {
   margin: 0;
   text-shadow: 5px 0 8px black;
 } */
-.home-left-container h1 {
+/* .home-left-container h1 {
   color: var(--text-color);
   font-size: 3em; 
   font-weight: 700;
   margin: 0;
   text-shadow: 5px 0 8px black;
-}
-.home-left-container p {
+} */
+/* .home-left-container p {
   font-size: 1.5em;
-  /* margin-top: 10px; */
   font-style: italic;
   color: var(--primary-color);
-}
-.carousel-title-welcome {
-  font-weight: 400; /* Lighter weight for "Welcome to" */
-}
+} */
 
-/* Titles: Remove old absolute positioning */
-.carousel-title-welcome,
-.carousel-title,
-.carousel-subtitle {
-  position: static; 
-  transform: none;
-}
+
 /* RIGHT SIDE: Image Container */
 .main-pic-container {
-  flex: 0 0 55%; /* Take up 55% width */
-  overflow: hidden; 
+  flex: 1 1 60%;
+  overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Nice subtle shadow */
+  width: 100%;
+   /* Give it a visible height */
+  min-height: 200px; /* You can adjust this to fit your design */
+  position: relative;
+  z-index: 1;
 }
 
 /* Image Styles */
@@ -355,43 +352,92 @@ nav ul li#nav-social-icons a {
   border-radius: 10px;
 }
 
+/* MOBILE-FRIENDLY ADJUSTMENTS */
+@media (max-width: 900px) {
+  .home-container {
+    flex-direction: column; /* stacks vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    gap: 30px;
+  }
+
+  .main-pic-container {
+    order: 1; /* image first */
+    width: 100%;
+  }
+
+  .home-left-container {
+    order: 2; /* text second */
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .home-left-container h1 {
+    font-size: 2.2em;
+    text-align: center;
+  }
+
+  .home-left-container p {
+    font-size: 1.2em;
+  }
+
+  .main-pic {
+    margin-top: 50px;
+    max-height: 70vh;
+  }
+
+  .carousel-container {
+    margin-top: 50px;
+  }
+  .carousel-container img {
+    max-height: 70vh;
+  }
+}
+
 /* Gallery Styles */
 .carousel-container {
-  position: relative;
   width: 100%;
+  height: 100%;
+}
+.carousel-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .carousel-title-welcome {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 21%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   z-index: 10;
   color: var(--text-color);
-  font-size: 4rem;
-  text-align: center;
+  font-size: 2.5rem;
+  text-align: right;
 }
 
 .carousel-title {
-  position: absolute;
+  /* position: absolute;
   top: 60%;
   left: 30%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   z-index: 10;
   color: var(--text-color);
   font-size: 4rem;
-  text-align: center;
+  text-align: right;
 }
 
 .carousel-subtitle {
-  position: absolute;
+  /* position: absolute;
   top: 65%;
   left: 26%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  color: var(--primary-color);
   z-index: 10;
-  color: var(--text-color);
   font-size: 1.5rem;
-  text-align: center;
+  text-align: right;
   font-style: italic;
 }
 

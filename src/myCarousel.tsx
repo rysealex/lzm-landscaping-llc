@@ -14,9 +14,9 @@ import img7 from './gallery/gallery-18.png';
 function MyCarousel() {
   return (
     <div className='carousel-container'>
-      <h1 className='carousel-title-welcome'>Welcome to</h1>
+      {/* <h1 className='carousel-title-welcome'>Welcome to</h1>
       <h1 className='carousel-title'>LZM Landscaping LLC</h1>
-      <p className='carousel-subtitle'>Outdoor Care Done Right | Since 2023</p>
+      <p className='carousel-subtitle'>Outdoor Care Done Right | Since 2023</p> */}
       <Carousel 
         showThumbs={false} 
         autoPlay={true} 
