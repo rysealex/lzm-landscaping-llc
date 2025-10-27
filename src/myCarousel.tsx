@@ -44,9 +44,9 @@ function MyCarousel() {
         <div>
           <img src={img5} alt="gallery-5" className='carousel-image' />
         </div>
-        <div>
+        {/* <div>
           <img src={img1} alt="gallery-1" className='carousel-image' />
-        </div>
+        </div> */}
         <div>
           <img src={img2} alt="gallery-2" className='carousel-image' />
         </div>

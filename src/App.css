@@ -291,7 +291,7 @@ nav ul li#nav-social-icons a {
   display: flex; /* Flex container for the two columns */
   align-items: center; /* Vertically centers the content */
   justify-content: space-between;
-  gap: 40px;
+  gap: 50px;
   min-height: 100vh; 
   background-color: var(--light-black); 
   padding-left: 10%; 
@@ -337,7 +337,7 @@ nav ul li#nav-social-icons a {
   border-radius: 10px;
   width: 100%;
    /* Give it a visible height */
-  min-height: 200px; /* You can adjust this to fit your design */
+  height: 425px; /* You can adjust this to fit your design */
   position: relative;
   z-index: 1;
 }
@@ -359,12 +359,13 @@ nav ul li#nav-social-icons a {
     justify-content: center;
     align-items: center;
     padding: 60px 20px;
-    gap: 30px;
+    gap: 0px;
   }
 
   .main-pic-container {
     order: 1; /* image first */
     width: 100%;
+    flex: none;
   }
 
   .home-left-container {
@@ -372,15 +373,18 @@ nav ul li#nav-social-icons a {
     width: 100%;
     text-align: center;
     align-items: center;
+    flex: none;
+    gap: 0;
   }
 
   .home-left-container h1 {
-    font-size: 2.2em;
+    font-size: 1.5rem;
     text-align: center;
   }
 
   .home-left-container p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    text-align: center;
   }
 
   .main-pic {
@@ -394,11 +398,24 @@ nav ul li#nav-social-icons a {
   .carousel-container img {
     max-height: 70vh;
   }
+  .carousel.carousel-slider {
+    border-radius: 10px;
+  }
 }
 
 /* Gallery Styles */
 .carousel-container {
   width: 100%;
+  height: 100%;
+}
+.carousel-root,
+.carousel,
+.slider-wrapper,
+.slider,
+.carousel .slide { /* target the slide element */
+  height: 100%;
+}
+.carousel .slide > div {
   height: 100%;
 }
 .carousel-container img {
@@ -414,7 +431,7 @@ nav ul li#nav-social-icons a {
   transform: translate(-50%, -50%); */
   z-index: 10;
   color: var(--text-color);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   text-align: right;
 }
 
@@ -439,11 +456,13 @@ nav ul li#nav-social-icons a {
   font-size: 1.5rem;
   text-align: right;
   font-style: italic;
+  margin-top: 0;
 }
 
 .carousel-image {
-  max-height: 640px;
-  width: auto;
+  /* max-height: 640px; */
+  height: 100%;
+  width: 100%;
   object-fit: cover; 
 }
 
