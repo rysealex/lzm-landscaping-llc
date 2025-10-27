@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import MyCarousel from './myCarousel';
-import mainPic from './gallery/gallery-17.png';
+import sidePic from './gallery/gallery-19.png';
+  import mainPic from './gallery/gallery-17.png';
 import './App.css';
 
 // handle the nav bar scroll behavior
@@ -33,6 +34,14 @@ function Home() {
       <div className='main-pic-container'>
         <MyCarousel />
         {/* <img src={mainPic} alt="main-pic" className='main-pic' /> */}
+      </div>
+      <div className='side-container'>
+        <img src={sidePic} className='side-pic' alt='side-pic' />
+        <div className='side-text-wrapper'>
+            <h1 className='side-title'>All your landscaping needs</h1>
+            <p className='side-subtitle'>Our new state of the art equipment gives you a permanent bed edging with unlimited possibilities.  Decorative edging will last for years and outlast traditional plastic edging.  This product is both decorative and functional, defining flower beds, tree surrounds, driveway curb and much more.</p>
+            <button className='submit-button' id='home-button' onClick={(e) => handleLinkScroll(e, 'services')}>Our Services</button>
+        </div>
       </div>
     </div>
 	);
