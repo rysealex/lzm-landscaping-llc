@@ -411,26 +411,44 @@ nav ul li#nav-social-icons a {
   .side-container {
     order: 3;
     width: 100%;
-    flex-direction: column;
-    gap: 30px;
+    /* flex-direction: column;
+    gap: 30px; */
   }
   .side-pic {
-    max-width: 250px;
+    max-width: 400px;
   }
   .side-container div {
-    margin-left: 0;
+    margin-left: -50px;
+    max-width: 250px;
   }
   .side-container h1 {
     font-size: 1.5rem;
-    text-align: center;
+    /* text-align: center; */
     width: 100%;
   }
   .side-container p {
-    font-size: 1.2rem;
-    text-align: center;
+    font-size: 1rem;
+    /* text-align: center; */
     width: 100%;
   }
+}
 
+@media (max-width: 725px) {
+  .side-container {
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+  }
+  .side-pic {
+    max-width: 300px;
+  }
+  .side-container div {
+    margin-left: 0;
+    text-align: center;
+    margin-top: -50px;
+    max-width: none;
+    
+  }
 }
 
 /* Gallery Styles */
@@ -517,6 +535,10 @@ nav ul li#nav-social-icons a {
   border: solid var(--primary-color) 2px;
   border-radius: 10px;
   background-color: var(--background-color);
+  /* background-image: url('C:\Users\aryse\OneDrive\Desktop\CS\Projects\lzm-landscaping-llc\src\lzm-dark-tree.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
   margin-left: -50px;
   z-index: 10;
   padding: 30px;
@@ -536,6 +558,7 @@ nav ul li#nav-social-icons a {
   font-size: 1.2rem;
   width: 90%; 
   max-width: 280px;
+  display: inline;
 }
 
 /* Services Styles */
