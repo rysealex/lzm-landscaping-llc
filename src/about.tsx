@@ -129,6 +129,7 @@ function About() {
           swipeable={false}
           animationHandler={"fade"}
           transitionTime={750}
+          className='carousel-testimonial'
         >
           {testimonialData.map((testimonial, index) => (
             <div key={index}> 

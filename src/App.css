@@ -220,6 +220,25 @@ nav ul li#nav-social-icons a {
       padding: 8px 0;
       font-size: 1.2em; /* Slightly larger text */
   }
+  .home-container h1 {
+    font-size: 1.8rem;
+  }
+  .home-container p {
+    font-size: 1.2rem;
+  }
+  .home-container {
+    padding-top: 125px;
+  }
+}
+
+@media (max-width: 1025px) and (min-width: 901px) {
+  .home-container {
+    padding-top: 125px !important; /* Use !important as a last resort to guarantee it overrides */
+    /* You may also need to explicitly unset the desktop padding if necessary */
+    padding-bottom: 200px; /* If you want to keep the desktop bottom padding */
+    padding-left: 10%;
+    padding-right: 5%;
+  }
 }
 
 /* Services Dropdown Styles */
@@ -291,7 +310,7 @@ nav ul li#nav-social-icons a {
   display: flex; /* Flex container for the two columns */
   align-items: center; /* Vertically centers the content */
   justify-content: space-between;
-  gap: 50px;
+  /* gap: 50px; */
   min-height: 100vh; 
   background-color: var(--light-black); 
   padding-left: 10%; 
@@ -307,7 +326,13 @@ nav ul li#nav-social-icons a {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly; /* evenly spaces out children */
-  gap: 10px;
+  /* gap: 10px; */
+  background-color: var(--background-color);
+  border: solid var(--primary-color) 2px;
+  border-radius: 10px;
+  margin-right: -50px;
+  z-index: 10;
+  padding: 30px;
 }
 /* .home-container h1 {
   color: var(--text-color);
@@ -366,15 +391,20 @@ nav ul li#nav-social-icons a {
     order: 1; /* image first */
     width: 100%;
     flex: none;
+    border-bottom: solid var(--primary-color) 2px;
   }
 
   .home-left-container {
     order: 2; /* text second */
-    width: 100%;
+    width: 85%;
     text-align: center;
     align-items: center;
     flex: none;
     gap: 0;
+    padding: 0;
+    margin-top: -50px;
+    margin-right: 0;
+    padding-bottom: 20px;
   }
 
   .home-left-container h1 {
@@ -383,10 +413,9 @@ nav ul li#nav-social-icons a {
   }
 
   .home-left-container p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
   }
-
   .main-pic {
     margin-top: 50px;
     max-height: 70vh;
@@ -479,7 +508,7 @@ nav ul li#nav-social-icons a {
   transform: translate(-50%, -50%); */
   z-index: 10;
   color: var(--text-color);
-  font-size: 2.2rem;
+  font-size: 2rem;
   text-align: right;
 }
 
@@ -513,6 +542,9 @@ nav ul li#nav-social-icons a {
   width: 100%;
   object-fit: cover; 
 }
+.carousel .slider-wrapper {
+  border: solid var(--primary-color) 2px;
+}
 
 .side-container {
   margin-top: 100px;
@@ -525,7 +557,15 @@ nav ul li#nav-social-icons a {
   height: 100%;
   width: 450px;
   border: solid var(--primary-color) 2px;
-  border-radius: 3%;
+  border-radius: 2%;
+}
+.side-pic2 {
+  height: 100%;
+  width: 450px;
+  border: solid var(--primary-color) 2px;
+  border-radius: 2%;
+  margin-top: 220px;
+  margin-left: -50px;
 }
 .side-text-wrapper {
   display: flex;
@@ -946,6 +986,9 @@ nav ul li#nav-social-icons a {
   text-align: right; 
   margin-right: 0; /* Remove the hardcoded 84px right margin */
 }
+.carousel-testimonial .carousel .slider-wrapper {
+  border: none;
+}
 
 /* Contact Styles */
 /* .contact-container {
@@ -1219,6 +1262,7 @@ nav ul li#nav-social-icons a {
   padding: 20px;
   text-align: center;
   height: 250px;
+  border-top: solid var(--primary-color) 2px;
 }
 .footer-container > div {
   flex: 1; /* Makes all direct div children grow to occupy equal space */
