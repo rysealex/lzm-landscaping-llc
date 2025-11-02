@@ -31,19 +31,21 @@ function About() {
 			<div className='about-header'>
 				<h2>About Us</h2>
 				<p>
-					Trusted by homeowners and businesses in the Gig Harbor, WA area.
-				</p>
+					At LZM Landscaping, we are more than just a service provider. We are partners in enhancing the daily experience of your employees and customers.
+          At LZM Landscaping, we are more than just a service provider. We are partners in enhancing the daily experience of your employees and customers.
+          At LZM Landscaping, we are more than just a service provider. We are partners in enhancing the daily experience of your employees and customers.
+        </p>
 			</div>	
 			{/* Mission Statement */}
 			<section className='about-section about-mission'>
 				<h3>Our Mission</h3>
 				<p>
-					To provide top-notch landscaping services that enhance the beauty and functionality of outdoor spaces.
+					"To provide top-notch landscaping services that enhance the beauty and functionality of outdoor spaces"
 				</p>
 			</section>
 			{/* Team Section */}
 			<section className='about-section about-team'>
-				<h3>Meet Luis Zacarias, Founder & Lead Designer</h3>
+				<h3>Meet Luis Zacarias, Owner & General Contractor</h3>
 				<div className='founder-profile'>
 					<div className='founder-content-wrapper'>
             <img src={luis} alt='Luis Zacarias' className='founder-photo' />
