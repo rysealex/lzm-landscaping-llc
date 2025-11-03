@@ -728,6 +728,12 @@ nav ul li#nav-social-icons a {
   color: var(--text-color);
   padding: 100px 20px;
   text-align: center;
+  /* position: relative;
+  padding: 20px;
+  background-image: url('C:\Users\aryse\OneDrive\Desktop\CS\Projects\lzm-landscaping-llc\src\gallery\gallery-20.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; */
 }
 .services-container h1 {
   font-size: 4em;
@@ -737,12 +743,12 @@ nav ul li#nav-social-icons a {
 }
 .services-header {
   margin-bottom: 50px;
-  position: relative;
+  /* position: relative;
   padding: 20px;
-  background-image: url('C:\Users\aryse\OneDrive\Desktop\CS\Projects\lzm-landscaping-llc\src\gallery\gallery-10.png');
+  background-image: url('C:\Users\aryse\OneDrive\Desktop\CS\Projects\lzm-landscaping-llc\src\gallery\gallery-20.png');
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: center; */
 }
 .services-header p {
   font-size: 1.5em;
@@ -839,14 +845,18 @@ nav ul li#nav-social-icons a {
   z-index: 200;
 }
 .service-modal-content {  
-  background-color: var(--secondary-color);
+  background-color: var(--light-black);
   color: var(--text-color);
-  padding: 20px;
+  padding: 35px;
+  border: solid var(--primary-color) 2px;
   border-radius: 10px;
-  max-width: 600px;
+  max-width: 900px; 
   width: 90%;
-  text-align: center;
+  text-align: left; 
   position: relative;
+  display: flex;
+  align-items: flex-start; /* Align content to the top */
+  gap: 30px; /* Space between image and text */
 }
 .close-button {
   position: absolute;
@@ -855,6 +865,95 @@ nav ul li#nav-social-icons a {
   font-size: 1.5em;
   cursor: pointer;
   color: var(--text-color);
+}
+/* New Modal Image Styles */
+.modal-image-wrapper {
+  /* Image takes about 40% of the space */
+  flex: 0 0 40%;
+  max-width: 35%;
+  overflow: hidden; /* Ensures image doesn't bleed */
+  border-radius: 5px; /* Optional: adds rounded corners to the image */
+  /* Maintain aspect ratio */
+  height: auto; 
+}
+
+.modal-service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* New Modal Text Content Styles */
+.modal-text-content {
+  /* Text content takes the remaining space */
+  flex: 1 1 65%;
+  padding-right: 20px; /* Give some space on the right edge */
+}
+
+.modal-text-content h2 {
+  font-size: 2.2em;
+  color: var(--primary-color);
+  margin-top: 0;
+  text-align: left;
+  border-bottom: solid var(--primary-color) 2px;
+}
+.modal-text-content p {
+  text-align: left;
+  word-wrap: break-word; /* For compatibility */
+  overflow-wrap: break-word; /* Standard property */
+}
+/* 👇 ADDED CSS: Aligns the text and button to the right for alternating layout */
+.service-modal-content.reverse-layout .modal-text-content {
+  /* This reverses the alignment of all inline/text elements, including the button */
+  text-align: right; 
+}
+/* Styling for reversing the image and text in the modal */
+.service-modal-content.reverse-layout {
+  /* Changes the order of flex items (image and text content) */
+  flex-direction: row-reverse;
+}
+.service-modal-content.reverse-layout .modal-text-content h2,
+.service-modal-content.reverse-layout .modal-text-content p,
+.service-modal-content.reverse-layout .modal-text-content button {
+  text-align: right; /* Reverses the existing text-align: left; */
+}
+
+/* On mobile (assuming max-width: 768px for stacking) */
+@media (max-width: 768px) {
+  .service-modal-content.reverse-layout {
+    /* When stacking vertically on mobile, we still want the image on top, 
+        so reset the direction to the default column stacking. */
+    flex-direction: column;
+  }
+}
+
+/* Optional: Mobile adjustments */
+@media (max-width: 768px) {
+  .service-modal-content {
+    /* Stack the image and text vertically */
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    padding: 40px 10px 20px 10px; /* Adjust padding for mobile */
+    gap: 20px;
+  }
+
+  .modal-image-wrapper {
+    /* Image goes back to almost full width on mobile */
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  
+  .modal-text-content {
+    /* Text wrapper takes full width on mobile */
+    flex: 1 1 100%;
+    padding: 0;
+  }
+
+  .modal-text-content h2 {
+    text-align: center;
+  }
 }
 
 /* About Styles */
