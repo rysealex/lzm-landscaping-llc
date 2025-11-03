@@ -732,12 +732,22 @@ nav ul li#nav-social-icons a {
 .services-container h1 {
   font-size: 4em;
   margin-bottom: 20px;
+  position: relative; 
+  z-index: 2;
 }
 .services-header {
   margin-bottom: 50px;
+  position: relative;
+  padding: 20px;
+  background-image: url('C:\Users\aryse\OneDrive\Desktop\CS\Projects\lzm-landscaping-llc\src\gallery\gallery-10.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 .services-header p {
   font-size: 1.5em;
+  position: relative;
+  z-index: 2;
 }
 .services-list {
   display: flex;
