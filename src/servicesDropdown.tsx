@@ -3,9 +3,9 @@ import './App.css';
 
 // list of all services
 const services = [
-  { name: 'Lawn Care', link: '' },
+  { name: 'Lawn & Garden Care', link: '' },
   { name: 'Tree Service & Trimming', link: '' },
-  { name: 'Garden Maintenance', link: '' },
+  // { name: 'Garden Maintenance', link: '' },
   { name: 'General Cleanups', link: '' },
   { name: 'Hardscaping', link: '' },
   { name: 'Sprinkler System Installation', link: '' },

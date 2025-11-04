@@ -896,7 +896,8 @@ nav ul li#nav-social-icons a {
   color: var(--primary-color);
   margin-top: 0;
   text-align: left;
-  border-bottom: solid var(--primary-color) 2px;
+  padding-left: 10px;
+  border-left: solid var(--primary-color) 2px;
 }
 .modal-text-content p {
   text-align: left;
@@ -913,7 +914,14 @@ nav ul li#nav-social-icons a {
   /* Changes the order of flex items (image and text content) */
   flex-direction: row-reverse;
 }
-.service-modal-content.reverse-layout .modal-text-content h2,
+.service-modal-content.reverse-layout .modal-text-content h2 {
+  text-align: right;
+  padding-right: 10px;
+  border-left: none;
+  padding-left: 0;
+  border-right: solid var(--primary-color) 2px;
+}
+
 .service-modal-content.reverse-layout .modal-text-content p,
 .service-modal-content.reverse-layout .modal-text-content button {
   text-align: right; /* Reverses the existing text-align: left; */

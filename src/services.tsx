@@ -4,13 +4,17 @@ import './App.css';
 
 // import gallery images
 import treeTrimming from './gallery/gallery-21.png';
-import hardscaping from './gallery/gallery-22.png';
+import sprinklerSystemInstallation from './gallery/gallery-6.png';
+import hardscaping from './gallery/gallery-23.png';
+import paverInstallation from './gallery/gallery-19.png';
+import painting from './gallery/gallery-24.png';
+
 
 // services list with details and icons
 const servicesList = [
 	{ 
-		name: 'Lawn Care', 
-		icon: <Scissors style={{ width: '150px', height: '150px' }} />,
+		name: 'Lawn & Garden Care', 
+		icon: <Leaf style={{ width: '150px', height: '150px' }} />,
 		desc: 'Comprehensive lawn care services including mowing, fertilization, and weed control.',
     img: treeTrimming
 	},
@@ -36,12 +40,12 @@ const servicesList = [
     </p>,
     img: treeTrimming
 	},
-	{ 
-		name: 'Garden Maintenance', 
-		icon: <Leaf style={{ width: '150px', height: '150px' }} />,
-		desc: 'Comprehensive garden maintenance services to keep your plants healthy and thriving.',
-    img: treeTrimming
-	},
+	// { 
+	// 	name: 'Garden Maintenance', 
+	// 	icon: <Leaf style={{ width: '150px', height: '150px' }} />,
+	// 	desc: 'Comprehensive garden maintenance services to keep your plants healthy and thriving.',
+  //   img: treeTrimming
+	// },
 	{ 
 		name: 'General Cleanups', 
 		icon: <Trash2 style={{ width: '150px', height: '150px' }} />,
@@ -74,19 +78,51 @@ const servicesList = [
 		name: 'Sprinkler System Installation', 
 		icon: <Droplets style={{ width: '150px', height: '150px' }} />,
 		desc: 'Professional sprinkler system installation to keep your lawn healthy and hydrated.',
-    img: treeTrimming
+    img: sprinklerSystemInstallation
 	},
 	{ 
 		name: 'Paver Installation', 
 		icon: <BrickWall style={{ width: '150px', height: '150px' }} />,
-		desc: 'Expert paver installation services to create beautiful and durable outdoor surfaces.',
-    img: treeTrimming
+		desc:
+    <p>
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      <br />
+      <br />
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+      Expert paver installation services to create beautiful and durable outdoor surfaces.
+    </p>,
+    img: paverInstallation
 	},
 	{ 
 		name: 'Painting', 
 		icon: <PaintBucket style={{ width: '150px', height: '150px' }} />,
-		desc: 'Professional painting services to enhance the beauty of your home.',
-    img: treeTrimming
+		desc:
+    <p>
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      <br />
+      <br />
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+      Professional painting services to enhance the beauty of your home.
+    </p>,
+    img: painting
 	},
 ];
 
@@ -152,7 +188,7 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 				<p>We offer a wide range of landscaping services to meet your needs.</p>
 			</div>
 			<div className='services-list' id='services-list-top'>
-				<div className='service-item' onClick={() => setSelectedService('Lawn Care')}>
+				<div className='service-item' onClick={() => setSelectedService('Lawn & Garden Care')}>
 					<div className='service-icon'>
 						{servicesList[0].icon}
 					</div>
@@ -178,7 +214,7 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						</p> */}
 					</div>
 				</div>
-				<div className='service-item' onClick={() => setSelectedService('Garden Maintenance')}>
+				{/* <div className='service-item' onClick={() => setSelectedService('Garden Maintenance')}>
 					<div className='service-icon'>
 						{servicesList[2].icon}
 					</div>
@@ -186,18 +222,15 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[2].name}
 						</h3>
-						{/* <p className='service-description'>
-							{servicesList[2].desc}
-						</p> */}
 					</div>
-				</div>
+				</div> */}
 				<div className='service-item' onClick={() => setSelectedService('General Cleanups')}>
 					<div className='service-icon'>
-						{servicesList[3].icon}
+						{servicesList[2].icon}
 					</div>
 					<div className='service-content'>
 						<h3 className='service-name'>
-							{servicesList[3].name}
+							{servicesList[2].name}
 						</h3>
 						{/* <p className='service-description'>
 							{servicesList[3].desc}
@@ -208,11 +241,11 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 			<div className='services-list'>
 				<div className='service-item' onClick={() => setSelectedService('Hardscaping')}>
 					<div className='service-icon'>
-						{servicesList[4].icon}
+						{servicesList[3].icon}
 					</div>
 					<div className='service-content'>
 						<h3 className='service-name'>
-							{servicesList[4].name}
+							{servicesList[3].name}
 						</h3>
 						{/* <p className='service-description'>
 							{servicesList[4].desc}
@@ -221,11 +254,11 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Sprinkler System Installation')}>
 					<div className='service-icon'>
-						{servicesList[5].icon}
+						{servicesList[4].icon}
 					</div>
 					<div className='service-content'>
 						<h3 className='service-name'>
-							{servicesList[5].name}
+							{servicesList[4].name}
 						</h3>
 						{/* <p className='service-description'>
 							{servicesList[5].desc}
@@ -234,11 +267,11 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Paver Installation')}>
 					<div className='service-icon'>
-						{servicesList[6].icon}
+						{servicesList[5].icon}
 					</div>
 					<div className='service-content'>
 						<h3 className='service-name'>
-							{servicesList[6].name}
+							{servicesList[5].name}
 						</h3>
 						{/* <p className='service-description'>
 							{servicesList[6].desc}
@@ -247,11 +280,11 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Painting')}>
 					<div className='service-icon'>
-						{servicesList[7].icon}
+						{servicesList[6].icon}
 					</div>
 					<div className='service-content'>
 						<h3 className='service-name'>
-							{servicesList[7].name}
+							{servicesList[6].name}
 						</h3>
 						{/* <p className='service-description'>
 							{servicesList[7].desc}
