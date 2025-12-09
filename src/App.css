@@ -1588,6 +1588,17 @@ nav ul li#nav-social-icons a {
   flex-direction: column;
   align-items: center;
 }
+.developer-tag {
+  margin-top: -10px;
+}
+.developer-tag a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.developer-tag a:hover {
+  color: var(--primary-color);
+} 
 .footer-logo {
   max-width: 200px;
   height: auto;
@@ -1614,7 +1625,7 @@ nav ul li#nav-social-icons a {
   color: var(--primary-color);
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1000px) {
   .footer-logo {
     max-width: 150px;
     height: auto;
