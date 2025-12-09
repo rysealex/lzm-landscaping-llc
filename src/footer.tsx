@@ -34,7 +34,7 @@ function Footer() {
 			</div>
 			<div className='footer-center'>
 				<img src={lzmDarkSml} alt="Logo" className='footer-logo' />
-				<p>&copy; 2023 LZM Landscaping LLC. All rights reserved.</p>
+				<p>&copy; 2025 LZM Landscaping LLC. All rights reserved.</p>
       </div>
 			<div className='footer-right'>
 				<ul>

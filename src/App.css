@@ -387,6 +387,13 @@ nav ul li#nav-social-icons a {
 }
 
 @media (max-width: 1250px) {
+  .services-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .service-item {
+    width: 80% !important;
+  }
   .side-container {
     flex-direction: column;
     align-items: center;
@@ -757,7 +764,6 @@ nav ul li#nav-social-icons a {
 }
 .services-list {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
@@ -950,17 +956,30 @@ nav ul li#nav-social-icons a {
   .modal-image-wrapper {
     /* Image goes back to almost full width on mobile */
     flex: 1 1 100%;
-    max-width: 100%;
   }
   
   .modal-text-content {
     /* Text wrapper takes full width on mobile */
     flex: 1 1 100%;
     padding: 0;
+    display: flex;
+    flex-direction: column; 
+    /* 3. Center the contents horizontally */
+    align-items: center;
   }
 
   .modal-text-content h2 {
-    text-align: center;
+    text-align: center !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: solid var(--primary-color);
+  }
+  .modal-text-content p {
+    text-align: center !important;
+  }
+  .modal-text-content button {
+    width: auto; 
+    max-width: 100%;
   }
 }
 

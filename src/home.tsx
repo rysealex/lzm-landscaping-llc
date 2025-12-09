@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import MyCarousel from './myCarousel';
-import sidePic from './gallery/gallery-19.png';
+import sidePic from './gallery/gallery-13.png';
 import sidePic2 from './gallery/gallery-15.png';
 import mainPic from './gallery/gallery-17.png';
 import lzmDarkTree from './lzm-dark-tree.png';

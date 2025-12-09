@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import './App.css';
 
 // import gallery images
+import lawnCare from './gallery/gallery-8.png';
 import treeTrimming from './gallery/gallery-21.png';
 import sprinklerSystemInstallation from './gallery/gallery-6.png';
 import hardscaping from './gallery/gallery-23.png';
@@ -16,7 +17,7 @@ const servicesList = [
 		name: 'Lawn & Garden Care', 
 		icon: <Leaf style={{ width: '150px', height: '150px' }} />,
 		desc: 'Comprehensive lawn care services including mowing, fertilization, and weed control.',
-    img: treeTrimming
+    img: lawnCare
 	},
 	{ 
 		name: 'Tree Service & Trimming', 
