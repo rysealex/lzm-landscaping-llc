@@ -3,14 +3,14 @@ import './App.css';
 
 // list of all services
 const services = [
-  { name: 'Lawn & Garden Care', link: '' },
+  { name: 'Lawn Care', link: '' },
   { name: 'Tree Service & Trimming', link: '' },
   // { name: 'Garden Maintenance', link: '' },
   { name: 'General Cleanups', link: '' },
   { name: 'Hardscaping', link: '' },
   { name: 'Sprinkler System Installation', link: '' },
-  { name: 'Paver Installation', link: '' },
-  { name: 'Painting', link: '' },
+  // { name: 'Paver Installation', link: '' },
+  // { name: 'Painting', link: '' },
 ];
 
 function ServicesDropdown({ onSelectService }: { onSelectService: (serviceName: string) => void }) {

@@ -984,6 +984,15 @@ nav ul li#nav-social-icons a {
     width: auto; 
     max-width: 100%;
   }
+  .modal-text-content ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .service-modal-content.reverse-layout .modal-text-content ul {
+    margin-left: 50px;
+  }
 }
 
 /* About Styles */
