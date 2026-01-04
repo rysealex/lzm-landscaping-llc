@@ -14,9 +14,24 @@ import painting from './gallery/gallery-24.png';
 // services list with details and icons
 const servicesList = [
 	{ 
-		name: 'Lawn & Garden Care', 
+		name: 'Lawn Care', 
 		icon: <Leaf style={{ width: '150px', height: '150px' }} />,
-		desc: 'Comprehensive lawn care services including mowing, fertilization, and weed control.',
+		desc:
+		<p>
+      The following is provided if requested along with lawn mowing:
+      <br />
+      <br />
+      <ul>
+				<li>Fertilization</li>
+				<li>Weed Control</li>
+				<li>Mulching</li>
+				<li>Patch Regrowth</li>
+				<li>Brush trimming</li>
+				<li>Pruning</li>
+				<li>And more!</li>
+			</ul>
+			<br />
+    </p>,
     img: lawnCare
 	},
 	{ 
@@ -24,20 +39,16 @@ const servicesList = [
 		icon: <Sprout style={{ width: '150px', height: '150px' }} />,
 		desc: 
     <p>
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
+      Display info asd nasd Display info asd nasd Display info asd nasd Display info asd nasd Display info asd nasd Display info asd nasd Display info asd nasd 
       <br />
       <br />
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
-      Expert tree trimming and removal services to keep your landscape safe and beautiful.
+      <ul>
+				<li>Winter prep for fruit trees</li>
+				<li>Tree Stump Removal</li>
+				<li>Branch Removal</li>
+				<li>Hauling</li>
+			</ul>
+			<br />
     </p>,
     img: treeTrimming
 	},
@@ -50,7 +61,19 @@ const servicesList = [
 	{ 
 		name: 'General Cleanups', 
 		icon: <Trash2 style={{ width: '150px', height: '150px' }} />,
-		desc: 'Thorough cleanup services to keep your outdoor spaces tidy and inviting.',
+		desc:
+		<p>
+      Wanting to clean up your property? We can do general clean ups that will fit your needs.
+      <br />
+      <br />
+      <ul>
+				<li>Garden bed clean ups</li>
+				<li>Debris Hauling</li>
+				<li>Grass removal</li>
+				<li>New Bark or Gravel Spread</li>
+			</ul>
+			<br />
+    </p>,
     img: treeTrimming
 	},
 	{ 
@@ -58,73 +81,82 @@ const servicesList = [
 		icon: <Hammer style={{ width: '150px', height: '150px' }} />,
 		desc: 
     <p>
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
+      Display info:
       <br />
       <br />
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
-      Expert hardscaping services to create beautiful and functional outdoor spaces.
+      <ul>
+				<li>Retaining walls</li>
+				<li>Pavers</li>
+				<li>Stone Walkways</li>
+				<li>Hardscape renovations</li>
+			</ul>
+			<br />
     </p>,
     img: hardscaping
 	},
 	{ 
 		name: 'Sprinkler System Installation', 
 		icon: <Droplets style={{ width: '150px', height: '150px' }} />,
-		desc: 'Professional sprinkler system installation to keep your lawn healthy and hydrated.',
+		desc:
+		<p>
+      Display info:
+      <br />
+      <br />
+      <ul>
+				<li>Installing whole new system</li>
+				<li>Fix up existing system</li>
+				<li>Drip System for garden plants</li>
+				<li>New timer replacements</li>
+				<li>And more!</li>
+			</ul>
+			<br />
+    </p>,
     img: sprinklerSystemInstallation
 	},
-	{ 
-		name: 'Paver Installation', 
-		icon: <BrickWall style={{ width: '150px', height: '150px' }} />,
-		desc:
-    <p>
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      <br />
-      <br />
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-      Expert paver installation services to create beautiful and durable outdoor surfaces.
-    </p>,
-    img: paverInstallation
-	},
-	{ 
-		name: 'Painting', 
-		icon: <PaintBucket style={{ width: '150px', height: '150px' }} />,
-		desc:
-    <p>
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      <br />
-      <br />
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-      Professional painting services to enhance the beauty of your home.
-    </p>,
-    img: painting
-	},
+	// { 
+	// 	name: 'Paver Installation', 
+	// 	icon: <BrickWall style={{ width: '150px', height: '150px' }} />,
+	// 	desc:
+  //   <p>
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     <br />
+  //     <br />
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //     Expert paver installation services to create beautiful and durable outdoor surfaces.
+  //   </p>,
+  //   img: paverInstallation
+	// },
+	// { 
+	// 	name: 'Painting', 
+	// 	icon: <PaintBucket style={{ width: '150px', height: '150px' }} />,
+	// 	desc:
+  //   <p>
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     <br />
+  //     <br />
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //     Professional painting services to enhance the beauty of your home.
+  //   </p>,
+  //   img: painting
+	// },
 ];
 
 interface ServicesProps {
@@ -189,7 +221,7 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 				<p>We offer a wide range of landscaping services to meet your needs.</p>
 			</div>
 			<div className='services-list' id='services-list-top'>
-				<div className='service-item' onClick={() => setSelectedService('Lawn & Garden Care')}>
+				<div className='service-item' onClick={() => setSelectedService('Lawn Care')}>
 					<div className='service-icon'>
 						{servicesList[0].icon}
 					</div>
@@ -266,7 +298,7 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						</p> */}
 					</div>
 				</div>
-				<div className='service-item' onClick={() => setSelectedService('Paver Installation')}>
+				{/* <div className='service-item' onClick={() => setSelectedService('Paver Installation')}>
 					<div className='service-icon'>
 						{servicesList[5].icon}
 					</div>
@@ -274,9 +306,9 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[5].name}
 						</h3>
-						{/* <p className='service-description'>
+						<p className='service-description'>
 							{servicesList[6].desc}
-						</p> */}
+						</p>
 					</div>
 				</div>
 				<div className='service-item' onClick={() => setSelectedService('Painting')}>
@@ -287,11 +319,11 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 						<h3 className='service-name'>
 							{servicesList[6].name}
 						</h3>
-						{/* <p className='service-description'>
+						<p className='service-description'>
 							{servicesList[7].desc}
-						</p> */}
+						</p>
 					</div>
-				</div>
+				</div> */}
 			</div>
 			{/* <div className='view-all-services'>
 				<button>View All Services</button>

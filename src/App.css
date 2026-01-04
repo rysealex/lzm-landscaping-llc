@@ -910,6 +910,9 @@ nav ul li#nav-social-icons a {
   word-wrap: break-word; /* For compatibility */
   overflow-wrap: break-word; /* Standard property */
 }
+.service-modal-content.reverse-layout .modal-text-content ul {
+  direction: rtl;
+}
 /* 👇 ADDED CSS: Aligns the text and button to the right for alternating layout */
 .service-modal-content.reverse-layout .modal-text-content {
   /* This reverses the alignment of all inline/text elements, including the button */

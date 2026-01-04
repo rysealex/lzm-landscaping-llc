@@ -40,7 +40,7 @@ function About() {
 			<section className='about-section about-mission'>
 				<h3>Our Mission</h3>
 				<p>
-					"To provide top-notch landscaping services that enhance the beauty and functionality of outdoor spaces"
+					“Our mission at LZM Landscaping is simple-outdoor care done right. We show up, work hard, and deliver quality results you can see, trust, and rely on.” 
 				</p>
 			</section>
 			{/* Team Section */}
@@ -90,7 +90,7 @@ function About() {
             </div>
             <p className='values-title'>Quality</p>
             <p>
-              We use only the best materials and practices to ensure lasting results. We use only the best materials and practices to ensure lasting results. 
+              We use only the best materials and practices to ensure lasting results.
             </p>
           </li>
 					<li>
@@ -101,7 +101,7 @@ function About() {
               Customer Satisfaction
             </p>
             <p>
-              We work closely with our clients to bring their vision to life. We work closely with our clients to bring their vision to life.
+              We work closely with our clients to bring their vision to life.
             </p>
 					</li>
 					<li>
@@ -112,7 +112,7 @@ function About() {
               Integrity
             </p>
             <p>
-              We uphold the highest standards of honesty and transparency in all our dealings. We uphold the highest standards of honesty and transparency in all our dealings.
+              We uphold the highest standards of honesty and transparency in all our dealings.
             </p>
 					</li>
 				</ul>
