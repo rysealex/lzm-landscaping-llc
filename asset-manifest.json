@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/lzm-landscaping-llc/static/css/main.6315b525.css",
-    "main.js": "/lzm-landscaping-llc/static/js/main.3fe205ce.js",
+    "main.css": "/lzm-landscaping-llc/static/css/main.a30cc34e.css",
+    "main.js": "/lzm-landscaping-llc/static/js/main.cf404076.js",
     "static/js/453.0cf1a831.chunk.js": "/lzm-landscaping-llc/static/js/453.0cf1a831.chunk.js",
     "static/media/gallery-9.png": "/lzm-landscaping-llc/static/media/gallery-9.2d37ea0375d03d90b0f5.png",
     "static/media/gallery-7.png": "/lzm-landscaping-llc/static/media/gallery-7.26a715bfbb47664de5ee.png",
@@ -12,21 +12,19 @@
     "static/media/gallery-6.png": "/lzm-landscaping-llc/static/media/gallery-6.06af7d3e05cb7fb079ad.png",
     "static/media/gallery-4.png": "/lzm-landscaping-llc/static/media/gallery-4.06773ee0942cfb9959bc.png",
     "static/media/gallery-2.png": "/lzm-landscaping-llc/static/media/gallery-2.d0ec6bb9bea91a82ead1.png",
-    "static/media/gallery-19.png": "/lzm-landscaping-llc/static/media/gallery-19.53adee1577637a942d4e.png",
     "static/media/gallery-18.png": "/lzm-landscaping-llc/static/media/gallery-18.19eec38fa774f1c060f1.png",
     "static/media/gallery-21.png": "/lzm-landscaping-llc/static/media/gallery-21.bcc25f9c3eada52780e6.png",
-    "static/media/gallery-24.png": "/lzm-landscaping-llc/static/media/gallery-24.9f49e3135ae8f24179b6.png",
     "static/media/gallery-23.png": "/lzm-landscaping-llc/static/media/gallery-23.d0e187db7f4a239f81c8.png",
     "static/media/luis.jpeg": "/lzm-landscaping-llc/static/media/luis.22999d9f72a79ef5ff2e.jpeg",
     "static/media/lzm-dark-sml.png": "/lzm-landscaping-llc/static/media/lzm-dark-sml.8216ec3ed131a4792bd2.png",
     "static/media/lzm-dark-tree.png": "/lzm-landscaping-llc/static/media/lzm-dark-tree.797d55ed5f340cdc93fa.png",
     "index.html": "/lzm-landscaping-llc/index.html",
-    "main.6315b525.css.map": "/lzm-landscaping-llc/static/css/main.6315b525.css.map",
-    "main.3fe205ce.js.map": "/lzm-landscaping-llc/static/js/main.3fe205ce.js.map",
+    "main.a30cc34e.css.map": "/lzm-landscaping-llc/static/css/main.a30cc34e.css.map",
+    "main.cf404076.js.map": "/lzm-landscaping-llc/static/js/main.cf404076.js.map",
     "453.0cf1a831.chunk.js.map": "/lzm-landscaping-llc/static/js/453.0cf1a831.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6315b525.css",
-    "static/js/main.3fe205ce.js"
+    "static/css/main.a30cc34e.css",
+    "static/js/main.cf404076.js"
   ]
 }
