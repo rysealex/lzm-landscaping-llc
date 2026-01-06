@@ -26,9 +26,9 @@ const servicesList = [
 				<li>Weed Control</li>
 				<li>Mulching</li>
 				<li>Patch Regrowth</li>
-				<li>Brush trimming</li>
+				<li>Brush Trimming</li>
 				<li>Pruning</li>
-				<li>And more!</li>
+				<li>And More!</li>
 			</ul>
 			<br />
     </p>,
@@ -43,7 +43,7 @@ const servicesList = [
       <br />
       <br />
       <ul>
-				<li>Winter prep for fruit trees</li>
+				<li>Winter Prep for Fruit Trees</li>
 				<li>Tree Stump Removal</li>
 				<li>Branch Removal</li>
 				<li>Hauling</li>
@@ -67,9 +67,9 @@ const servicesList = [
       <br />
       <br />
       <ul>
-				<li>Garden bed clean ups</li>
+				<li>Garden Bed Clean Ups</li>
 				<li>Debris Hauling</li>
-				<li>Grass removal</li>
+				<li>Grass Removal</li>
 				<li>New Bark or Gravel Spread</li>
 			</ul>
 			<br />
@@ -81,14 +81,14 @@ const servicesList = [
 		icon: <Hammer style={{ width: '150px', height: '150px' }} />,
 		desc: 
     <p>
-      Display info:
+      Display info info iunfo ajsdnasd ajsdsdaj jsjdjasdj jasdj ds ajdsask dkksd kaksd kasd:
       <br />
       <br />
       <ul>
-				<li>Retaining walls</li>
+				<li>Retaining Walls</li>
 				<li>Pavers</li>
 				<li>Stone Walkways</li>
-				<li>Hardscape renovations</li>
+				<li>Hardscape Renovations</li>
 			</ul>
 			<br />
     </p>,
@@ -99,15 +99,15 @@ const servicesList = [
 		icon: <Droplets style={{ width: '150px', height: '150px' }} />,
 		desc:
 		<p>
-      Display info:
+      Display info info iunfo ajsdnasd ajsdsdaj jsjdjasdj jasdj ds ajdsask dkksd kaksd kasd:
       <br />
       <br />
       <ul>
-				<li>Installing whole new system</li>
-				<li>Fix up existing system</li>
-				<li>Drip System for garden plants</li>
-				<li>New timer replacements</li>
-				<li>And more!</li>
+				<li>Installing Whole New System</li>
+				<li>Fix-up Existing System</li>
+				<li>Drip System for Garden Plants</li>
+				<li>New Timer Replacements</li>
+				<li>And More!</li>
 			</ul>
 			<br />
     </p>,
@@ -334,7 +334,8 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
       {currentService && (
         <div className='service-modal' onClick={() => setSelectedService(null)}>
          <div 
-            className={`service-modal-content ${isImageOnRight ? 'reverse-layout' : ''}`}
+            // className={`service-modal-content ${isImageOnRight ? 'reverse-layout' : ''}`}
+			className='service-modal-content'
             onClick={(e) => e.stopPropagation()}
           >
             <div className='close-button' onClick={() => setSelectedService(null)}>

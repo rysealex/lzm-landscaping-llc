@@ -858,11 +858,11 @@ nav ul li#nav-social-icons a {
   border-radius: 10px;
   max-width: 900px; 
   width: 90%;
-  text-align: left; 
-  position: relative;
+  min-height: 400px; /* Optional: Sets a minimum height so it doesn't look cramped */
   display: flex;
-  align-items: flex-start; /* Align content to the top */
-  gap: 30px; /* Space between image and text */
+  align-items: stretch; /* CHANGE THIS from flex-start to stretch */
+  gap: 30px;
+  position: relative;
 }
 .close-button {
   position: absolute;
@@ -895,6 +895,10 @@ nav ul li#nav-social-icons a {
   /* Text content takes the remaining space */
   flex: 1 1 65%;
   padding-right: 20px; /* Give some space on the right edge */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Keeps content at the top */
+  align-self: stretch;
 }
 
 .modal-text-content h2 {
@@ -909,6 +913,16 @@ nav ul li#nav-social-icons a {
   text-align: left;
   word-wrap: break-word; /* For compatibility */
   overflow-wrap: break-word; /* Standard property */
+  flex-grow: 1;              /* This pushes the button to the bottom if there is extra space */
+  margin-bottom: 20px;
+}
+.modal-text-content button {
+  align-self: flex-start; /* Keeps button on the left (default) */
+  margin-top: auto;       /* This is the magic: it pushes the button to the bottom of the container */
+  padding: 10px 25px;
+}
+.modal-text-content ul {
+  list-style-type: '- ';
 }
 .service-modal-content.reverse-layout .modal-text-content ul {
   direction: rtl;
@@ -933,7 +947,7 @@ nav ul li#nav-social-icons a {
 
 .service-modal-content.reverse-layout .modal-text-content p,
 .service-modal-content.reverse-layout .modal-text-content button {
-  text-align: right; /* Reverses the existing text-align: left; */
+  align-self: flex-end;   /* Moves button to the right in reverse layout */
 }
 
 /* On mobile (assuming max-width: 768px for stacking) */
@@ -979,16 +993,19 @@ nav ul li#nav-social-icons a {
   }
   .modal-text-content p {
     text-align: center !important;
+    margin: auto;
   }
   .modal-text-content button {
     width: auto; 
     max-width: 100%;
+    margin: 0 auto;
   }
   .modal-text-content ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
     padding-left: 0;
+    margin-top: 0;
   }
   .service-modal-content.reverse-layout .modal-text-content ul {
     margin-left: 50px;

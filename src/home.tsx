@@ -27,7 +27,7 @@ function Home() {
       <div className='home-left-container'>
           {/* <h1 className='carousel-title-welcome'>Welcome to</h1>
           <h1 className='carousel-title'>LZM Landscaping LLC</h1> */}
-          <h1 className='carousel-title-welcome'>Landscape design, hardscaping and maintenance in Pierce County</h1>
+          <h1 className='carousel-title-welcome'>Landscaping, hardscaping and maintenance in Pierce County</h1>
           <p className='carousel-subtitle'>Outdoor Care Done Right | Since 2023</p>
           <div className='home-left-button'>
             <button className='submit-button' id='home-button' onClick={(e) => handleLinkScroll(e, 'contact')}>Book a free Estimate!</button>
