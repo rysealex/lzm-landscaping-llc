@@ -3,7 +3,7 @@ import './App.css';
 
 // list of all services
 const services = [
-  { name: 'Lawn Care', link: '' },
+  { name: 'Lawn Care & Garden Maintenance', link: '' },
   { name: 'Tree Service & Trimming', link: '' },
   // { name: 'Garden Maintenance', link: '' },
   { name: 'General Cleanups', link: '' },

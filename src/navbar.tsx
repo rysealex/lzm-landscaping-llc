@@ -87,6 +87,11 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
               Home
             </a>
           </li>
+          <li>
+            <a href="#about" onClick={(e) => handleLinkScroll(e, 'about')}>
+              About
+            </a>
+          </li>
           <li className="services-dropdown-container">
             <a href="#services" onClick={(e) => handleLinkScroll(e, 'services')}>
               Services {isMenuOpen ? '' : <ChevronDown size={15} className="chevron" />}
@@ -98,11 +103,6 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
               Gallery
             </a>
           </li> */}
-          <li>
-            <a href="#about" onClick={(e) => handleLinkScroll(e, 'about')}>
-              About
-            </a>
-          </li>
           <li>
             <a href="#contact" onClick={(e) => handleLinkScroll(e, 'contact')}>
               Contact

@@ -187,11 +187,11 @@ function Contact() {
         </div>
         <div className='contact-item'>
           {/* <Phone className='contact-icon' /> */}
-          <h3>Main Line: <a href='tel:+'>360-286-5237</a></h3>
+          <h3>Main Line: <a href='tel:+13602865237'>360-286-5237</a></h3>
         </div>
         <div className='contact-item'>
           {/* <Phone className='contact-icon' /> */}
-          <h3>Cell Phone: <a href='tel:+'>253-878-8759</a></h3>
+          <h3>Cell Phone: <a href='tel:+12538788759'>253-878-8759</a></h3>
         </div>
       </div>
 

@@ -51,14 +51,14 @@ function App() {
       <section id="home">
         <Home />
       </section>
+      <section id="about">
+        <About />
+      </section>
       <section id="services">
         <Services 
           selectedService={selectedService} 
           setSelectedService={setSelectedService} 
         />
-      </section>
-      <section id="about">
-        <About />
       </section>
       <section id="contact">
         <Contact />

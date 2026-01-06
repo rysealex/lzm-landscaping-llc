@@ -1,4 +1,4 @@
-import { Scissors, Hammer, Sprout, Leaf, Trash2, Droplets, BrickWall, PaintBucket, X } from 'lucide-react';
+import { Scissors, Hammer, Sprout, Leaf, Trash2, Droplets, BrickWall, PaintBucket, X, TreePine } from 'lucide-react';
 import { useEffect } from 'react';
 import './App.css';
 
@@ -14,7 +14,7 @@ import painting from './gallery/gallery-24.png';
 // services list with details and icons
 const servicesList = [
 	{ 
-		name: 'Lawn Care', 
+		name: 'Lawn Care & Garden Maintenance', 
 		icon: <Leaf style={{ width: '150px', height: '150px' }} />,
 		desc:
 		<p>
@@ -36,10 +36,10 @@ const servicesList = [
 	},
 	{ 
 		name: 'Tree Service & Trimming', 
-		icon: <Sprout style={{ width: '150px', height: '150px' }} />,
+		icon: <TreePine style={{ width: '150px', height: '150px' }} />,
 		desc: 
     <p>
-      Display info asd nasd Display info asd nasd Display info asd nasd Display info asd nasd Display info asd nasd Display info asd nasd Display info asd nasd 
+      From specialized maintenance to complete site clearing, we offer a full range of tree services:
       <br />
       <br />
       <ul>
@@ -81,7 +81,7 @@ const servicesList = [
 		icon: <Hammer style={{ width: '150px', height: '150px' }} />,
 		desc: 
     <p>
-      Display info info iunfo ajsdnasd ajsdsdaj jsjdjasdj jasdj ds ajdsask dkksd kaksd kasd:
+      Build a foundation for your outdoor living space with durable, high-quality stonework designed to last a lifetime:
       <br />
       <br />
       <ul>
@@ -99,7 +99,7 @@ const servicesList = [
 		icon: <Droplets style={{ width: '150px', height: '150px' }} />,
 		desc:
 		<p>
-      Display info info iunfo ajsdnasd ajsdsdaj jsjdjasdj jasdj ds ajdsask dkksd kaksd kasd:
+      Ensure your lawn stays green and healthy with our full-service irrigation solutions and water-saving upgrades:
       <br />
       <br />
       <ul>
@@ -221,7 +221,7 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
 				<p>We offer a wide range of landscaping services to meet your needs.</p>
 			</div>
 			<div className='services-list' id='services-list-top'>
-				<div className='service-item' onClick={() => setSelectedService('Lawn Care')}>
+				<div className='service-item' onClick={() => setSelectedService('Lawn Care & Garden Maintenance')}>
 					<div className='service-icon'>
 						{servicesList[0].icon}
 					</div>

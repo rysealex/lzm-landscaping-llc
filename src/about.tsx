@@ -1,7 +1,7 @@
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft, faCertificate, faShield, faHandshake } from '@fortawesome/free-solid-svg-icons';
+import { faQuoteLeft, faCertificate, faShield, faHandshake, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import luis from './luis.jpeg';
 import './App.css';
 
@@ -31,9 +31,8 @@ function About() {
 			<div className='about-header'>
 				<h2>About Us</h2>
 				<p>
-					At LZM Landscaping, we are more than just a service provider. We are partners in enhancing the daily experience of your employees and customers.
-          At LZM Landscaping, we are more than just a service provider. We are partners in enhancing the daily experience of your employees and customers.
-          At LZM Landscaping, we are more than just a service provider. We are partners in enhancing the daily experience of your employees and customers.
+				  We have been in business for 3 years now and our team is full of skilled individuals who have 15+ years of experience. 
+          LZM puts customer service at a top priority and we are flexible with our time so we make sure to put our attention on the customer.
         </p>
 			</div>	
 			{/* Mission Statement */}
@@ -44,7 +43,7 @@ function About() {
 				</p>
 			</section>
 			{/* Team Section */}
-			<section className='about-section about-team'>
+			{/* <section className='about-section about-team'>
 				<h3>Meet Luis Zacarias, Owner & General Contractor</h3>
 				<div className='founder-profile'>
 					<div className='founder-content-wrapper'>
@@ -60,9 +59,9 @@ function About() {
                 "For me, quality isn't an act, it's a deep-rooted habit we bring to every yard."
               </p>
             </div>
-          </div>
+          </div> */}
           {/* Fact Callouts */}
-          <div className='founder-facts'>
+          {/* <div className='founder-facts'>
             <div className='fact-item'>
               <span className='fact-number'>10+</span>
               <p className='fact-label'>Years of Landscaping Excellence</p>
@@ -77,7 +76,7 @@ function About() {
             </div>
           </div>
 				</div>
-			</section>
+			</section> */}
 			{/* Values Section */}
 			<section className='about-section about-values'>
         <div className='values-header'>
@@ -89,18 +88,18 @@ function About() {
               <FontAwesomeIcon icon={faCertificate} className='values-icon' />
             </div>
             <p className='values-title'>Quality</p>
-            <p>
+            <p className='values-info'>
               We use only the best materials and practices to ensure lasting results.
             </p>
           </li>
 					<li>
             <div>
-              <FontAwesomeIcon icon={faShield} className='values-icon' />
+              <FontAwesomeIcon icon={faSquareCheck} className='values-icon' />
             </div>
             <p className='values-title'>
               Customer Satisfaction
             </p>
-            <p>
+            <p className='values-info'>
               We work closely with our clients to bring their vision to life.
             </p>
 					</li>
@@ -111,14 +110,14 @@ function About() {
             <p className='values-title'>
               Integrity
             </p>
-            <p>
+            <p className='values-info'>
               We uphold the highest standards of honesty and transparency in all our dealings.
             </p>
 					</li>
 				</ul>
 			</section>
 			{/* Testimonials Section */}
-			<section className='about-section about-testimonials'>
+			{/* <section className='about-section about-testimonials'>
 				<h3>Testimonials</h3>
         <Carousel
           showThumbs={false} 
@@ -146,7 +145,7 @@ function About() {
               </div>
             </div>
           ))}
-        </Carousel>
+        </Carousel> */}
 				{/* <div className='testimonial'>
 					<div className='testimonial-icon-container'>
 						<FontAwesomeIcon icon={faQuoteLeft} className='testimonial-icon' />
@@ -180,7 +179,7 @@ function About() {
 						<p className='testimonial-author'>- Sarah M.</p>
 					</div>
 				</div> */}
-			</section>
+			{/* </section> */}
 		</div>
 	);
 };

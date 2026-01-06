@@ -37,7 +37,7 @@ function Home() {
         <MyCarousel />
         {/* <img src={mainPic} alt="main-pic" className='main-pic' /> */}
       </div>
-      <div className='side-container'>
+      {/* <div className='side-container'>
         <img src={sidePic} className='side-pic' alt='side-pic' />
         <div className='side-text-wrapper'>
           <h1 className='side-title'>All your landscaping needs</h1>
@@ -45,7 +45,7 @@ function Home() {
           <button className='submit-button' id='home-button' onClick={(e) => handleLinkScroll(e, 'services')}>Our Services</button>
         </div>
         <img src={sidePic2} className='side-pic2' alt='side-pic2' />
-      </div>
+      </div> */}
     </div>
 	);
 };

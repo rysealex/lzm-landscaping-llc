@@ -45,13 +45,13 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="#services" onClick={(e) => handleLinkScroll(e, 'services')}>
-              Services
+            <a href="#about" onClick={(e) => handleLinkScroll(e, 'about')}>
+              About
             </a>
           </li>
           <li>
-            <a href="#about" onClick={(e) => handleLinkScroll(e, 'about')}>
-              About
+            <a href="#services" onClick={(e) => handleLinkScroll(e, 'services')}>
+              Services
             </a>
           </li>
           <li>

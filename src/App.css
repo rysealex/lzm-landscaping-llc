@@ -229,6 +229,16 @@ nav ul li#nav-social-icons a {
   .home-container {
     padding-top: 125px;
   }
+  .about-header p {
+    font-size: 1.125em !important;
+  }
+  .about-mission p {
+    font-size: 1.2em !important;
+  }
+  .about-header p {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 @media (max-width: 1025px) and (min-width: 901px) {
@@ -306,12 +316,12 @@ nav ul li#nav-social-icons a {
 
 /* Home Styles */
 .home-container {
-  padding-top: 200px; 
+  padding-top: 100px; 
   display: flex; /* Flex container for the two columns */
   align-items: center; /* Vertically centers the content */
   justify-content: space-between;
   /* gap: 50px; */
-  min-height: 100vh; 
+  min-height: 85vh; 
   background-color: var(--light-black); 
   padding-left: 10%; 
   padding-right: 5%;
@@ -915,6 +925,7 @@ nav ul li#nav-social-icons a {
   overflow-wrap: break-word; /* Standard property */
   flex-grow: 1;              /* This pushes the button to the bottom if there is extra space */
   margin-bottom: 20px;
+  font-size: 1.25em;
 }
 .modal-text-content button {
   align-self: flex-start; /* Keeps button on the left (default) */
@@ -1014,7 +1025,7 @@ nav ul li#nav-social-icons a {
 
 /* About Styles */
 .about-container {
-  background-color: var(--background-color);
+  background-color: var(--light-black);
   color: var(--text-color);
   padding: 100px 20px;
   text-align: center;
@@ -1029,13 +1040,16 @@ nav ul li#nav-social-icons a {
   margin-bottom: 0.5rem;
 }
 .about-header p {
-  font-size: 1.125em;
+  font-size: 1.75em;
   color: var(--text-color);
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 20px;
 }
 .about-section {
   padding: 30px 0;
-  border-bottom: 2px solid var(--primary-color);
-  margin-bottom: 30px;
+  /* border-bottom: 2px solid var(--primary-color);
+  margin-bottom: 30px; */
 }
 .about-mission {
   border: solid var(--primary-color) 2px;
@@ -1054,11 +1068,11 @@ nav ul li#nav-social-icons a {
   width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.about-mission:hover {
+/* .about-mission:hover {
   cursor: pointer;
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+} */
 .about-mission h3 {
   font-size: 1.7em;
   border-bottom: solid var(--primary-color) 2px;
@@ -1066,7 +1080,7 @@ nav ul li#nav-social-icons a {
 }
 .about-mission p {
   color: var(--primary-color);
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-top: 5px;
   margin-bottom: 30px;
 }
@@ -1181,7 +1195,8 @@ nav ul li#nav-social-icons a {
   padding-top: 5px;
 }
 .about-values {
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
+  margin-top: 100px;
 }
 .values-header {
   margin-bottom: 100px;
@@ -1237,6 +1252,9 @@ nav ul li#nav-social-icons a {
   margin: 0;
   padding-bottom: 20px;
   border-bottom: 2px solid var(--primary-color);
+}
+.values-info {
+  font-size: 1.2em;
 }
 .about-testimonials {
   display: flex;
@@ -1325,7 +1343,7 @@ nav ul li#nav-social-icons a {
 .contact-container {
   background-color: var(--light-black);
   color: var(--text-color);
-  padding: 100px 20px;
+  padding: 150px 20px;
   text-align: center;
   /* max-width: 44rem;
   margin-left: auto;
@@ -1347,7 +1365,7 @@ nav ul li#nav-social-icons a {
   margin-bottom: 0.5rem;
 }
 .contact-header p {
-  font-size: 1.125em;
+  font-size: 1.5em;
   color: var(--text-color);
 }
 
