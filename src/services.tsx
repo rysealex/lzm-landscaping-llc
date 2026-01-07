@@ -1,10 +1,13 @@
 import { Scissors, Hammer, Sprout, Leaf, Trash2, Droplets, BrickWall, PaintBucket, X, TreePine } from 'lucide-react';
 import { useEffect } from 'react';
+import CleanupCarousel from './cleanupCarousel';
 import './App.css';
 
 // import gallery images
 import lawnCare from './gallery/gallery-8.png';
-import treeTrimming from './gallery/gallery-21.png';
+import treeTrimming from './gallery/new-tree-trim.png';
+import generalCleanupsBefore from './gallery/cleanup-before.png';
+import generalCleanupsAfter from './gallery/cleanup-after.png';
 import sprinklerSystemInstallation from './gallery/gallery-6.png';
 import hardscaping from './gallery/gallery-23.png';
 import paverInstallation from './gallery/gallery-19.png';
@@ -74,7 +77,7 @@ const servicesList = [
 			</ul>
 			<br />
     </p>,
-    img: treeTrimming
+    img: <CleanupCarousel />
 	},
 	{ 
 		name: 'Hardscaping', 
@@ -335,7 +338,7 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
         <div className='service-modal' onClick={() => setSelectedService(null)}>
          <div 
             // className={`service-modal-content ${isImageOnRight ? 'reverse-layout' : ''}`}
-			className='service-modal-content'
+						className='service-modal-content'
             onClick={(e) => e.stopPropagation()}
           >
             <div className='close-button' onClick={() => setSelectedService(null)}>
@@ -343,11 +346,18 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
             </div>
             {currentService.img && (
               <div className='modal-image-wrapper'>
-                <img 
-                  src={currentService.img} 
-                  alt={`${currentService.name} service`} 
-                  className='modal-service-image'
-                />
+                {typeof currentService.img === 'string' ? (
+									<img 
+										src={currentService.img} 
+										alt={`${currentService.name} service`} 
+										className='modal-service-image'
+									/>
+								) : (
+									/* This renders the CleanupCarousel component directly */
+									<div className="modal-carousel-container">
+										{currentService.img}
+									</div>
+								)}
               </div>
             )}
             <div className='modal-text-content'>
