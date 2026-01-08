@@ -34,7 +34,7 @@ function Footer() {
 			</div>
 			<div className='footer-center'>
 				<img src={lzmDarkSml} alt="Logo" className='footer-logo' />
-				<p>&copy; 2025 LZM Landscaping LLC. All rights reserved.</p>
+				<p>&copy; 2026 LZM Landscaping LLC. All rights reserved.</p>
         <p className='developer-tag'>Developed by <a href="https://rysealex.github.io/my-portfolio/" target="_blank" rel="noopener noreferrer">Alex Ryse</a></p>
       </div>
 			<div className='footer-right'>
