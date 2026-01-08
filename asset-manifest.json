@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/lzm-landscaping-llc/static/css/main.0285afbd.css",
-    "main.js": "/lzm-landscaping-llc/static/js/main.951d4039.js",
-    "static/js/453.bd974772.chunk.js": "/lzm-landscaping-llc/static/js/453.bd974772.chunk.js",
-    "static/media/gallery-9.png": "/lzm-landscaping-llc/static/media/gallery-9.2d37ea0375d03d90b0f5.png",
-    "static/media/gallery-7.png": "/lzm-landscaping-llc/static/media/gallery-7.26a715bfbb47664de5ee.png",
-    "static/media/gallery-17.png": "/lzm-landscaping-llc/static/media/gallery-17.e45ae0afed1c2e2cb198.png",
-    "static/media/gallery-8.png": "/lzm-landscaping-llc/static/media/gallery-8.5165d713c92e87e0638c.png",
-    "static/media/gallery-6.png": "/lzm-landscaping-llc/static/media/gallery-6.06af7d3e05cb7fb079ad.png",
-    "static/media/gallery-4.png": "/lzm-landscaping-llc/static/media/gallery-4.06773ee0942cfb9959bc.png",
-    "static/media/gallery-2.png": "/lzm-landscaping-llc/static/media/gallery-2.d0ec6bb9bea91a82ead1.png",
-    "static/media/gallery-18.png": "/lzm-landscaping-llc/static/media/gallery-18.19eec38fa774f1c060f1.png",
-    "static/media/new-tree-trim.png": "/lzm-landscaping-llc/static/media/new-tree-trim.a7ab6bbaaec178a600fc.png",
-    "static/media/cleanup-before.png": "/lzm-landscaping-llc/static/media/cleanup-before.2da86f78bb460666a2b4.png",
-    "static/media/cleanup-after.png": "/lzm-landscaping-llc/static/media/cleanup-after.09db7a006369e3ce7e1f.png",
-    "static/media/gallery-23.png": "/lzm-landscaping-llc/static/media/gallery-23.d0e187db7f4a239f81c8.png",
-    "static/media/lzm-dark-sml.png": "/lzm-landscaping-llc/static/media/lzm-dark-sml.8216ec3ed131a4792bd2.png",
-    "static/media/lzm-dark-tree.png": "/lzm-landscaping-llc/static/media/lzm-dark-tree.797d55ed5f340cdc93fa.png",
-    "index.html": "/lzm-landscaping-llc/index.html",
-    "main.0285afbd.css.map": "/lzm-landscaping-llc/static/css/main.0285afbd.css.map",
-    "main.951d4039.js.map": "/lzm-landscaping-llc/static/js/main.951d4039.js.map",
-    "453.bd974772.chunk.js.map": "/lzm-landscaping-llc/static/js/453.bd974772.chunk.js.map"
+    "main.css": "/static/css/main.06cec3cd.css",
+    "main.js": "/static/js/main.c3c64f05.js",
+    "static/js/453.bd974772.chunk.js": "/static/js/453.bd974772.chunk.js",
+    "static/media/gallery-9.png": "/static/media/gallery-9.2d37ea0375d03d90b0f5.png",
+    "static/media/gallery-7.png": "/static/media/gallery-7.26a715bfbb47664de5ee.png",
+    "static/media/gallery-17.png": "/static/media/gallery-17.e45ae0afed1c2e2cb198.png",
+    "static/media/gallery-8.png": "/static/media/gallery-8.5165d713c92e87e0638c.png",
+    "static/media/gallery-6.png": "/static/media/gallery-6.06af7d3e05cb7fb079ad.png",
+    "static/media/gallery-4.png": "/static/media/gallery-4.06773ee0942cfb9959bc.png",
+    "static/media/gallery-2.png": "/static/media/gallery-2.d0ec6bb9bea91a82ead1.png",
+    "static/media/gallery-18.png": "/static/media/gallery-18.19eec38fa774f1c060f1.png",
+    "static/media/new-tree-trim.png": "/static/media/new-tree-trim.a7ab6bbaaec178a600fc.png",
+    "static/media/cleanup-before.png": "/static/media/cleanup-before.2da86f78bb460666a2b4.png",
+    "static/media/cleanup-after.png": "/static/media/cleanup-after.09db7a006369e3ce7e1f.png",
+    "static/media/gallery-23.png": "/static/media/gallery-23.d0e187db7f4a239f81c8.png",
+    "static/media/lzm-dark-sml.png": "/static/media/lzm-dark-sml.8216ec3ed131a4792bd2.png",
+    "static/media/lzm-dark-tree.png": "/static/media/lzm-dark-tree.797d55ed5f340cdc93fa.png",
+    "index.html": "/index.html",
+    "main.06cec3cd.css.map": "/static/css/main.06cec3cd.css.map",
+    "main.c3c64f05.js.map": "/static/js/main.c3c64f05.js.map",
+    "453.bd974772.chunk.js.map": "/static/js/453.bd974772.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0285afbd.css",
-    "static/js/main.951d4039.js"
+    "static/css/main.06cec3cd.css",
+    "static/js/main.c3c64f05.js"
   ]
 }
