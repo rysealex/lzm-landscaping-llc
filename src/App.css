@@ -324,7 +324,7 @@ nav ul li#nav-social-icons a {
 
 /* Home Styles */
 .home-container {
-  padding-top: 100px; 
+  padding-top: 125px; 
   display: flex; /* Flex container for the two columns */
   align-items: center; /* Vertically centers the content */
   justify-content: space-between;
@@ -1079,8 +1079,8 @@ nav ul li#nav-social-icons a {
   }
 
   .modal-image-wrapper {
-    /* Image goes back to almost full width on mobile */
-    flex: 1 1 100%;
+    max-width: 85%;
+    margin: 0 auto;
   }
   
   .modal-text-content {
@@ -1802,4 +1802,10 @@ nav ul li#nav-social-icons a {
 }
 .scroll-to-top:hover {
   background-color: var(--light-black);
+}
+
+@media (max-width: 480px) {
+  .modal-image-wrapper {
+    max-width: 75%;
+  }
 }
