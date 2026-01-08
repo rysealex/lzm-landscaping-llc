@@ -1088,7 +1088,7 @@ nav ul li#nav-social-icons a {
     flex-direction: column;
     align-items: center;
     max-width: 90%;
-    padding: 40px 10px 20px 10px; /* Adjust padding for mobile */
+    padding: 20px 10px 20px 10px; /* Adjust padding for mobile */
     gap: 20px;
   }
 
@@ -1116,6 +1116,7 @@ nav ul li#nav-social-icons a {
   .modal-text-content p {
     text-align: center !important;
     margin: auto;
+    margin-bottom: -30px;
   }
   .modal-text-content button {
     width: auto; 
@@ -1820,6 +1821,6 @@ nav ul li#nav-social-icons a {
 
 @media (max-width: 480px) {
   .modal-image-wrapper {
-    max-width: 75%;
+    max-width: 55%;
   }
 }
