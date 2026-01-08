@@ -239,6 +239,14 @@ nav ul li#nav-social-icons a {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+  .contact-form {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .submit-button-wrapper {
+    padding-left: 20px !important;
+  }
 }
 
 @media (max-width: 1025px) and (min-width: 901px) {
@@ -679,8 +687,9 @@ nav ul li#nav-social-icons a {
   width: 100%;
   object-fit: cover; 
 }
-.carousel .slider-wrapper {
+.carousel-container .carousel .slider-wrapper {
   border: solid var(--primary-color) 2px;
+  border-radius: 10px;
 }
 
 .side-container {
@@ -738,6 +747,83 @@ nav ul li#nav-social-icons a {
   max-width: 280px;
   display: inline;
 }
+
+/* Container for the Cleanup Carousel */
+.cleanup-specific-carousel {
+  width: 100%;
+  min-height: 400px;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.cleanup-specific-carousel .carousel {
+  position: relative;
+  z-index: 6;
+}
+
+/* Ensure the carousel itself fills the modal height */
+.cleanup-specific-carousel .carousel-root,
+.cleanup-specific-carousel .carousel.carousel-slider,
+.cleanup-specific-carousel .slider-wrapper,
+.cleanup-specific-carousel .slider,
+.cleanup-specific-carousel .carousel .slide {
+  height: 100% !important;
+}
+
+.cleanup-specific-carousel .carousel .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 7;
+}
+
+/* 2. Explicitly remove the border from the Cleanup Carousel */
+.cleanup-specific-carousel .carousel .slider-wrapper {
+  border: none !important;
+}
+
+/* Ensure the slider wrapper in the cleanup carousel still fills space */
+.cleanup-specific-carousel .slider-wrapper {
+  height: 100%;
+}
+
+/* Styling the Before/After Labels */
+.carousel-slide-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.status-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--primary-color);
+  padding: 5px 15px;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+/* Customizing the Indicators for this specific carousel */
+.cleanup-specific-carousel .control-dots {
+  bottom: 10px;
+}
+
+.cleanup-specific-carousel .control-dots .dot {
+  background: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+.modal-carousel-container {
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+}
+
 
 /* Services Styles */
 .services-container {
@@ -799,6 +885,17 @@ nav ul li#nav-social-icons a {
     width: 90%;
     max-width: 400px;
     height: auto;
+  }
+  .modal-carousel-container {
+    min-height: auto;
+    height: auto;
+    display: block;
+  }
+  .cleanup-specific-carousel {
+    min-height: 0;
+  }
+  .service-modal-content {
+    align-items: flex-start;
   }
 }
 .service-item:hover {
@@ -886,7 +983,7 @@ nav ul li#nav-social-icons a {
 .modal-image-wrapper {
   /* Image takes about 40% of the space */
   flex: 0 0 40%;
-  max-width: 35%;
+  max-width: 65%;
   overflow: hidden; /* Ensures image doesn't bleed */
   border-radius: 5px; /* Optional: adds rounded corners to the image */
   /* Maintain aspect ratio */

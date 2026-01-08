@@ -6,8 +6,6 @@ import './App.css';
 // import gallery images
 import lawnCare from './gallery/gallery-8.png';
 import treeTrimming from './gallery/new-tree-trim.png';
-import generalCleanupsBefore from './gallery/cleanup-before.png';
-import generalCleanupsAfter from './gallery/cleanup-after.png';
 import sprinklerSystemInstallation from './gallery/gallery-6.png';
 import hardscaping from './gallery/gallery-23.png';
 import paverInstallation from './gallery/gallery-19.png';
