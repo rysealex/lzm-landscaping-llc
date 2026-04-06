@@ -1,49 +1,73 @@
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft, faCertificate, faShield, faHandshake, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import luis from './luis.jpeg';
-import './App.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faQuoteLeft,
+  faCertificate,
+  faShield,
+  faHandshake,
+  faSquareCheck,
+} from "@fortawesome/free-solid-svg-icons";
+import luis from "./luis.jpeg";
+import "./App.css";
 
 const testimonialData = [
   {
-    quote: "LZM Landscaping transformed our backyard into a beautiful oasis. Highly recommend and will use them again!",
+    quote:
+      "LZM Landscaping transformed our backyard into a beautiful oasis. Highly recommend and will use them again!",
     author: "Sarah M.",
   },
   {
-    quote: "Incredible attention to detail. LZM Landscaping provided a truly custom solution for our tricky hillside. Expert work we can depend on.",
+    quote:
+      "Incredible attention to detail. LZM Landscaping provided a truly custom solution for our tricky hillside. Expert work we can depend on.",
     author: "David B.",
   },
   {
-    quote: "LZM Landscaping transformed our backyard into a beautiful oasis. Highly recommend and will use them again!",
+    quote:
+      "LZM Landscaping transformed our backyard into a beautiful oasis. Highly recommend and will use them again!",
     author: "John D.",
   },
   {
-    quote: "Incredible attention to detail. LZM Landscaping provided a truly custom solution for our tricky hillside. Expert work we can depend on.",
+    quote:
+      "Incredible attention to detail. LZM Landscaping provided a truly custom solution for our tricky hillside. Expert work we can depend on.",
     author: "Alex R.",
   },
-]
+];
 
 function About() {
   return (
-		<div className='about-container'>
-			{/* Header and Introduction */}
-			<div className='about-header'>
-				<h2>About Us</h2>
-				<p>
-				  We have been in business for 3 years now and our team is full of skilled individuals who have 15+ years of experience. 
-          LZM puts customer service at a top priority and we are flexible with our time so we make sure to put our attention on the customer.
+    <div className="about-container">
+      {/* Mission Statement */}
+      <section className="about-section about-mission">
+        <h3>Our Mission</h3>
+        <p>
+          “Outdoor care done right. We show up, work hard, and deliver quality
+          results you can trust, focused on maximizing customer satisfaction
+          every step of the way.”
         </p>
-			</div>	
-			{/* Mission Statement */}
-			<section className='about-section about-mission'>
-				<h3>Our Mission</h3>
-				<p>
-					“Our mission at LZM Landscaping is simple-outdoor care done right. We show up, work hard, and deliver quality results you can see, trust, and rely on.” 
-				</p>
-			</section>
-			{/* Team Section */}
-			{/* <section className='about-section about-team'>
+      </section>
+      {/* Header and Introduction */}
+      <div className="about-header">
+        <h2>About Us</h2>
+        <p>
+          LZM Landscaping LLC is backed by a team with 15+ years of hands-on
+          experience in the industry. We are commited to delivering reliable,
+          high-quality work with a strong focus on customer service.
+        </p>
+        <p>
+          Our goal is simple: maximize customer satisfaction on every project.
+          We achieve this by staying flexible with your schedule, paying close
+          attention to detail, and making sure the job is done right the first
+          time.
+        </p>
+        <p>
+          From the initial estimate to the final result, we focus on clear
+          comminication and a smooth, stress-free experience so you can feel
+          confident in the work being done on your property.
+        </p>
+      </div>
+      {/* Team Section */}
+      {/* <section className='about-section about-team'>
 				<h3>Meet Luis Zacarias, Owner & General Contractor</h3>
 				<div className='founder-profile'>
 					<div className='founder-content-wrapper'>
@@ -60,8 +84,8 @@ function About() {
               </p>
             </div>
           </div> */}
-          {/* Fact Callouts */}
-          {/* <div className='founder-facts'>
+      {/* Fact Callouts */}
+      {/* <div className='founder-facts'>
             <div className='fact-item'>
               <span className='fact-number'>10+</span>
               <p className='fact-label'>Years of Landscaping Excellence</p>
@@ -77,47 +101,45 @@ function About() {
           </div>
 				</div>
 			</section> */}
-			{/* Values Section */}
-			<section className='about-section about-values'>
-        <div className='values-header'>
+      {/* Values Section */}
+      <section className="about-section about-values">
+        <div className="values-header">
           <h3>Why Choose LZM Landscaping LLC?</h3>
         </div>
-				<ul className='values-list'>
-					<li>
+        <ul className="values-list">
+          <li>
             <div>
-              <FontAwesomeIcon icon={faCertificate} className='values-icon' />
+              <FontAwesomeIcon icon={faCertificate} className="values-icon" />
             </div>
-            <p className='values-title'>Quality</p>
-            <p className='values-info'>
-              We use only the best materials and practices to ensure lasting results.
+            <p className="values-title">Quality</p>
+            <p className="values-info">
+              We use only the best materials and practices to ensure lasting
+              results.
             </p>
           </li>
-					<li>
+          <li>
             <div>
-              <FontAwesomeIcon icon={faSquareCheck} className='values-icon' />
+              <FontAwesomeIcon icon={faSquareCheck} className="values-icon" />
             </div>
-            <p className='values-title'>
-              Customer Satisfaction
-            </p>
-            <p className='values-info'>
+            <p className="values-title">Customer Satisfaction</p>
+            <p className="values-info">
               We work closely with our clients to bring their vision to life.
             </p>
-					</li>
-					<li>
+          </li>
+          <li>
             <div>
-              <FontAwesomeIcon icon={faHandshake} className='values-icon' />
+              <FontAwesomeIcon icon={faHandshake} className="values-icon" />
             </div>
-            <p className='values-title'>
-              Integrity
+            <p className="values-title">Integrity</p>
+            <p className="values-info">
+              We uphold the highest standards of honesty and transparency in all
+              our dealings.
             </p>
-            <p className='values-info'>
-              We uphold the highest standards of honesty and transparency in all our dealings.
-            </p>
-					</li>
-				</ul>
-			</section>
-			{/* Testimonials Section */}
-			{/* <section className='about-section about-testimonials'>
+          </li>
+        </ul>
+      </section>
+      {/* Testimonials Section */}
+      {/* <section className='about-section about-testimonials'>
 				<h3>Testimonials</h3>
         <Carousel
           showThumbs={false} 
@@ -146,7 +168,7 @@ function About() {
             </div>
           ))}
         </Carousel> */}
-				{/* <div className='testimonial'>
+      {/* <div className='testimonial'>
 					<div className='testimonial-icon-container'>
 						<FontAwesomeIcon icon={faQuoteLeft} className='testimonial-icon' />
 					</div>
@@ -179,9 +201,9 @@ function About() {
 						<p className='testimonial-author'>- Sarah M.</p>
 					</div>
 				</div> */}
-			{/* </section> */}
-		</div>
-	);
-};
+      {/* </section> */}
+    </div>
+  );
+}
 
 export default About;

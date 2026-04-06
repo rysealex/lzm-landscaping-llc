@@ -1,27 +1,31 @@
-import { useState, useRef, FormEvent, ChangeEvent } from 'react';
-import { Mail, Phone, Loader, Send, AlertTriangle, Check } from 'lucide-react';
-import './App.css';
+import { useState, useRef, FormEvent, ChangeEvent } from "react";
+import { Mail, Phone, Loader, Send, AlertTriangle, Check } from "lucide-react";
+import "./App.css";
 
 // emailjs configuration from env file
-const EMAILJS_SERVICE_ID: string = process.env.REACT_APP_EMAILJS_SERVICE_ID || '';
-const EMAILJS_TEMPLATE_ID: string = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
-const EMAILJS_PUBLIC_KEY: string = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
+const EMAILJS_SERVICE_ID: string =
+  process.env.REACT_APP_EMAILJS_SERVICE_ID || "";
+const EMAILJS_TEMPLATE_ID: string =
+  process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "";
+const EMAILJS_PUBLIC_KEY: string =
+  process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "";
 
 // possible states of the message display
-type MessageState = 'success' | 'error' | null;
+type MessageState = "success" | "error" | null;
 
 function Contact() {
-
   // contact info use states
   const [fname, setFname] = useState<string>("");
   const [lname, setLname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [availability, setAvailability] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
   // contact info use refs
   const fnameRef = useRef<HTMLInputElement>(null);
   const lnameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
+  const availabilityRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
   // error messages use state
@@ -54,22 +58,28 @@ function Contact() {
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
+  const handleAvailabilityChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setAvailability(event.target.value);
+  };
   const handleMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
   };
 
   // email validation
-    const validateEmail = (email: string): boolean => {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(String(email).toLowerCase());
-    }
+  const validateEmail = (email: string): boolean => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
 
   // handle when the submit button clicked
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // prevent the page reload
 
     const errors: string[] = [];
-    let firstInvalidField: React.RefObject<HTMLInputElement | HTMLTextAreaElement> | null = null;
+    let firstInvalidField: React.RefObject<
+      HTMLInputElement | HTMLTextAreaElement
+    > | null = null;
 
     // check if any information is empty
     if (fname === "") {
@@ -86,6 +96,10 @@ function Contact() {
     } else if (!validateEmail(email)) {
       errors.push("Please enter a valid email address");
       if (!firstInvalidField) firstInvalidField = emailRef;
+    }
+    if (availability === "") {
+      errors.push("Please select your availability date");
+      if (!firstInvalidField) firstInvalidField = availabilityRef;
     }
     if (message === "") {
       errors.push("Please enter your message");
@@ -120,101 +134,128 @@ function Contact() {
         fname: fname,
         lname: lname,
         email: email,
-        message: message
-      }
+        availability: availability,
+        message: message,
+      },
     };
 
     try {
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
 
       // check for successful response
       if (response.ok && response.status === 200) {
-        setStatusMessage("Message Successfully Sent! Thank You for reaching out.");
-        setMessageState('success');
+        setStatusMessage(
+          "Message Successfully Sent! Thank You for reaching out. We'll confirm a time with you shortly.",
+        );
+        setMessageState("success");
         // clear form fields on success
         setFname("");
         setLname("");
         setEmail("");
+        setAvailability("");
         setMessage("");
       } else {
         // display error message on failure
         const errorText = await response.text();
-        console.log(EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID);
+        console.log(
+          EMAILJS_PUBLIC_KEY,
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+        );
         console.error("Email sending API error response:", errorText);
-        setStatusMessage(`Message failed to send. Error: ${response.status}. Please check console.`);
-        setMessageState('error');
+        setStatusMessage(
+          `Message failed to send. Error: ${response.status}. Please check console.`,
+        );
+        setMessageState("error");
       }
-
-      } catch (error) {
-        // display error message on network or fetch error
-        console.error("Network or Fetch error:", error);
-        setStatusMessage(`Error! Could not connect to the service. Please check your internet connection and console.`);
-        setMessageState('error');
-
-      } finally {
-        setIsLoading(false); 
-        resetStatus(5000); // reset status after 5 seconds
-      }
+    } catch (error) {
+      // display error message on network or fetch error
+      console.error("Network or Fetch error:", error);
+      setStatusMessage(
+        `Error! Could not connect to the service. Please check your internet connection and console.`,
+      );
+      setMessageState("error");
+    } finally {
+      setIsLoading(false);
+      resetStatus(5000); // reset status after 5 seconds
     }
+  };
 
-    // determine status message style
-    const getStatusStyle = (): string => {
-      if (messageState === 'success') return 'status-message status-message-success';
-      if (messageState === 'error') return 'status-message status-message-error';
-      return 'status-hidden';
-    };
+  // determine status message style
+  const getStatusStyle = (): string => {
+    if (messageState === "success")
+      return "status-message status-message-success";
+    if (messageState === "error") return "status-message status-message-error";
+    return "status-hidden";
+  };
 
   return (
-		<div className='contact-container'>
-      <div className='contact-header'>
+    <div className="contact-container">
+      <div className="contact-header">
         <h2>Contact Us</h2>
         <p>
-          Feel free to reach out via email, phone, or with the following form below!
+          Feel free to reach out via email, phone, or with the following form
+          below!
         </p>
       </div>
 
       {/* Contact Info */}
-      <div className='contact-info'>
-        <div className='contact-item'>
+      <div className="contact-info">
+        <div className="contact-item">
           {/* <Mail className='contact-icon' /> */}
-          <h3>Email: <a href='mailto:lzmlandscapingllc@gmail.com'>lzmlandscapingllc@gmail.com</a></h3>
+          <h3>
+            Email:{" "}
+            <a href="mailto:lzmlandscapingllc@gmail.com">
+              lzmlandscapingllc@gmail.com
+            </a>
+          </h3>
         </div>
-        <div className='contact-item'>
+        <div className="contact-item">
           {/* <Phone className='contact-icon' /> */}
-          <h3>Main Line: <a href='tel:+13602865237'>360-286-5237</a></h3>
+          <h3>
+            Main Line: <a href="tel:+13602865237">360-286-5237</a>
+          </h3>
         </div>
-        <div className='contact-item'>
+        <div className="contact-item">
           {/* <Phone className='contact-icon' /> */}
-          <h3>Cell Phone: <a href='tel:+12538788759'>253-878-8759</a></h3>
+          <h3>
+            Cell Phone: <a href="tel:+12538788759">253-878-8759</a>
+          </h3>
         </div>
       </div>
 
       {/* Status Message Display */}
       <div className={getStatusStyle()}>
-        <div className='flex items-center'>
-          {(messageState === 'error' || messageState === 'success') && (
+        <div className="flex items-center">
+          {(messageState === "error" || messageState === "success") && (
             <>
-              {messageState === 'success' ? (
-                <Check className='status-icon-success' />
+              {messageState === "success" ? (
+                <Check className="status-icon-success" />
               ) : (
-                <AlertTriangle className='status-icon-error' />
+                <AlertTriangle className="status-icon-error" />
               )}
             </>
           )}
-          <h4 className='font-semibold'>{statusMessage}</h4>
+          <h4 className="font-semibold">{statusMessage}</h4>
         </div>
       </div>
-      
+
       {/* Error Messages */}
       {errorMessages.length > 0 && (
-        <div className='error-list'>
-          <h4><AlertTriangle className='alert-icon'/> Please correct the following errors:</h4>
+        <div className="error-list">
+          <h4>
+            <AlertTriangle className="alert-icon" /> Please correct the
+            following errors:
+          </h4>
           <ul>
             {errorMessages.map((err, index) => (
               <li key={index}>{err}</li>
@@ -224,78 +265,89 @@ function Contact() {
       )}
 
       {/* Contact Form */}
-      <form id='contact-form' onSubmit={handleSubmit} className='contact-form'>
-        <div className='contact-form-group'>
+      <form id="contact-form" onSubmit={handleSubmit} className="contact-form">
+        <div className="contact-form-group">
           {/* First Name */}
-          <input 
-            type='text' 
-            id='fname' 
-            name='fname' 
-            placeholder='First Name' 
-            onChange={handleFnameChange} 
-            value={fname} 
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="First Name"
+            onChange={handleFnameChange}
+            value={fname}
             ref={fnameRef}
             disabled={isLoading}
           />
           {/* Last Name */}
-          <input 
-            type='text' 
-            id='lname' 
-            name='lname'
-            placeholder='Last Name' 
-            onChange={handleLnameChange} 
-            value={lname} 
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            placeholder="Last Name"
+            onChange={handleLnameChange}
+            value={lname}
             ref={lnameRef}
             disabled={isLoading}
           />
         </div>
         {/* Email */}
-        <input 
-          type='email' 
-          id='email' 
-          name='email'
-          placeholder='Email Address' 
-          onChange={handleEmailChange} 
-          value={email} 
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email Address"
+          onChange={handleEmailChange}
+          value={email}
           ref={emailRef}
           disabled={isLoading}
         />
+        <div className="availability-container">
+          <label htmlFor="availability">
+            When are you available for an estimate?
+          </label>
+          <input
+            type="date"
+            title="Test"
+            id="availability"
+            name="availability"
+            placeholder="Availability Date"
+            onChange={handleAvailabilityChange}
+            value={availability}
+            ref={availabilityRef}
+            disabled={isLoading}
+          />
+        </div>
         {/* Message */}
-        <textarea 
-          id='message' 
-          name='message'
-          placeholder='Your Message' 
-          onChange={handleMessageChange} 
-          value={message} 
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+          onChange={handleMessageChange}
+          value={message}
           ref={messageRef}
           rows={6}
           disabled={isLoading}
         ></textarea>
 
-
         {/* Submit Button */}
-        <div className='submit-button-wrapper'>
-          <button 
-            type='submit' 
-            disabled={isLoading}
-            className='submit-button'
-          >
+        <div className="submit-button-wrapper">
+          <button type="submit" disabled={isLoading} className="submit-button">
             {isLoading ? (
               <>
-                <Loader className='loader-icon' />
+                <Loader className="loader-icon" />
                 Sending...
               </>
-          ) : (
+            ) : (
               <>
-                <Send className='contact-icon' />
+                <Send className="contact-icon" />
                 Send Message
               </>
             )}
           </button>
         </div>
       </form>
-  </div>
-	);
-};
+    </div>
+  );
+}
 
 export default Contact;

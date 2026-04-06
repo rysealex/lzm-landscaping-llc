@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
 }
 
 /* Navigation Bar Styles */
@@ -41,7 +41,7 @@ nav .nav-logo {
   transition: height 0.2s ease;
 }
 .shrunk-logo {
-    height: 80px !important; /* Smaller logo when scrolled */
+  height: 80px !important; /* Smaller logo when scrolled */
 }
 nav .nav-logo:hover {
   /* transform: scale(1.05);
@@ -56,7 +56,9 @@ nav .nav-title h3 {
   font-size: 1.5em;
   margin: 0;
   padding: 0;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
 }
 nav .nav-title h3:hover {
   color: var(--primary-color);
@@ -76,7 +78,9 @@ nav li {
 nav a {
   text-decoration: none;
   color: var(--text-color);
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
   font-size: 1.5em;
 }
 nav a:hover {
@@ -104,7 +108,7 @@ nav ul li#nav-social-icons a {
   font-size: 1.5em;
 }
 /* New style for the social icons now that they are in the main ul on desktop */
-.nav-social-icons-mobile { 
+.nav-social-icons-mobile {
   display: flex; /* Make the icons show side by side on desktop */
   align-items: center;
 }
@@ -140,16 +144,16 @@ nav ul li#nav-social-icons a {
     height: 80px; /* Keep consistent height */
   }
   nav .nav-logo {
-    height: 80px; 
+    height: 80px;
     margin-left: 0; /* Adjust margin */
   }
   .shrunk-logo {
     height: 80px !important;
   }
-  
+
   /* Show the Hamburger Button */
   .hamburger {
-    display: block; 
+    display: block;
   }
 
   /* Hide the regular menu on mobile */
@@ -166,17 +170,17 @@ nav ul li#nav-social-icons a {
     height: calc(100vh - 80px); /* Take up the rest of the viewport */
     background-color: var(--background-color);
     padding: 70px 0;
-    
+
     /* Animation: slide in/out */
-    transform: translateX(100%); 
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 99; /* Below the nav bar and hamburger button */
   }
-  
+
   /* Active Menu State */
   nav ul.active {
     /* SHOWN STATE: Slide into view */
-    transform: translateX(0); 
+    transform: translateX(0);
   }
 
   /* Mobile link styles */
@@ -191,34 +195,34 @@ nav ul li#nav-social-icons a {
     margin-top: 20px; /* Space from the last link */
     justify-content: center;
   }
-  
+
   /* Dropdown adjustments for mobile menu */
   .services-dropdown-container {
-      /* Reset dropdown behavior for mobile */
-      position: static; 
+    /* Reset dropdown behavior for mobile */
+    position: static;
   }
   /* Remove desktop hover to activate and control it via tap/JS if needed, 
      but for now, just let it work on hover on touch devices as well */
   .services-dropdown {
-      position: static; /* Position it below the link in the column */
-      margin-top: 10px;
-      /* Remove max-height for now, let it flow */
-      max-height: none; 
-      padding: 0; 
-      box-shadow: none;
-      background-color: var(--light-black); /* Slightly different background */
+    position: static; /* Position it below the link in the column */
+    margin-top: 10px;
+    /* Remove max-height for now, let it flow */
+    max-height: none;
+    padding: 0;
+    box-shadow: none;
+    background-color: var(--light-black); /* Slightly different background */
   }
   .services-dropdown-container:hover .services-dropdown {
-      /* Override desktop hover max-height, let it flow */
-      max-height: none; 
-      padding: 10px 0; 
+    /* Override desktop hover max-height, let it flow */
+    max-height: none;
+    padding: 10px 0;
   }
   .services-dropdown ul {
-      flex-direction: column;
+    flex-direction: column;
   }
   .services-dropdown a {
-      padding: 8px 0;
-      font-size: 1.2em; /* Slightly larger text */
+    padding: 8px 0;
+    font-size: 1.2em; /* Slightly larger text */
   }
   .home-container h1 {
     font-size: 1.8rem;
@@ -284,7 +288,9 @@ nav ul li#nav-social-icons a {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0; /* Remove initial padding */
   /* min-width: 180px; */
-  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+  transition:
+    max-height 0.5s ease-in-out,
+    padding 0.5s ease-in-out;
 }
 
 /* Show the dropdown on hover */
@@ -324,14 +330,14 @@ nav ul li#nav-social-icons a {
 
 /* Home Styles */
 .home-container {
-  padding-top: 125px; 
+  padding-top: 125px;
   display: flex; /* Flex container for the two columns */
   align-items: center; /* Vertically centers the content */
   justify-content: space-between;
   /* gap: 50px; */
-  min-height: 85vh; 
-  background-color: var(--light-black); 
-  padding-left: 10%; 
+  min-height: 85vh;
+  background-color: var(--light-black);
+  padding-left: 10%;
   padding-right: 5%;
   flex-wrap: wrap;
 }
@@ -372,14 +378,13 @@ nav ul li#nav-social-icons a {
   color: var(--primary-color);
 } */
 
-
 /* RIGHT SIDE: Image Container */
 .main-pic-container {
   flex: 1 1 60%;
   overflow: hidden;
   border-radius: 10px;
   width: 100%;
-   /* Give it a visible height */
+  /* Give it a visible height */
   height: 425px; /* You can adjust this to fit your design */
   position: relative;
   z-index: 1;
@@ -389,9 +394,9 @@ nav ul li#nav-social-icons a {
 .main-pic {
   width: 100%;
   height: auto;
-  display: block; 
+  display: block;
   object-fit: cover;
-  max-height: 70vh; 
+  max-height: 70vh;
   border-radius: 10px;
 }
 
@@ -446,7 +451,7 @@ nav ul li#nav-social-icons a {
     flex-wrap: wrap; /* Allow the elements to wrap */
     margin: 0 auto;
   }
-  
+
   .side-text-wrapper {
     flex-basis: 100%; /* Force the text wrapper to take the full row */
     order: 3;
@@ -540,7 +545,6 @@ nav ul li#nav-social-icons a {
 }
 
 @media (max-width: 800px) {
-  
   .side-container {
     order: 3;
     width: 100%;
@@ -594,7 +598,6 @@ nav ul li#nav-social-icons a {
     text-align: center;
     margin-top: -50px;
     max-width: 450px;
-    
   }
 }
 
@@ -634,7 +637,8 @@ nav ul li#nav-social-icons a {
 .carousel,
 .slider-wrapper,
 .slider,
-.carousel .slide { /* target the slide element */
+.carousel .slide {
+  /* target the slide element */
   height: 100%;
 }
 .carousel .slide > div {
@@ -685,7 +689,7 @@ nav ul li#nav-social-icons a {
   /* max-height: 640px; */
   height: 100%;
   width: 100%;
-  object-fit: cover; 
+  object-fit: cover;
 }
 .carousel-container .carousel .slider-wrapper {
   border: solid var(--primary-color) 2px;
@@ -734,7 +738,7 @@ nav ul li#nav-social-icons a {
   z-index: 10;
   color: var(--text-color);
   font-size: 2rem;
-  width: 90%; 
+  width: 90%;
   max-width: 280px;
   margin: 0;
 }
@@ -743,7 +747,7 @@ nav ul li#nav-social-icons a {
   color: var(--primary-color);
   z-index: 10;
   font-size: 1.2rem;
-  width: 90%; 
+  width: 90%;
   max-width: 280px;
   display: inline;
 }
@@ -803,7 +807,7 @@ nav ul li#nav-social-icons a {
   background-color: rgba(0, 0, 0, 0.7);
   color: var(--primary-color);
   padding: 5px 15px;
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   font-size: 1.2rem;
   z-index: 10;
 }
@@ -824,7 +828,6 @@ nav ul li#nav-social-icons a {
   display: flex;
 }
 
-
 /* Services Styles */
 .services-container {
   background-color: var(--light-black);
@@ -841,7 +844,7 @@ nav ul li#nav-social-icons a {
 .services-container h1 {
   font-size: 4em;
   margin-bottom: 20px;
-  position: relative; 
+  position: relative;
   z-index: 2;
 }
 .services-header {
@@ -865,7 +868,7 @@ nav ul li#nav-social-icons a {
 }
 #services-list-top {
   margin-bottom: 20px;
-} 
+}
 .service-item {
   background-color: var(--background-color);
   border: 2px solid var(--primary-color);
@@ -874,10 +877,12 @@ nav ul li#nav-social-icons a {
   width: 33%;
   height: 265px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 @media (max-width: 768px) {
-  .services-list {
+    .services-list {
     flex-direction: column;
     align-items: center;
   }
@@ -940,7 +945,7 @@ nav ul li#nav-social-icons a {
   margin-top: 30px;
 }
 .view-all-services button {
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   padding: 10px 20px;
   font-size: 1.2em;
   color: var(--background-color);
@@ -948,7 +953,9 @@ nav ul li#nav-social-icons a {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 .view-all-services button:hover {
   background-color: #d6b057;
@@ -968,13 +975,13 @@ nav ul li#nav-social-icons a {
   align-items: center;
   z-index: 200;
 }
-.service-modal-content {  
+.service-modal-content {
   background-color: var(--light-black);
   color: var(--text-color);
   padding: 35px;
   border: solid var(--primary-color) 2px;
   border-radius: 10px;
-  max-width: 900px; 
+  max-width: 900px;
   width: 90%;
   min-height: 400px; /* Optional: Sets a minimum height so it doesn't look cramped */
   display: flex;
@@ -1000,7 +1007,7 @@ nav ul li#nav-social-icons a {
   overflow: hidden; /* Ensures image doesn't bleed */
   border-radius: 5px; /* Optional: adds rounded corners to the image */
   /* Maintain aspect ratio */
-  height: auto; 
+  height: auto;
 }
 
 .modal-service-image {
@@ -1034,17 +1041,17 @@ nav ul li#nav-social-icons a {
   text-align: left;
   word-wrap: break-word; /* For compatibility */
   overflow-wrap: break-word; /* Standard property */
-  flex-grow: 1;              /* This pushes the button to the bottom if there is extra space */
+  flex-grow: 1; /* This pushes the button to the bottom if there is extra space */
   margin-bottom: 20px;
   font-size: 1.25em;
 }
 .modal-text-content button {
   align-self: flex-start; /* Keeps button on the left (default) */
-  margin-top: auto;       /* This is the magic: it pushes the button to the bottom of the container */
+  margin-top: auto; /* This is the magic: it pushes the button to the bottom of the container */
   padding: 10px 25px;
 }
 .modal-text-content ul {
-  list-style-type: '- ';
+  list-style-type: "- ";
 }
 .service-modal-content.reverse-layout .modal-text-content ul {
   direction: rtl;
@@ -1052,7 +1059,7 @@ nav ul li#nav-social-icons a {
 /* 👇 ADDED CSS: Aligns the text and button to the right for alternating layout */
 .service-modal-content.reverse-layout .modal-text-content {
   /* This reverses the alignment of all inline/text elements, including the button */
-  text-align: right; 
+  text-align: right;
 }
 /* Styling for reversing the image and text in the modal */
 .service-modal-content.reverse-layout {
@@ -1069,7 +1076,7 @@ nav ul li#nav-social-icons a {
 
 .service-modal-content.reverse-layout .modal-text-content p,
 .service-modal-content.reverse-layout .modal-text-content button {
-  align-self: flex-end;   /* Moves button to the right in reverse layout */
+  align-self: flex-end; /* Moves button to the right in reverse layout */
 }
 
 /* On mobile (assuming max-width: 768px for stacking) */
@@ -1096,13 +1103,13 @@ nav ul li#nav-social-icons a {
     max-width: 85%;
     margin: 0 auto;
   }
-  
+
   .modal-text-content {
     /* Text wrapper takes full width on mobile */
     flex: 1 1 100%;
     padding: 0;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     /* 3. Center the contents horizontally */
     align-items: center;
   }
@@ -1119,7 +1126,7 @@ nav ul li#nav-social-icons a {
     margin-bottom: -30px;
   }
   .modal-text-content button {
-    width: auto; 
+    width: auto;
     max-width: 100%;
     margin: 0 auto;
   }
@@ -1144,11 +1151,11 @@ nav ul li#nav-social-icons a {
 }
 .about-header {
   margin-bottom: 20px;
-  margin-top: -100px;
+  /* margin-top: -100px; */
 }
 .about-header h2 {
-  font-size: 4em; 
-  color: var(--text-color); 
+  font-size: 4em;
+  color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 .about-header p {
@@ -1166,7 +1173,7 @@ nav ul li#nav-social-icons a {
 .about-mission {
   border: solid var(--primary-color) 2px;
   border-radius: 10px;
-  background-image: url('C:\Users\aryse\OneDrive\Desktop\CS\Projects\lzm-landscaping-llc\src\lzm-dark-tree.png');
+  background-image: url("C:\Users\aryse\OneDrive\Desktop\CS\Projects\lzm-landscaping-llc\src\lzm-dark-tree.png");
   background-position: 50%;
   background-size: 20%;
   /* background-color: var(--secondary-color); */
@@ -1178,7 +1185,9 @@ nav ul li#nav-social-icons a {
   flex-direction: column;
   max-width: 850px; /* Constrain on desktop */
   width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 /* .about-mission:hover {
   cursor: pointer;
@@ -1249,7 +1258,7 @@ nav ul li#nav-social-icons a {
 .founder-bio {
   text-align: left;
   /* Allow bio to take remaining space */
-  flex: 1; 
+  flex: 1;
   font-size: 1.1em;
 }
 
@@ -1329,12 +1338,12 @@ nav ul li#nav-social-icons a {
 }
 .values-list li {
   max-width: 400px;
-  flex: 1 1 30%; 
+  flex: 1 1 30%;
 }
 @media (max-width: 768px) {
   .values-list {
     /* Change from row to column when screen size is small */
-    flex-direction: column; 
+    flex-direction: column;
     gap: 40px; /* Adjust vertical spacing for the stacked items */
     padding: 0 20px; /* Add padding to prevent edges from touching screen sides */
   }
@@ -1344,9 +1353,9 @@ nav ul li#nav-social-icons a {
     max-width: 100%;
     /* Add a visual separator between stacked items */
     padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  
+
   /* Remove border from the last item in the stack */
   .values-list li:last-child {
     border-bottom: none;
@@ -1410,14 +1419,14 @@ nav ul li#nav-social-icons a {
   gap: 20px; /* Space between icon and text */
   /* margin-top: 20px; */
   justify-content: center;
-  max-width: 800px; 
+  max-width: 800px;
   margin: 0 auto;
   text-align: left; /* Ensure text flows naturally */
 }
 .testimonial-icon-container {
   flex-shrink: 0; /* Prevent the icon from shrinking */
   /* margin-top: 20px; */
-   margin-top: 0; /* Reset margin for cleaner top alignment */
+  margin-top: 0; /* Reset margin for cleaner top alignment */
 }
 .testimonial-icon {
   color: var(--primary-color);
@@ -1434,7 +1443,7 @@ nav ul li#nav-social-icons a {
   font-size: 1.2em;
   /* text-align: center; 
   margin-right: 84px; */
-  text-align: right; 
+  text-align: right;
   margin-right: 0; /* Remove the hardcoded 84px right margin */
 }
 .carousel-testimonial .carousel .slider-wrapper {
@@ -1473,8 +1482,8 @@ nav ul li#nav-social-icons a {
   margin-top: -100px;
 }
 .contact-header h2 {
-  font-size: 4em; 
-  color: var(--text-color); 
+  font-size: 4em;
+  color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 .contact-header p {
@@ -1536,7 +1545,7 @@ nav ul li#nav-social-icons a {
 }
 .status-message {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   margin-top: -30px;
   padding: 0.5rem;
@@ -1547,12 +1556,12 @@ nav ul li#nav-social-icons a {
 }
 .status-message-success {
   /* background-color: #d1fae5;  */
-  color: #0ead24; 
+  color: #0ead24;
   /* border-color: #34d399; */
 }
 .status-message-error {
   /* background-color: #fee2e2;  */
-  color: #ff0000; 
+  color: #ff0000;
   /* border-color: #f87171;  */
 }
 .status-message > div {
@@ -1560,12 +1569,16 @@ nav ul li#nav-social-icons a {
   align-items: center;
 }
 .status-message .status-icon-success {
-  color: #0ead24; 
-  width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;
+  color: #0ead24;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
 }
 .status-message .status-icon-error {
-  color: #ff0000; 
-  width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;
+  color: #ff0000;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
 }
 
 /* Error List */
@@ -1574,11 +1587,11 @@ nav ul li#nav-social-icons a {
   margin-top: -30px;
   /* background-color: #fef2f2; 
   border: 1px solid #fca5a5;  */
-  color: #b91c1c; 
+  color: #b91c1c;
   padding: 0.5rem;
   /* border-radius: 0.5rem; */
   /* margin-bottom: 0.5rem; */
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .error-list h4 {
   font-size: 1.2rem;
@@ -1589,7 +1602,9 @@ nav ul li#nav-social-icons a {
   margin-bottom: 0.1rem;
 }
 .error-list .alert-icon {
-  width: 1.2rem; height: 1.2rem; margin-right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.5rem;
 }
 .error-list ul {
   list-style: disc;
@@ -1608,8 +1623,9 @@ nav ul li#nav-social-icons a {
   padding-left: 20px;
   padding-right: 20px;
 }
-.contact-form input, .contact-form textarea {
-  font-family: 'EB Garamond', serif;
+.contact-form input,
+.contact-form textarea {
+  font-family: "EB Garamond", serif;
   font-size: 1.2rem;
 }
 .contact-form-group {
@@ -1636,32 +1652,59 @@ nav ul li#nav-social-icons a {
   }
 }
 
-.contact-form input, .contact-form textarea {
-  padding: 0.75rem; 
-  border: 1px solid #d1d5db; 
-  border-radius: 0.5rem; 
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
   transition: all 150ms;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   width: 100%;
 }
-.contact-form input:focus, .contact-form textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px var(--primary-color); 
+  box-shadow: 0 0 0 2px var(--primary-color);
 }
 .contact-form textarea {
-    resize: none;
+  resize: none;
+}
+
+.availability-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.availability-container label {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.availability-container input {
+  margin-right: -25px;
+}
+
+@media (max-width: 768px) {
+  .availability-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .availability-container input {
+    margin-right: none !important;
+  }
 }
 
 /* Submit Button */
 .submit-button-wrapper {
-    text-align: center;
+  text-align: center;
 }
 .contact-icon {
   color: var(--background-color);
 }
 .submit-button {
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1671,7 +1714,9 @@ nav ul li#nav-social-icons a {
   font-size: 1.2rem;
   font-weight: 700;
   border-radius: 9999px; /* rounded-full */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
   color: var(--background-color);
   background-color: var(--primary-color);
   transition: all 200ms ease-in-out;
@@ -1680,27 +1725,31 @@ nav ul li#nav-social-icons a {
   cursor: pointer;
 }
 .submit-button:hover:not(:disabled) {
-    background-color: #d6b057;
-    transform: scale(1.05);
+  background-color: #d6b057;
+  transform: scale(1.05);
 }
 .submit-button:disabled {
-    opacity: 0.5; /* disabled:opacity-50 */
-    cursor: not-allowed;
+  opacity: 0.5; /* disabled:opacity-50 */
+  cursor: not-allowed;
 }
 .submit-button .loader-icon {
-    animation: spin 1s linear infinite;
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-right: 0.75rem;
+  animation: spin 1s linear infinite;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.75rem;
 }
 @media (min-width: 768px) {
-    .submit-button {
-        width: auto;
-    }
+  .submit-button {
+    width: auto;
+  }
 }
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Footer Styles */
@@ -1730,7 +1779,9 @@ nav ul li#nav-social-icons a {
 .footer-left a {
   text-decoration: none;
   color: var(--text-color);
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
   font-size: 1.5em;
 }
 .footer-left a:hover {
@@ -1754,11 +1805,13 @@ nav ul li#nav-social-icons a {
 .developer-tag a {
   text-decoration: none;
   color: var(--text-color);
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
 }
 .developer-tag a:hover {
   color: var(--primary-color);
-} 
+}
 .footer-logo {
   max-width: 200px;
   height: auto;
@@ -1778,7 +1831,9 @@ nav ul li#nav-social-icons a {
 .footer-right a {
   text-decoration: none;
   color: var(--text-color);
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
   font-size: 1.2em;
 }
 .footer-right a:hover {
@@ -1798,7 +1853,7 @@ nav ul li#nav-social-icons a {
   background-color: var(--secondary-color);
   border-radius: 5%;
   padding: 10px 15px;
-  color: #FFFFFF;
+  color: #ffffff;
   bottom: 15px;
   right: 15px;
   opacity: 0;
@@ -1806,7 +1861,9 @@ nav ul li#nav-social-icons a {
   pointer-events: none;
   border: none;
   outline: none;
-  transition: opacity 0.25s ease-in-out, visibility 0s 0.25s;
+  transition:
+    opacity 0.25s ease-in-out,
+    visibility 0s 0.25s;
   cursor: pointer;
   z-index: 1000;
 }
