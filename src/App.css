@@ -1684,6 +1684,35 @@ nav ul li#nav-social-icons a {
 .availability-container input {
   margin-right: -25px;
 }
+/* The container for the three inputs */
+.availability-row {
+  display: flex;
+  /* Match the gap value used in your .contact-form-group */
+  gap: 50px;
+  max-width: 615px; /* Adjust based on the expected width of the inputs */
+}
+
+/* The individual date inputs */
+.availability-field {
+  /* This makes all 3 inputs take up equal width */
+  flex: 1;
+  /* Ensure they don't shrink smaller than their content */
+  min-width: 0;
+
+  /* Add your desired height/padding here */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Optional: stack them on mobile if 3 across is too tight */
+@media (max-width: 1025px) {
+  .availability-row {
+    flex-direction: column;
+    gap: 20px;
+    width: 100% !important;
+  }
+}
 
 @media (max-width: 768px) {
   .availability-container {

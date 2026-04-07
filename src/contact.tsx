@@ -18,14 +18,14 @@ function Contact() {
   const [fname, setFname] = useState<string>("");
   const [lname, setLname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [availability, setAvailability] = useState<string>("");
+  const [availability, setAvailability] = useState<string[]>(["", "", ""]);
   const [message, setMessage] = useState<string>("");
 
   // contact info use refs
   const fnameRef = useRef<HTMLInputElement>(null);
   const lnameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
-  const availabilityRef = useRef<HTMLInputElement>(null);
+  const availabilityRefs = useRef<(HTMLInputElement | null)[]>([]);
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
   // error messages use state
@@ -58,8 +58,10 @@ function Contact() {
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
-  const handleAvailabilityChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setAvailability(event.target.value);
+  const handleAvailabilityChange = (index: number, value: string) => {
+    const newAvailability = [...availability];
+    newAvailability[index] = value;
+    setAvailability(newAvailability);
   };
   const handleMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
@@ -97,10 +99,10 @@ function Contact() {
       errors.push("Please enter a valid email address");
       if (!firstInvalidField) firstInvalidField = emailRef;
     }
-    if (availability === "") {
-      errors.push("Please select your availability date");
-      if (!firstInvalidField) firstInvalidField = availabilityRef;
-    }
+    // if (availability[0] === "") {
+    //   errors.push("Please enter at least one availability date");
+    //   availabilityRefs.current[0]?.focus();
+    // }
     if (message === "") {
       errors.push("Please enter your message");
       if (!firstInvalidField) firstInvalidField = messageRef;
@@ -134,7 +136,7 @@ function Contact() {
         fname: fname,
         lname: lname,
         email: email,
-        availability: availability,
+        availability: availability.filter((date) => date !== "").join(", "),
         message: message,
       },
     };
@@ -161,7 +163,7 @@ function Contact() {
         setFname("");
         setLname("");
         setEmail("");
-        setAvailability("");
+        setAvailability(["", "", ""]);
         setMessage("");
       } else {
         // display error message on failure
@@ -303,19 +305,23 @@ function Contact() {
         />
         <div className="availability-container">
           <label htmlFor="availability">
-            When are you available for an estimate?
+            When are you available for an estimate? (Select up to 3 dates)
           </label>
-          <input
-            type="date"
-            title="Test"
-            id="availability"
-            name="availability"
-            placeholder="Availability Date"
-            onChange={handleAvailabilityChange}
-            value={availability}
-            ref={availabilityRef}
-            disabled={isLoading}
-          />
+          <div className="availability-row">
+            {availability.map((value, index) => (
+              <input
+                key={index}
+                type="datetime-local"
+                onChange={(e) =>
+                  handleAvailabilityChange(index, e.target.value)
+                }
+                value={value}
+                ref={(el) => (availabilityRefs.current[index] = el)}
+                disabled={isLoading}
+                className="availability-field"
+              />
+            ))}
+          </div>
         </div>
         {/* Message */}
         <textarea
