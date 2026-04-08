@@ -1,4 +1,4 @@
-import { useState, useRef, FormEvent, ChangeEvent } from "react";
+import { useState, useRef, useEffect, FormEvent, ChangeEvent } from "react";
 import {
   Mail,
   Phone,
@@ -6,6 +6,7 @@ import {
   Send,
   AlertTriangle,
   Check,
+  CircleX,
   X,
   CalendarDays,
 } from "lucide-react";
@@ -27,7 +28,7 @@ function Contact() {
   const [fname, setFname] = useState<string>("");
   const [lname, setLname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [availability, setAvailability] = useState<string[]>(["", "", ""]);
+  const [availability, setAvailability] = useState<string>("");
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -42,7 +43,6 @@ function Contact() {
   const fnameRef = useRef<HTMLInputElement>(null);
   const lnameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
-  const availabilityRefs = useRef<(HTMLInputElement | null)[]>([]);
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
   // error messages use state
@@ -65,6 +65,23 @@ function Contact() {
     }, delay);
   };
 
+  // sync temporary modal state with the "confirmed" availability state when opened
+  useEffect(() => {
+    if (showAvailability) {
+      if (availability) {
+        const [date, time] = availability.split(" @ ");
+        setSelectedDate(date);
+        setSelectedTime(time);
+      } else {
+        setSelectedDate("");
+        setSelectedTime("");
+      }
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showAvailability, availability]);
+
   // event handlers to update state variables
   const handleFnameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFname(event.target.value);
@@ -75,10 +92,8 @@ function Contact() {
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
-  const handleAvailabilityChange = (index: number, value: string) => {
-    const newAvailability = [...availability];
-    newAvailability[index] = value;
-    setAvailability(newAvailability);
+  const handleAvailabilityChange = (value: string) => {
+    setAvailability(value);
   };
   const handleMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
@@ -88,9 +103,15 @@ function Contact() {
   const getCurrentWeek = () => {
     const week = [];
     const today = new Date();
-    const dayOfWeek = today.getDay(); // 0 is Sun, 1 is Mon
 
-    // find Monday of the current week
+    // Create a reference for "today" at midnight for accurate comparison
+    const startOfToday = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate(),
+    );
+
+    const dayOfWeek = today.getDay();
     const monday = new Date(today);
     const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
     monday.setDate(diff);
@@ -98,11 +119,26 @@ function Contact() {
     for (let i = 0; i < 5; i++) {
       const nextDay = new Date(monday);
       nextDay.setDate(monday.getDate() + i);
+
+      // Set current iteration day to midnight for comparison
+      const compareDay = new Date(
+        nextDay.getFullYear(),
+        nextDay.getMonth(),
+        nextDay.getDate(),
+      );
+
       week.push({
         fullDate: nextDay.toISOString().split("T")[0],
+        displayDate: nextDay.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        }),
         dayName: nextDay.toLocaleDateString("en-US", { weekday: "short" }),
         month: nextDay.toLocaleDateString("en-US", { month: "short" }),
         dateNum: nextDay.getDate(),
+        // Disable if the day is strictly before today
+        isPast: compareDay < startOfToday,
       });
     }
     return week;
@@ -156,10 +192,6 @@ function Contact() {
       errors.push("Please enter a valid email address");
       if (!firstInvalidField) firstInvalidField = emailRef;
     }
-    // if (availability[0] === "") {
-    //   errors.push("Please enter at least one availability date");
-    //   availabilityRefs.current[0]?.focus();
-    // }
     if (message === "") {
       errors.push("Please enter your message");
       if (!firstInvalidField) firstInvalidField = messageRef;
@@ -193,7 +225,7 @@ function Contact() {
         fname: fname,
         lname: lname,
         email: email,
-        availability: availability.filter((date) => date !== "").join(", "),
+        availability: availability,
         message: message,
       },
     };
@@ -220,7 +252,7 @@ function Contact() {
         setFname("");
         setLname("");
         setEmail("");
-        setAvailability(["", "", ""]);
+        setAvailability("");
         setMessage("");
       } else {
         // display error message on failure
@@ -360,25 +392,7 @@ function Contact() {
           ref={emailRef}
           disabled={isLoading}
         />
-        <div className="availability-container">
-          <label htmlFor="availability">
-            <p>Ready for an estimate?</p>
-          </label>
-          <button
-            type="button"
-            className="open-availability-btn"
-            onClick={toggleAvailability}
-          >
-            {selectedDate && selectedTime ? (
-              `Selected: ${selectedDate} @ ${selectedTime}`
-            ) : (
-              <>
-                <CalendarDays className="contact-icon" />
-                Select Date & Time
-              </>
-            )}
-          </button>
-        </div>
+
         {/* <div className="availability-container">
           <label htmlFor="availability">
             When are you available for an estimate? (Select up to 3 dates)
@@ -410,22 +424,47 @@ function Contact() {
           rows={6}
           disabled={isLoading}
         ></textarea>
-
-        {/* Submit Button */}
-        <div className="submit-button-wrapper">
-          <button type="submit" disabled={isLoading} className="submit-button">
-            {isLoading ? (
+        <div className="availability-container">
+          {/* <label htmlFor="availability">
+            <p>Ready for an estimate?</p>
+          </label> */}
+          <button
+            type="button"
+            className="open-availability-btn"
+            onClick={toggleAvailability}
+          >
+            {availability ? (
               <>
-                <Loader className="loader-icon" />
-                Sending...
+                <CalendarDays className="contact-icon" />
+                {availability}
               </>
             ) : (
               <>
-                <Send className="contact-icon" />
-                Send Message
+                <CalendarDays className="contact-icon" />
+                Ready for an estimate?
               </>
             )}
           </button>
+          {/* Submit Button */}
+          <div className="submit-button-wrapper">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="submit-button"
+            >
+              {isLoading ? (
+                <>
+                  <Loader className="loader-icon" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="contact-icon" />
+                  Send Message
+                </>
+              )}
+            </button>
+          </div>
         </div>
       </form>
       {showAvailability && (
@@ -439,7 +478,7 @@ function Contact() {
             </div>
 
             <div className="calendar-modal-body">
-              <h2 className="modal-title">Schedule Appointment</h2>
+              <h2 className="modal-title">Schedule an Appointment</h2>
 
               <div className="calendar-section">
                 <h3>Select a Date</h3>
@@ -447,8 +486,14 @@ function Contact() {
                   {getCurrentWeek().map((day) => (
                     <button
                       key={day.fullDate}
-                      className={`date-card ${selectedDate === day.fullDate ? "selected" : ""}`}
-                      onClick={() => setSelectedDate(day.fullDate)}
+                      type="button"
+                      // Add 'disabled-date' class if the day has passed
+                      className={`date-card ${selectedDate === day.displayDate ? "selected" : ""} ${
+                        day.isPast ? "disabled-date" : ""
+                      }`}
+                      onClick={() => setSelectedDate(day.displayDate)}
+                      // Technically disable the button
+                      disabled={day.isPast}
                     >
                       <span className="day-name">{day.dayName}</span>
                       <span className="day-month">{day.month}</span>
@@ -473,19 +518,33 @@ function Contact() {
                 </div>
               </div>
 
-              <button
-                className="confirm-availability-btn"
-                disabled={!selectedDate || !selectedTime}
-                onClick={() => {
-                  handleAvailabilityChange(
-                    0,
-                    `${selectedDate} at ${selectedTime}`,
-                  );
-                  toggleAvailability();
-                }}
-              >
-                Confirm Selection
-              </button>
+              <div className="modal-footer-buttons">
+                <button
+                  className="confirm-availability-btn"
+                  disabled={!selectedDate || !selectedTime}
+                  onClick={() => {
+                    handleAvailabilityChange(
+                      `${selectedDate} @ ${selectedTime}`,
+                    );
+                    toggleAvailability();
+                  }}
+                >
+                  <Check className="confirm-icon" />
+                  Continue
+                </button>
+                <button
+                  className="confirm-availability-btn"
+                  disabled={!selectedDate || !selectedTime || !availability}
+                  onClick={() => {
+                    setSelectedDate("");
+                    setSelectedTime("");
+                    handleAvailabilityChange("");
+                  }}
+                >
+                  <CircleX className="confirm-icon" />
+                  Remove
+                </button>
+              </div>
             </div>
           </div>
         </div>

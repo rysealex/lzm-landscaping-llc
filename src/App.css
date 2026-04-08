@@ -726,10 +726,6 @@ nav ul li#nav-social-icons a {
   border: solid var(--primary-color) 2px;
   border-radius: 10px;
   background-color: var(--background-color);
-  /* background-image: url('C:\Users\aryse\OneDrive\Desktop\CS\Projects\lzm-landscaping-llc\src\lzm-dark-tree.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
   margin-left: -50px;
   z-index: 10;
   padding: 30px;
@@ -1649,6 +1645,7 @@ nav ul li#nav-social-icons a {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    margin-top: 20px;
   }
 }
 
@@ -1674,6 +1671,7 @@ nav ul li#nav-social-icons a {
 .availability-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -1717,7 +1715,7 @@ nav ul li#nav-social-icons a {
 @media (max-width: 768px) {
   .availability-container {
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     gap: 10px;
   }
   .availability-container input {
@@ -1749,7 +1747,7 @@ nav ul li#nav-social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  /* width: 100%; */
   padding: 0.75rem 2rem; /* px-8 py-3 */
   border: 1px solid transparent;
   font-size: 1.2rem;
@@ -1767,6 +1765,13 @@ nav ul li#nav-social-icons a {
   cursor: pointer;
   background-color: #d6b057;
   transform: scale(1.05);
+}
+
+.modal-footer-buttons {
+  display: flex;
+  justify-content: center; /* Centers the pair of buttons */
+  gap: 20px; /* Space between the two buttons */
+  width: 100%; /* Container spans modal, but children won't */
 }
 
 /* Calendar Grid */
@@ -1848,11 +1853,6 @@ nav ul li#nav-social-icons a {
   transition: all 0.2s ease;
 }
 
-.time-slot.selected {
-  background: #28a745;
-  color: white;
-}
-
 .time-slot:hover {
   background: rgba(220, 192, 124, 0.1); /* Subtle primary highlight */
 }
@@ -1865,28 +1865,54 @@ nav ul li#nav-social-icons a {
 
 /* Confirmation Button */
 .confirm-availability-btn {
-  width: 100%;
-  margin-top: 10px;
-  padding: 14px;
-  background: var(--primary-color);
-  color: var(--background-color);
-  border: none;
-  border-radius: 8px;
   font-family: "EB Garamond", serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: 0.75rem 2rem; /* px-8 py-3 */
+  border: 1px solid transparent;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 700;
+  border-radius: 9999px; /* rounded-full */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  transition: all 200ms ease-in-out;
+}
+
+.confirm-availability-btn:hover {
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
 .confirm-availability-btn:hover:not(:disabled) {
-  transform: scale(1.02);
   background-color: #d6b057;
+  transform: scale(1.05);
 }
 
 .confirm-availability-btn:disabled {
-  opacity: 0.4;
+  opacity: 0.5; /* disabled:opacity-50 */
   cursor: not-allowed;
+}
+
+.date-card.disabled-date {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #444; /* Dim the border */
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.date-card.disabled-date:hover {
+  transform: none; /* Prevent the hover scale effect */
+  background: transparent;
+}
+
+/* Ensure the text inside doesn't look active */
+.date-card.disabled-date .day-num,
+.date-card.disabled-date .day-name {
+  color: #666;
 }
 
 /* Submit Button */
@@ -1932,7 +1958,8 @@ nav ul li#nav-social-icons a {
   margin-right: 0.75rem;
 }
 @media (min-width: 768px) {
-  .submit-button {
+  .submit-button,
+  .open-availability-btn {
     width: auto;
   }
 }
