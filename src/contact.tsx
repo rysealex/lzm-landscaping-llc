@@ -7,6 +7,7 @@ import {
   AlertTriangle,
   Check,
   X,
+  CalendarDays,
 } from "lucide-react";
 import "./App.css";
 
@@ -27,6 +28,8 @@ function Contact() {
   const [lname, setLname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [availability, setAvailability] = useState<string[]>(["", "", ""]);
+  const [selectedDate, setSelectedDate] = useState<string>("");
+  const [selectedTime, setSelectedTime] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
   // use effect for availability modal
@@ -79,6 +82,46 @@ function Contact() {
   };
   const handleMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
+  };
+
+  // helper to generate the Mon-Fri dates for the current week
+  const getCurrentWeek = () => {
+    const week = [];
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 is Sun, 1 is Mon
+
+    // find Monday of the current week
+    const monday = new Date(today);
+    const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+    monday.setDate(diff);
+
+    for (let i = 0; i < 5; i++) {
+      const nextDay = new Date(monday);
+      nextDay.setDate(monday.getDate() + i);
+      week.push({
+        fullDate: nextDay.toISOString().split("T")[0],
+        dayName: nextDay.toLocaleDateString("en-US", { weekday: "short" }),
+        month: nextDay.toLocaleDateString("en-US", { month: "short" }),
+        dateNum: nextDay.getDate(),
+      });
+    }
+    return week;
+  };
+
+  // helper to generate time slots from 10am to 6pm
+  const getTimeSlots = () => {
+    const slots = [];
+    let current = new Date();
+    current.setHours(10, 0, 0); // Start at 10:00 AM
+    const end = 18; // 6:00 PM
+
+    while (current.getHours() < end) {
+      slots.push(
+        current.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }),
+      );
+      current.setMinutes(current.getMinutes() + 30);
+    }
+    return slots;
   };
 
   // email validation
@@ -317,9 +360,25 @@ function Contact() {
           ref={emailRef}
           disabled={isLoading}
         />
-        <button type="button" onClick={toggleAvailability}>
-          Enter Availability
-        </button>
+        <div className="availability-container">
+          <label htmlFor="availability">
+            <p>Ready for an estimate?</p>
+          </label>
+          <button
+            type="button"
+            className="open-availability-btn"
+            onClick={toggleAvailability}
+          >
+            {selectedDate && selectedTime ? (
+              `Selected: ${selectedDate} @ ${selectedTime}`
+            ) : (
+              <>
+                <CalendarDays className="contact-icon" />
+                Select Date & Time
+              </>
+            )}
+          </button>
+        </div>
         {/* <div className="availability-container">
           <label htmlFor="availability">
             When are you available for an estimate? (Select up to 3 dates)
@@ -377,6 +436,56 @@ function Contact() {
           >
             <div className="close-button" onClick={toggleAvailability}>
               <X />
+            </div>
+
+            <div className="calendar-modal-body">
+              <h2 className="modal-title">Schedule Appointment</h2>
+
+              <div className="calendar-section">
+                <h3>Select a Date</h3>
+                <div className="week-grid">
+                  {getCurrentWeek().map((day) => (
+                    <button
+                      key={day.fullDate}
+                      className={`date-card ${selectedDate === day.fullDate ? "selected" : ""}`}
+                      onClick={() => setSelectedDate(day.fullDate)}
+                    >
+                      <span className="day-name">{day.dayName}</span>
+                      <span className="day-month">{day.month}</span>
+                      <span className="day-num">{day.dateNum}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="time-section">
+                <h3>Select a Time</h3>
+                <div className="time-grid">
+                  {getTimeSlots().map((time) => (
+                    <button
+                      key={time}
+                      className={`time-slot ${selectedTime === time ? "selected" : ""}`}
+                      onClick={() => setSelectedTime(time)}
+                    >
+                      {time}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                className="confirm-availability-btn"
+                disabled={!selectedDate || !selectedTime}
+                onClick={() => {
+                  handleAvailabilityChange(
+                    0,
+                    `${selectedDate} at ${selectedTime}`,
+                  );
+                  toggleAvailability();
+                }}
+              >
+                Confirm Selection
+              </button>
             </div>
           </div>
         </div>
