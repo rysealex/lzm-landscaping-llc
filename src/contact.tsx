@@ -1,5 +1,13 @@
 import { useState, useRef, FormEvent, ChangeEvent } from "react";
-import { Mail, Phone, Loader, Send, AlertTriangle, Check } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  Loader,
+  Send,
+  AlertTriangle,
+  Check,
+  X,
+} from "lucide-react";
 import "./App.css";
 
 // emailjs configuration from env file
@@ -20,6 +28,12 @@ function Contact() {
   const [email, setEmail] = useState<string>("");
   const [availability, setAvailability] = useState<string[]>(["", "", ""]);
   const [message, setMessage] = useState<string>("");
+
+  // use effect for availability modal
+  const [showAvailability, setShowAvailability] = useState<boolean>(false);
+  const toggleAvailability = () => {
+    setShowAvailability((prev) => !prev);
+  };
 
   // contact info use refs
   const fnameRef = useRef<HTMLInputElement>(null);
@@ -303,7 +317,10 @@ function Contact() {
           ref={emailRef}
           disabled={isLoading}
         />
-        <div className="availability-container">
+        <button type="button" onClick={toggleAvailability}>
+          Enter Availability
+        </button>
+        {/* <div className="availability-container">
           <label htmlFor="availability">
             When are you available for an estimate? (Select up to 3 dates)
           </label>
@@ -322,7 +339,7 @@ function Contact() {
               />
             ))}
           </div>
-        </div>
+        </div> */}
         {/* Message */}
         <textarea
           id="message"
@@ -352,6 +369,18 @@ function Contact() {
           </button>
         </div>
       </form>
+      {showAvailability && (
+        <div className="service-modal" onClick={toggleAvailability}>
+          <div
+            className="service-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="close-button" onClick={toggleAvailability}>
+              <X />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
