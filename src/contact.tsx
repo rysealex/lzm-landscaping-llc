@@ -9,6 +9,8 @@ import {
   CircleX,
   X,
   CalendarDays,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import "./App.css";
 
@@ -32,6 +34,9 @@ function Contact() {
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
+  // week offset for availability modal
+  const [weekOffset, setWeekOffset] = useState<number>(0);
 
   // use effect for availability modal
   const [showAvailability, setShowAvailability] = useState<boolean>(false);
@@ -103,8 +108,6 @@ function Contact() {
   const getCurrentWeek = () => {
     const week = [];
     const today = new Date();
-
-    // Create a reference for "today" at midnight for accurate comparison
     const startOfToday = new Date(
       today.getFullYear(),
       today.getMonth(),
@@ -113,14 +116,16 @@ function Contact() {
 
     const dayOfWeek = today.getDay();
     const monday = new Date(today);
-    const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+
+    // Calculate Monday based on the current week + the offset (7 days * offset)
+    const diff =
+      today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1) + weekOffset * 7;
     monday.setDate(diff);
 
     for (let i = 0; i < 5; i++) {
       const nextDay = new Date(monday);
       nextDay.setDate(monday.getDate() + i);
 
-      // Set current iteration day to midnight for comparison
       const compareDay = new Date(
         nextDay.getFullYear(),
         nextDay.getMonth(),
@@ -137,7 +142,6 @@ function Contact() {
         dayName: nextDay.toLocaleDateString("en-US", { weekday: "short" }),
         month: nextDay.toLocaleDateString("en-US", { month: "short" }),
         dateNum: nextDay.getDate(),
-        // Disable if the day is strictly before today
         isPast: compareDay < startOfToday,
       });
     }
@@ -482,6 +486,29 @@ function Contact() {
 
               <div className="calendar-section">
                 <h3>Select a Date</h3>
+                <div className="week-navigation">
+                  <button
+                    type="button"
+                    className="nav-arrow"
+                    onClick={() => setWeekOffset((prev) => prev - 1)}
+                    disabled={weekOffset === 0}
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+
+                  <span className="week-label">
+                    {weekOffset === 0 ? "This Week" : "Next Week"}
+                  </span>
+
+                  <button
+                    type="button"
+                    className="nav-arrow"
+                    onClick={() => setWeekOffset((prev) => prev + 1)}
+                    disabled={weekOffset === 1}
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </div>
                 <div className="week-grid">
                   {getCurrentWeek().map((day) => (
                     <button
