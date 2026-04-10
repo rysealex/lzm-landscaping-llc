@@ -248,7 +248,9 @@ nav ul li#nav-social-icons a {
     margin-right: 0 !important;
     padding-left: 0 !important;
   }
-  .submit-button-wrapper {
+  .submit-button-wrapper,
+  .availability-buttons-row,
+  .availability-container label {
     padding-left: 20px !important;
   }
 }
@@ -1645,7 +1647,6 @@ nav ul li#nav-social-icons a {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 20px;
   }
 }
 
@@ -1685,9 +1686,33 @@ nav ul li#nav-social-icons a {
 /* The container for the three inputs */
 .availability-row {
   display: flex;
-  /* Match the gap value used in your .contact-form-group */
-  gap: 50px;
-  max-width: 615px; /* Adjust based on the expected width of the inputs */
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.availability-container label {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.availability-buttons-row {
+  display: flex;
+  justify-content: space-between; /* Evenly spaces buttons across the width */
+  gap: 15px;
+}
+
+@media (max-width: 1128px) {
+  .availability-buttons-row {
+    flex-direction: column; /* Stacks the buttons */
+    align-items: center;
+    gap: 20px;
+  }
+  .availability-container {
+    flex-direction: column;
+  }
 }
 
 /* The individual date inputs */
@@ -1715,11 +1740,14 @@ nav ul li#nav-social-icons a {
 @media (max-width: 768px) {
   .availability-container {
     flex-direction: column;
-    /* align-items: flex-start; */
-    gap: 10px;
   }
   .availability-container input {
     margin-right: none !important;
+  }
+
+  .open-availability-btn {
+    width: 100%; /* Spans full width of container */
+    max-width: 400px; /* Prevents buttons from getting too huge on tablets */
   }
 }
 
@@ -1743,6 +1771,7 @@ nav ul li#nav-social-icons a {
 }
 
 .open-availability-btn {
+  flex: 1;
   font-family: "EB Garamond", serif;
   display: inline-flex;
   align-items: center;
@@ -1759,6 +1788,9 @@ nav ul li#nav-social-icons a {
   color: var(--background-color);
   background-color: var(--primary-color);
   transition: all 200ms ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .open-availability-btn:hover {

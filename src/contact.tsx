@@ -30,7 +30,8 @@ function Contact() {
   const [fname, setFname] = useState<string>("");
   const [lname, setLname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [availability, setAvailability] = useState<string>("");
+  const [availability, setAvailability] = useState<string[]>(["", "", ""]);
+  const [activeSlot, setActiveSlot] = useState<number | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -40,8 +41,16 @@ function Contact() {
 
   // use effect for availability modal
   const [showAvailability, setShowAvailability] = useState<boolean>(false);
-  const toggleAvailability = () => {
-    setShowAvailability((prev) => !prev);
+  const toggleAvailability = (index: number) => {
+    setActiveSlot(index);
+    setShowAvailability(true);
+  };
+
+  // helper to close availability modal and reset temporary state
+  const closeAvailability = () => {
+    setShowAvailability(false);
+    setActiveSlot(null);
+    setWeekOffset(0);
   };
 
   // contact info use refs
@@ -72,9 +81,10 @@ function Contact() {
 
   // sync temporary modal state with the "confirmed" availability state when opened
   useEffect(() => {
-    if (showAvailability) {
-      if (availability) {
-        const [date, time] = availability.split(" @ ");
+    if (showAvailability && activeSlot !== null) {
+      const currentVal = availability[activeSlot];
+      if (currentVal) {
+        const [date, time] = currentVal.split(" @ ");
         setSelectedDate(date);
         setSelectedTime(time);
       } else {
@@ -85,7 +95,7 @@ function Contact() {
     } else {
       document.body.style.overflow = "unset";
     }
-  }, [showAvailability, availability]);
+  }, [showAvailability, activeSlot, availability]);
 
   // event handlers to update state variables
   const handleFnameChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -98,7 +108,11 @@ function Contact() {
     setEmail(event.target.value);
   };
   const handleAvailabilityChange = (value: string) => {
-    setAvailability(value);
+    if (activeSlot !== null) {
+      const newAvailability = [...availability];
+      newAvailability[activeSlot] = value;
+      setAvailability(newAvailability);
+    }
   };
   const handleMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
@@ -256,7 +270,7 @@ function Contact() {
         setFname("");
         setLname("");
         setEmail("");
-        setAvailability("");
+        setAvailability(["", "", ""]);
         setMessage("");
       } else {
         // display error message on failure
@@ -429,55 +443,47 @@ function Contact() {
           disabled={isLoading}
         ></textarea>
         <div className="availability-container">
-          {/* <label htmlFor="availability">
-            <p>Ready for an estimate?</p>
-          </label> */}
-          <button
-            type="button"
-            className="open-availability-btn"
-            onClick={toggleAvailability}
-          >
-            {availability ? (
-              <>
+          <label>
+            Ready for an estimate? <br></br>(Select up to 3 options)
+          </label>
+          <div className="availability-buttons-row">
+            {availability.map((slot, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`open-availability-btn ${slot ? "has-value" : ""}`}
+                onClick={() => toggleAvailability(index)}
+              >
                 <CalendarDays className="contact-icon" />
-                {availability}
+                {slot ? slot : `Option ${index + 1}`}
+              </button>
+            ))}
+          </div>
+        </div>
+        {/* Submit Button */}
+        <div className="submit-button-wrapper">
+          <button type="submit" disabled={isLoading} className="submit-button">
+            {isLoading ? (
+              <>
+                <Loader className="loader-icon" />
+                Sending...
               </>
             ) : (
               <>
-                <CalendarDays className="contact-icon" />
-                Ready for an estimate?
+                <Send className="contact-icon" />
+                Send Message
               </>
             )}
           </button>
-          {/* Submit Button */}
-          <div className="submit-button-wrapper">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="submit-button"
-            >
-              {isLoading ? (
-                <>
-                  <Loader className="loader-icon" />
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <Send className="contact-icon" />
-                  Send Message
-                </>
-              )}
-            </button>
-          </div>
         </div>
       </form>
       {showAvailability && (
-        <div className="service-modal" onClick={toggleAvailability}>
+        <div className="service-modal" onClick={closeAvailability}>
           <div
             className="service-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="close-button" onClick={toggleAvailability}>
+            <div className="close-button" onClick={closeAvailability}>
               <X />
             </div>
 
@@ -550,10 +556,11 @@ function Contact() {
                   className="confirm-availability-btn"
                   disabled={!selectedDate || !selectedTime}
                   onClick={() => {
+                    // commits selection to the specific active slot index
                     handleAvailabilityChange(
                       `${selectedDate} @ ${selectedTime}`,
                     );
-                    toggleAvailability();
+                    closeAvailability();
                   }}
                 >
                   <Check className="confirm-icon" />
@@ -561,11 +568,17 @@ function Contact() {
                 </button>
                 <button
                   className="confirm-availability-btn"
-                  disabled={!selectedDate || !selectedTime || !availability}
+                  disabled={
+                    !selectedDate ||
+                    !selectedTime ||
+                    (activeSlot !== null && !availability[activeSlot])
+                  }
                   onClick={() => {
                     setSelectedDate("");
                     setSelectedTime("");
                     handleAvailabilityChange("");
+                    setActiveSlot(null);
+                    closeAvailability();
                   }}
                 >
                   <CircleX className="confirm-icon" />
