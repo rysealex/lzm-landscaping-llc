@@ -337,7 +337,7 @@ function Contact() {
         <div className="contact-item">
           {/* <Phone className='contact-icon' /> */}
           <h3>
-            Cell Phone: <a href="tel:+12538788759">253-878-8759</a>
+            Cell Phone: <a href="tel:+12533585125">253-358-5125</a>
           </h3>
         </div>
       </div>
