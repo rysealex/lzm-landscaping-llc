@@ -1,4 +1,4 @@
-import { Scissors, Hammer, Sprout, Leaf, Trash2, Droplets, BrickWall, PaintBucket, X, TreePine } from 'lucide-react';
+import { Hammer, Leaf, Trash2, Droplets, X, TreePine } from 'lucide-react';
 import { useEffect } from 'react';
 import CleanupCarousel from './cleanupCarousel';
 import './App.css';
@@ -8,8 +8,6 @@ import lawnCare from './gallery/gallery-8.png';
 import treeTrimming from './gallery/new-tree-trim.png';
 import sprinklerSystemInstallation from './gallery/gallery-6.png';
 import hardscaping from './gallery/gallery-23.png';
-import paverInstallation from './gallery/gallery-19.png';
-import painting from './gallery/gallery-24.png';
 
 
 // services list with details and icons
@@ -168,14 +166,7 @@ interface ServicesProps {
 function Services({ selectedService, setSelectedService }: ServicesProps) {
 
   // helper function to get the current service details
-  const currentService = servicesList.find(service => service.name === selectedService);
-
-  // find the index to determine image position
-  const currentIndex = servicesList.findIndex(service => service.name === selectedService);
-  
-  // If the index is odd (1, 3, 5, etc.), the image should be on the right.
-  // The first item (index 0) will be false, keeping the image on the left.
-  const isImageOnRight = currentIndex !== -1 && currentIndex % 2 !== 0;
+  const currentService = servicesList.find(service => service.name === selectedService);
 
 	useEffect(() => {
     if (selectedService) {
@@ -184,18 +175,6 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
       document.body.style.overflow = 'auto';
     }
   }, [selectedService]);
-
-	// usestate to toggle between services modal
-	// const [selectedService, setSelectedService] = useState<string | null>(null);
-
-	// useeffect to disable scrolling when modal is open
-	useEffect(() => {
-		if (selectedService) {
-			document.body.style.overflow = 'hidden';
-		} else {
-			document.body.style.overflow = 'auto';
-		}
-	}, [selectedService]);
 
   // handle the click to contact section
   const handleLinkScroll = (e: React.MouseEvent, sectionId: string) => {
@@ -347,8 +326,10 @@ function Services({ selectedService, setSelectedService }: ServicesProps) {
                 {typeof currentService.img === 'string' ? (
 									<img 
 										src={currentService.img} 
-										alt={`${currentService.name} service`} 
+										alt={`${currentService.name} project in Gig Harbor and Tacoma WA by LZM Landscaping LLC`} 
 										className='modal-service-image'
+										loading="lazy"
+										decoding="async"
 									/>
 								) : (
 									/* This renders the CleanupCarousel component directly */

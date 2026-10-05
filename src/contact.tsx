@@ -1,7 +1,5 @@
-import { useState, useRef, useEffect, FormEvent, ChangeEvent } from "react";
+import { useState, useRef, useEffect, ChangeEvent } from "react";
 import {
-  Mail,
-  Phone,
   Loader,
   Send,
   AlertTriangle,
@@ -331,13 +329,13 @@ function Contact() {
         <div className="contact-item">
           {/* <Phone className='contact-icon' /> */}
           <h3>
-            Main Line: <a href="tel:+13602865237">360-286-5237</a>
+            Main Line: <a href="tel:+12533585125">253-358-5125</a>
           </h3>
         </div>
         <div className="contact-item">
           {/* <Phone className='contact-icon' /> */}
           <h3>
-            Cell Phone: <a href="tel:+12533585125">253-358-5125</a>
+            Cell Phone: <a href="tel:+13602865237">360-286-5237</a>
           </h3>
         </div>
       </div>

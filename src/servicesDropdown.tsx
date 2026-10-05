@@ -1,25 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 
-// list of all services
+// Only the 5 services listed on the home page
 const services = [
-  { name: 'Lawn Care & Garden Maintenance', link: '' },
-  { name: 'Tree Service & Trimming', link: '' },
-  // { name: 'Garden Maintenance', link: '' },
-  { name: 'General Cleanups', link: '' },
-  { name: 'Hardscaping', link: '' },
-  { name: 'Sprinkler System Installation', link: '' },
-  // { name: 'Paver Installation', link: '' },
-  // { name: 'Painting', link: '' },
+  { name: 'Lawn Care & Garden Maintenance', path: '/services/lawn-care' },
+  { name: 'Tree Service & Trimming', path: '/services/tree-service' },
+  { name: 'General Cleanups', path: '/services/cleanups' },
+  { name: 'Hardscaping', path: '/services/hardscaping' },
+  { name: 'Sprinkler System Installation', path: '/services/sprinklers' },
 ];
 
-function ServicesDropdown({ onSelectService }: { onSelectService: (serviceName: string) => void }) {
+interface ServicesDropdownProps {
+  onSelectService?: (serviceName: string) => void;
+  onCloseMenu?: () => void;
+}
+
+function ServicesDropdown({ onSelectService, onCloseMenu }: ServicesDropdownProps) {
+  const handleClick = (serviceName: string) => {
+    if (onSelectService) {
+      onSelectService(serviceName);
+    }
+    if (onCloseMenu) {
+      onCloseMenu();
+    }
+  };
+
   return (
     <div className='services-dropdown'>
       <ul>
         {services.map((service, index) => (
           <li key={index}>
-            <a onClick={() => onSelectService(service.name)}>{service.name}</a>
+            <Link to={service.path} onClick={() => handleClick(service.name)}>
+              {service.name}
+            </Link>
           </li>
         ))}
       </ul>

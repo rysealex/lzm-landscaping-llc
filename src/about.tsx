@@ -1,39 +1,10 @@
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faQuoteLeft,
   faCertificate,
-  faShield,
   faHandshake,
   faSquareCheck,
 } from "@fortawesome/free-solid-svg-icons";
-import luis from "./luis.jpeg";
 import "./App.css";
-
-const testimonialData = [
-  {
-    quote:
-      "LZM Landscaping transformed our backyard into a beautiful oasis. Highly recommend and will use them again!",
-    author: "Sarah M.",
-  },
-  {
-    quote:
-      "Incredible attention to detail. LZM Landscaping provided a truly custom solution for our tricky hillside. Expert work we can depend on.",
-    author: "David B.",
-  },
-  {
-    quote:
-      "LZM Landscaping transformed our backyard into a beautiful oasis. Highly recommend and will use them again!",
-    author: "John D.",
-  },
-  {
-    quote:
-      "Incredible attention to detail. LZM Landscaping provided a truly custom solution for our tricky hillside. Expert work we can depend on.",
-    author: "Alex R.",
-  },
-];
-
 function About() {
   return (
     <div className="about-container">

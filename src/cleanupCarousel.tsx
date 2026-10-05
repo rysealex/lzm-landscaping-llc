@@ -20,11 +20,21 @@ function CleanupCarousel() {
         transitionTime={1000}
       >
         <div className="carousel-slide-wrapper">
-          <img src={generalCleanupsBefore} alt="Before cleanup" />
+          <img 
+            src={generalCleanupsBefore} 
+            alt="Overgrown yard before cleanup and blackberry removal in Gig Harbor WA" 
+            loading="lazy"
+            decoding="async"
+          />
           <span className="status-label">Before</span>
         </div>
         <div className="carousel-slide-wrapper">
-          <img src={generalCleanupsAfter} alt="After cleanup" />
+          <img 
+            src={generalCleanupsAfter} 
+            alt="Finished clean yard after property cleanup by LZM Landscaping LLC" 
+            loading="lazy"
+            decoding="async"
+          />
           <span className="status-label">After</span>
         </div>
       </Carousel>

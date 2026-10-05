@@ -1,118 +1,188 @@
-import { ChevronDown, Menu, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import ServicesDropdown from './servicesDropdown';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faYelp, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import lzmDarkSml from  './lzm-dark-sml.png';
-import './App.css';
+import { ChevronDown, Menu, X, Phone } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import ServicesDropdown from "./servicesDropdown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faYelp, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import lzmDarkSml from "./lzm-dark-sml.png";
+import "./App.css";
 
-function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) => void }) {
+interface NavbarProps {
+  openServiceModal?: (serviceName: string) => void;
+}
 
-  // usestate to track if the user has scrolled down
+function Navbar({ openServiceModal }: NavbarProps) {
   const [scrolled, setScrolled] = useState<boolean>(false);
-  // usestate to track if mobile menu is open
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isServicesOpen, setIsServicesOpen] = useState<boolean>(false);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // use effect to add a scroll event listener on component mount
+  const handleMouseEnterServices = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeaveServices = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 250);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
-      // check if the vertical scroll position is greater than 50px
       const isScrolled = window.scrollY > 50;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
     };
 
-    // add the event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // clean up the event listener when the component unmounts
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [scrolled]);
 
-
-  // handle the nav bar scroll behavior
   const handleLinkScroll = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
-    
-    const section = document.getElementById(sectionId);
-    // const navHeight = scrolled ? 70 : 150; // adjust based on scroll state
-    const navHeight = 70; // fixed height for simplicity
-
-    if (section) {
-      const yOffset = -navHeight;
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth'});
-    }
-    // close the mobile menu after clicking a link
     setIsMenuOpen(false);
+
+    if (location.pathname !== "/") {
+      navigate(`/#${sectionId}`);
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const navHeight = 85;
+          const y =
+            section.getBoundingClientRect().top +
+            window.pageYOffset -
+            navHeight;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 100);
+      return;
+    }
+
+    const section = document.getElementById(sectionId);
+    const navHeight = 85;
+    if (section) {
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
 
   const handleDropdownServiceClick = (serviceName: string) => {
-    // scroll to the services section first
-    const serviceSection = document.getElementById('services');
-    if (serviceSection) {
-      serviceSection.scrollIntoView({ behavior: 'smooth' });
-    }
-    // open the modal after a short delay to allow the scroll to complete
-    setTimeout(() => {
-      openServiceModal(serviceName);
-    }, 700);
-    // close the mobile menu after selecting a service
     setIsMenuOpen(false);
+    setIsServicesOpen(false);
+    if (openServiceModal && location.pathname === "/") {
+      const serviceSection = document.getElementById("services");
+      if (serviceSection) {
+        serviceSection.scrollIntoView({ behavior: "smooth" });
+      }
+      setTimeout(() => {
+        openServiceModal(serviceName);
+      }, 700);
+    }
   };
 
-  //function to toggle the menu open/closed
   const toggleMenu = () => {
-    setIsMenuOpen(prevState => !prevState);
+    setIsMenuOpen((prevState) => !prevState);
   };
 
   return (
     <div>
-      <nav className={scrolled ? 'scrolled' : ''}>
-        <div className='nav-left'>
-          <img src={lzmDarkSml} alt="Logo" className={`nav-logo ${scrolled ? 'shrunk-logo' : ''}`} onClick={(e) => handleLinkScroll(e, 'home')} />
-          <div className='nav-title' onClick={(e) => handleLinkScroll(e, 'home')}>
-            <h3>LZM Landscaping LLC</h3>
+      <nav className={scrolled ? "scrolled" : ""}>
+        <div className="nav-left">
+          <Link to="/" onClick={(e) => handleLinkScroll(e, "home")}>
+            <img
+              src={lzmDarkSml}
+              alt="LZM Landscaping LLC Logo"
+              className={`nav-logo ${scrolled ? "shrunk-logo" : ""}`}
+            />
+          </Link>
+          <div className="nav-title">
+            <Link to="/" onClick={(e) => handleLinkScroll(e, "home")}>
+              <h3>LZM Landscaping LLC</h3>
+            </Link>
           </div>
         </div>
-        <button className="hamburger" onClick={toggleMenu}>
+
+        <button
+          className="hamburger"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+        >
           {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
-        <ul className={isMenuOpen ? 'active' : ''}>
+
+        <ul className={isMenuOpen ? "active" : ""}>
           <li>
-            <a href="#home" onClick={(e) => handleLinkScroll(e, 'home')}>
+            <Link to="/" onClick={(e) => handleLinkScroll(e, "home")}>
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#about" onClick={(e) => handleLinkScroll(e, 'about')}>
+            <Link to="/#about" onClick={(e) => handleLinkScroll(e, "about")}>
               About
-            </a>
+            </Link>
           </li>
-          <li className="services-dropdown-container">
-            <a href="#services" onClick={(e) => handleLinkScroll(e, 'services')}>
-              Services {isMenuOpen ? '' : <ChevronDown size={15} className="chevron" />}
-            </a>
-            <ServicesDropdown onSelectService={handleDropdownServiceClick} />
+          <li
+            className={`services-dropdown-container ${isServicesOpen ? "open" : ""}`}
+            onMouseEnter={handleMouseEnterServices}
+            onMouseLeave={handleMouseLeaveServices}
+          >
+            <Link
+              to="/#services"
+              onClick={(e) => handleLinkScroll(e, "services")}
+            >
+              Services{" "}
+              {isMenuOpen ? "" : <ChevronDown size={15} className="chevron" />}
+            </Link>
+            <ServicesDropdown
+              onSelectService={handleDropdownServiceClick}
+              onCloseMenu={() => {
+                setIsMenuOpen(false);
+                setIsServicesOpen(false);
+              }}
+            />
           </li>
-          {/* <li>
-            <a href="#gallery">
-              Gallery
-            </a>
-          </li> */}
           <li>
-            <a href="#contact" onClick={(e) => handleLinkScroll(e, 'contact')}>
+            <Link
+              to="/#contact"
+              onClick={(e) => handleLinkScroll(e, "contact")}
+            >
               Contact
+            </Link>
+          </li>
+
+          {/* Quick Call CTA Button in Navbar */}
+          <li className="nav-cta-item">
+            <a href="tel:+12533585125" className="nav-call-btn">
+              <Phone size={15} />
+              <span>(253) 358-5125</span>
             </a>
           </li>
-          <li className='nav-social-icons-mobile'> 
-            <a href="https://www.yelp.com/biz/lzm-landscaping-gig-harbor?osq=Lzm+Landscaping&override_cta=Request+pricing+%26+availability" target="_blank" rel="noopener noreferrer">
+
+          <li className="nav-social-icons-mobile">
+            <a
+              href="https://www.yelp.com/biz/lzm-landscaping-gig-harbor?osq=Lzm+Landscaping&override_cta=Request+pricing+%26+availability"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Yelp reviews"
+            >
               <FontAwesomeIcon icon={faYelp} />
             </a>
-            <a href="https://www.facebook.com/p/LZM-Landscaping-LLC-61577894886146" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.facebook.com/p/LZM-Landscaping-LLC-61577894886146"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook page"
+            >
               <FontAwesomeIcon icon={faFacebook} />
             </a>
           </li>
@@ -120,6 +190,6 @@ function Navbar({ openServiceModal }: { openServiceModal: (serviceName: string) 
       </nav>
     </div>
   );
-};
+}
 
 export default Navbar;
